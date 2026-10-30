@@ -1,7 +1,7 @@
 <section class="section">
-  <div class="container container--narrow">
-    <h1 class="h2 page-title">{{ 'cart.title' | t }}</h1>
-    <div class="cart-page" data-cart-page>
+  <div class="container">
+    <h1 class="h2 page-title cart-page__title">{{ 'cart.title' | t }}{% if cart.item_count > 0 %} <span>({{ cart.item_count }})</span>{% endif %}</h1>
+    <div class="cart-page{% if cart.item_count == 0 %} cart-page--empty{% endif %}" data-cart-page>
       {% render 'cart-contents', context: 'page' %}
     </div>
     <noscript>

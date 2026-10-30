@@ -65,9 +65,18 @@
     const freshTitle = $('#CartDrawerTitle', doc);
     if (fresh) $('cart-drawer .drawer__body').innerHTML = fresh.innerHTML;
     if (freshTitle) $('#CartDrawerTitle').innerHTML = freshTitle.innerHTML;
-    // The cart page reuses the same markup
+    // The cart page has its own layout: refresh it from the server
     const page = $('[data-cart-page]');
-    if (page && fresh) page.innerHTML = fresh.innerHTML;
+    if (page) {
+      fetch(window.location.pathname).then((r) => r.text()).then((text) => {
+        const pdoc = new DOMParser().parseFromString(text, 'text/html');
+        const freshPage = $('[data-cart-page]', pdoc);
+        const freshHead = $('.cart-page__title', pdoc);
+        if (freshPage) { page.innerHTML = freshPage.innerHTML; page.className = freshPage.className; }
+        const head = $('.cart-page__title');
+        if (head && freshHead) head.innerHTML = freshHead.innerHTML;
+      }).catch(() => {});
+    }
   };
 
   const updateCount = (count) => {

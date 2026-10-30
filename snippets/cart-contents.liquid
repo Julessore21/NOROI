@@ -6,7 +6,12 @@
   assign threshold = settings.free_shipping_threshold | times: 100
   assign upsell = settings.cart_upsell_product
   assign upsell_in_cart = false
+  assign cart_boxes = 0
   for item in cart.items
+    capture ib
+      render 'box-count', product: item.product
+    endcapture
+    assign cart_boxes = ib | plus: 0 | times: item.quantity | plus: cart_boxes
     if upsell and item.product_id == upsell.id
       assign upsell_in_cart = true
     endif
@@ -108,6 +113,11 @@
 
 {%- if cart.item_count > 0 -%}
   <div class="cart__footer">
+    {%- if context == 'page' -%}<p class="cart__summary-title">{{ 'cart.summary' | t }}</p>{%- endif -%}
+    {%- if cart_boxes > 0 -%}
+      {%- assign avg_box = cart.total_price | divided_by: cart_boxes | money -%}
+      <p class="cart__row cart__boxes small"><span>{% render 'icon', name: 'box' %} {{ 'cart.boxes' | t: count: cart_boxes }}</span><span>{{ 'products.per_box' | t: price: avg_box }}</span></p>
+    {%- endif -%}
     {%- if cart.cart_level_discount_applications.size > 0 -%}
       {%- for d in cart.cart_level_discount_applications -%}
         <p class="cart__row small"><span>{{ d.title }}</span><span>−{{ d.total_allocated_amount | money }}</span></p>
@@ -130,5 +140,13 @@
         <li>{{ type | payment_type_svg_tag }}</li>
       {%- endfor -%}
     </ul>
+    <ul class="cart__trust" role="list">
+      <li>{% render 'icon', name: 'box' %} {{ 'cart.trust_sealed' | t }}</li>
+      <li>{% render 'icon', name: 'truck' %} {{ 'cart.trust_tracked' | t }}</li>
+      <li>{% render 'icon', name: 'return' %} {{ 'cart.trust_returns' | t }}</li>
+    </ul>
+    {%- if context == 'page' -%}
+      <a class="cart__keep link-muted" href="{{ routes.all_products_collection_url }}">← {{ 'cart.keep_shopping' | t }}</a>
+    {%- endif -%}
   </div>
 {%- endif -%}

@@ -30,7 +30,16 @@
       "one": "Add <strong>{{ count }} more box</strong> to unlock: {{ reward }}",
       "other": "Add <strong>{{ count }} more boxes</strong> to unlock: {{ reward }}"
     },
-    "reward_done": "All rewards unlocked"
+    "reward_done": "All rewards unlocked",
+    "boxes": {
+      "one": "{{ count }} sealed box",
+      "other": "{{ count }} sealed boxes"
+    },
+    "keep_shopping": "Keep shopping",
+    "summary": "Summary",
+    "trust_sealed": "Factory-sealed, never opened",
+    "trust_tracked": "Tracked shipping",
+    "trust_returns": "14-day withdrawal right"
   },
   "collections": {
     "all": "Collections",
