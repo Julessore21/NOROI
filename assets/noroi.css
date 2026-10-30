@@ -685,8 +685,6 @@ h1, h2, h3, h4, p { margin: 0; }
 /* Product card hover swap */
 .card__img { position: absolute; inset: 0; }
 .card__media > .card__img:first-child { position: relative; }
-.card__img--alt { opacity: 0; transition: opacity .5s, transform .8s cubic-bezier(.2,.7,.2,1); }
-.card:hover .card__img--alt { opacity: 1; }
 
 /* Added-to-bag state */
 .btn.is-added { --btn-bg: var(--c-success); --btn-bd: var(--c-success); --btn-fg: #fff; box-shadow: none; }

@@ -8,8 +8,11 @@
       </div>
     {%- endif -%}
     {%- paginate collection.products by section.settings.per_page -%}
+      {%- comment -%} Default order: cheapest first (1 box, 3, display) unless the shopper picked a sort {%- endcomment -%}
+      {%- assign products = collection.products -%}
+      {%- if collection.sort_by == blank -%}{%- assign products = collection.products | sort: 'price' -%}{%- endif -%}
       <div class="grid grid--3">
-        {%- for product in collection.products -%}
+        {%- for product in products -%}
           {% render 'product-card', product: product, sizes: '(min-width: 990px) 33vw, (min-width: 600px) 50vw, 100vw' %}
         {%- else -%}
           <p class="muted">{{ 'collections.empty' | t }}</p>
