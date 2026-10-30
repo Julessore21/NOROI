@@ -3,7 +3,8 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "title": "Unbox\n[the unknown.]"
+        "title": "Unbox\n[the unknown.]",
+        "cta2_link": "/#how-it-works"
       }
     },
     "trust": {
@@ -181,7 +182,7 @@
         "heading": "Yuji Itadori [& Panda]",
         "text": "<p>Hidden among the boxes is one figure you can't see on the packaging. No format guarantees it — it's luck, nothing else.</p>",
         "cta_label": "Try your luck",
-        "cta_link": "#shop"
+        "cta_link": "/#shop"
       },
       "blocks": {
         "f0": {

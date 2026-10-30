@@ -5,15 +5,32 @@
     "announcement": {
       "type": "announcement-bar",
       "blocks": {
-        "msg1": { "type": "message", "settings": { "text": "Drop 001 — Jujutsu Kaisen: The Culling Game", "link": "/collections/all" } },
-        "msg2": { "type": "message", "settings": { "text": "Sealed blind boxes · Secure checkout", "link": "" } }
+        "msg1": {
+          "type": "message",
+          "settings": {
+            "text": "Drop 001 — Jujutsu Kaisen: The Culling Game",
+            "link": "/collections/all"
+          }
+        },
+        "msg2": {
+          "type": "message",
+          "settings": {
+            "text": "Sealed blind boxes · Secure checkout"
+          }
+        }
       },
-      "block_order": ["msg1", "msg2"]
+      "block_order": [
+        "msg1",
+        "msg2"
+      ]
     },
     "header": {
       "type": "header",
       "settings": {}
     }
   },
-  "order": ["announcement", "header"]
+  "order": [
+    "announcement",
+    "header"
+  ]
 }
