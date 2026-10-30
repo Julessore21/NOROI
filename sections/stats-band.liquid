@@ -1,0 +1,38 @@
+{%- comment -%} Big factual numbers. Keep every value verifiable. {%- endcomment -%}
+<section class="stats" data-scheme="{{ section.settings.scheme }}">
+  <div class="container container--wide">
+    <dl class="stats__list">
+      {%- for block in section.blocks -%}
+        <div class="stats__item reveal{% if block.settings.aura %} stats__item--aura{% endif %}" style="--d: {{ forloop.index0 | times: 80 }}ms" {{ block.shopify_attributes }}>
+          <dt class="stats__label">{{ block.settings.label }}</dt>
+          <dd class="stats__value">{{ block.settings.value }}</dd>
+        </div>
+      {%- endfor -%}
+    </dl>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Key numbers",
+  "max_blocks": 5,
+  "settings": [
+    { "type": "select", "id": "scheme", "label": "Color scheme", "default": "dark", "options": [
+      { "value": "dark", "label": "Dark" },
+      { "value": "light", "label": "Light (ivory)" }
+    ] }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Number",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "6" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Standard figures" },
+        { "type": "checkbox", "id": "aura", "label": "Blue aura", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Key numbers" }]
+}
+{% endschema %}

@@ -20,7 +20,7 @@
                 <span class="figure__q">{% if b.secret %}?{% else %}呪{% endif %}</span>
               </div>
             {%- endif -%}
-            <span class="badge{% if b.secret %} badge--accent{% endif %}">{{ b.tag }}</span>
+            {%- if b.tag != blank -%}<span class="badge{% if b.secret %} badge--accent{% endif %}">{{ b.tag }}</span>{%- endif -%}
           </div>
           <div class="figure__body">
             <p class="figure__name">{{ b.name }}</p>

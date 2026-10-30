@@ -99,7 +99,7 @@
           "type": "figure",
           "settings": {
             "name": "Yuji Itadori",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-yuji.jpg",
             "secret": false
           }
@@ -108,7 +108,7 @@
           "type": "figure",
           "settings": {
             "name": "Megumi Fushiguro",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-megumi.jpg",
             "secret": false
           }
@@ -117,7 +117,7 @@
           "type": "figure",
           "settings": {
             "name": "Yuta Okkotsu",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-yuta.jpg",
             "secret": false
           }
@@ -126,7 +126,7 @@
           "type": "figure",
           "settings": {
             "name": "Choso",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-choso.jpg",
             "secret": false
           }
@@ -135,7 +135,7 @@
           "type": "figure",
           "settings": {
             "name": "Naoya Zen'in",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-naoya.jpg",
             "secret": false
           }
@@ -144,7 +144,7 @@
           "type": "figure",
           "settings": {
             "name": "Maki Zen'in",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "",
             "secret": false,
             "note": "Photo coming soon"
@@ -518,6 +518,51 @@
     "community": {
       "type": "community",
       "settings": {}
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {}
+    },
+    "stats": {
+      "type": "stats-band",
+      "settings": {},
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "6",
+            "label": "Standard figures"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "1",
+            "label": "Hidden secret",
+            "aura": true
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "1:72",
+            "label": "Secret odds (manufacturer)"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "8–10 cm",
+            "label": "Figure height"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ]
     }
   },
   "order": [
@@ -526,8 +571,10 @@
     "trust",
     "offers",
     "sim",
+    "marquee",
     "lineup",
     "secret",
+    "stats",
     "tracker",
     "steps",
     "display",

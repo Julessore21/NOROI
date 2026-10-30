@@ -1,0 +1,26 @@
+{%- assign s = section.settings -%}
+<section class="chero">
+  <div class="chero__media">
+    {%- if collection.image -%}
+      {{ collection.image | image_url: width: 2000 | image_tag: widths: '750, 1200, 2000', sizes: '100vw', loading: 'eager', alt: '' }}
+    {%- else -%}
+      <img src="{{ 'noroi-banner-wide.jpg' | asset_url }}" alt="" width="2172" height="724">
+    {%- endif -%}
+  </div>
+  <div class="chero__content container container--wide">
+    <p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>
+    <h1 class="h1 display">{{ collection.title | default: s.fallback_title }}</h1>
+    {%- if collection.description != blank -%}<div class="chero__text rte">{{ collection.description }}</div>{%- elsif s.text != blank -%}<p class="chero__text">{{ s.text }}</p>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection banner",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Drop 001 · The Culling Game" },
+    { "type": "text", "id": "fallback_title", "label": "Fallback title", "default": "The drop" },
+    { "type": "textarea", "id": "text", "label": "Text (if the collection has no description)", "default": "Sealed blind boxes from the Culling Game series. Pick your format — the bigger it is, the lower the price per box." }
+  ]
+}
+{% endschema %}

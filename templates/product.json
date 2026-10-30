@@ -50,7 +50,7 @@
           "type": "figure",
           "settings": {
             "name": "Yuji Itadori",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-yuji.jpg",
             "secret": false
           }
@@ -59,7 +59,7 @@
           "type": "figure",
           "settings": {
             "name": "Megumi Fushiguro",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-megumi.jpg",
             "secret": false
           }
@@ -68,7 +68,7 @@
           "type": "figure",
           "settings": {
             "name": "Yuta Okkotsu",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-yuta.jpg",
             "secret": false
           }
@@ -77,7 +77,7 @@
           "type": "figure",
           "settings": {
             "name": "Choso",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-choso.jpg",
             "secret": false
           }
@@ -86,7 +86,7 @@
           "type": "figure",
           "settings": {
             "name": "Naoya Zen'in",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "noroi-naoya.jpg",
             "secret": false
           }
@@ -95,7 +95,7 @@
           "type": "figure",
           "settings": {
             "name": "Maki Zen'in",
-            "tag": "Standard",
+            "tag": "",
             "fallback": "",
             "secret": false,
             "note": "Photo coming soon"

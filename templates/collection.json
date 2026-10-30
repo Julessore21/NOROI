@@ -2,7 +2,9 @@
   "sections": {
     "main": {
       "type": "main-collection",
-      "settings": {}
+      "settings": {
+        "show_heading": false
+      }
     },
     "trust": {
       "type": "trust-bar",
@@ -47,9 +49,14 @@
         "t2",
         "t3"
       ]
+    },
+    "hero": {
+      "type": "collection-hero",
+      "settings": {}
     }
   },
   "order": [
+    "hero",
     "main",
     "trust"
   ]

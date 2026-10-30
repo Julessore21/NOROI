@@ -133,8 +133,13 @@
     if (quick) {
       e.preventDefault();
       quick.classList.add('is-loading');
-      try { await addToCart({ items: [{ id: Number(quick.dataset.quickAdd), quantity: 1 }] }); }
-      catch (err) { toast(err.message); }
+      const label = quick.textContent;
+      try {
+        await addToCart({ items: [{ id: Number(quick.dataset.quickAdd), quantity: 1 }] });
+        quick.classList.add('is-added');
+        quick.textContent = `✓ ${cfg.strings.added}`;
+        setTimeout(() => { quick.classList.remove('is-added'); quick.textContent = label; }, 2200);
+      } catch (err) { toast(err.message); }
       quick.classList.remove('is-loading');
     }
   });
