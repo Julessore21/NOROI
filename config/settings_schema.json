@@ -99,7 +99,7 @@
         "type": "select",
         "id": "display_font",
         "label": "Title font",
-        "default": "bangers",
+        "default": "barlow",
         "options": [
           {
             "value": "knewave",
@@ -127,7 +127,7 @@
         "type": "select",
         "id": "accent_font",
         "label": "Accent font (highlighted words)",
-        "default": "knewave",
+        "default": "same",
         "info": "Used for the red words in titles.",
         "options": [
           {
