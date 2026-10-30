@@ -95,7 +95,9 @@
     "single_box": "1 box",
     "sold_out": "Sold out",
     "tax_excluded": "Tax excluded.",
-    "tax_included": "Tax included."
+    "tax_included": "Tax included.",
+    "save_per_box": "Save {{ pct }}% per box",
+    "view_details": "View details"
   },
   "search": {
     "placeholder": "Search the drop…",

@@ -6,15 +6,33 @@
       {%- if section.settings.text != blank -%}<p class="section-head__text">{{ section.settings.text }}</p>{%- endif -%}
     </div>
 
+    {%- liquid
+      assign base_per_box = 0
+      assign base_boxes = 999
+      for block in section.blocks
+        if block.settings.product != blank
+          capture bb
+            render 'box-count', product: block.settings.product
+          endcapture
+          assign bb = bb | plus: 0
+          if bb < base_boxes
+            assign base_boxes = bb
+            assign base_per_box = block.settings.product.price | divided_by: bb
+          endif
+        endif
+      endfor
+    -%}
     <div class="offers__grid">
       {%- for block in section.blocks -%}
-        <div class="offers__item reveal" style="--d: {{ forloop.index0 | times: 80 }}ms" {{ block.shopify_attributes }}>
+        <div class="offers__item{% if block.settings.featured %} offers__item--featured{% endif %} reveal" style="--d: {{ forloop.index0 | times: 80 }}ms" {{ block.shopify_attributes }}>
           {%- if block.settings.product != blank -%}
-            {% render 'product-card',
+            {% render 'offer-card',
               product: block.settings.product,
+              title: block.settings.title,
               badge: block.settings.badge,
               featured: block.settings.featured,
-              sizes: '(min-width: 990px) 33vw, (min-width: 600px) 50vw, 100vw'
+              perks: block.settings.perks,
+              base_per_box: base_per_box
             %}
           {%- else -%}
             <article class="card card--placeholder{% if block.settings.featured %} card--featured{% endif %}">
@@ -55,6 +73,8 @@
       "name": "Offer",
       "settings": [
         { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "title", "label": "Display name", "info": "Optional. Replaces the product title on this card." },
+        { "type": "textarea", "id": "perks", "label": "Perks (one per line)", "info": "Keep them factual." },
         { "type": "text", "id": "badge", "label": "Badge", "info": "Keep it factual, e.g. 'Best price per box'." },
         { "type": "checkbox", "id": "featured", "label": "Highlight this offer", "default": false }
       ]

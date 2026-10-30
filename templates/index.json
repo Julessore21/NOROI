@@ -56,9 +56,10 @@
     "offers": {
       "type": "offers",
       "settings": {
-        "scheme": "light",
-        "heading": "One box. Three. [Or the display.]",
-        "footnote": ""
+        "scheme": "dark",
+        "heading": "Pick your [odds.]",
+        "footnote": "",
+        "text": "Same sealed boxes, three ways in. The more you open, the less each box costs — and the more chances at the secret."
       },
       "blocks": {
         "o0": {
@@ -66,7 +67,9 @@
           "settings": {
             "product": "jujutsu-kaisen-blind-box-individuelle",
             "badge": "",
-            "featured": false
+            "featured": false,
+            "title": "Single box",
+            "perks": "1 factory-sealed blind box\n1 random figure from the series\nThe perfect first pull"
           }
         },
         "o1": {
@@ -74,7 +77,9 @@
           "settings": {
             "product": "jujutsu-kaisen-trio-mystere",
             "badge": "Discovery pack",
-            "featured": true
+            "featured": true,
+            "title": "Mystery trio",
+            "perks": "3 factory-sealed blind boxes\n3 chances at the secret\nOpen them one by one — or all at once"
           }
         },
         "o2": {
@@ -82,7 +87,9 @@
           "settings": {
             "product": "jujutsu-kaisen-display-6-blind-boxes",
             "badge": "Best price per box",
-            "featured": false
+            "featured": false,
+            "title": "Full display",
+            "perks": "6 factory-sealed blind boxes\nOriginal 6-box display case\nThe most chances at the secret"
           }
         }
       },

@@ -1,0 +1,70 @@
+{%- comment -%}
+  Offer tier card for the homepage offers section.
+  Params: product, title (optional display name), badge, featured, perks (newline list), base_per_box (cents, price of one box in the smallest format)
+  Savings are computed from real prices only; no compare-at prices are shown here.
+{%- endcomment -%}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  capture boxes
+    render 'box-count', product: product
+  endcapture
+  assign boxes = boxes | plus: 0
+  assign per_box_cents = product.price | divided_by: boxes
+  assign per_box = per_box_cents | money
+  assign savings = 0
+  if base_per_box > 0 and boxes > 1
+    assign ratio = per_box_cents | times: 100 | divided_by: base_per_box
+    assign savings = 100 | minus: ratio | round
+  endif
+  assign display_title = title | default: product.title
+  assign icon_count = boxes
+  if icon_count > 6
+    assign icon_count = 6
+  endif
+-%}
+<article class="offer{% if featured %} offer--featured{% endif %}{% unless product.available %} is-soldout{% endunless %}">
+  {%- if badge != blank -%}<span class="offer__ribbon">{{ badge }}</span>{%- endif -%}
+
+  <a class="offer__media tilt" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+    {%- if product.featured_media -%}
+      {{ product.featured_media | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 990px) 30vw, 85vw', alt: '' }}
+    {%- endif -%}
+    <span class="offer__count"><small>×</small>{{ boxes }}</span>
+  </a>
+
+  <div class="offer__body">
+    <p class="offer__eyebrow">{{ 'products.boxes_count' | t: count: boxes }}</p>
+    <h3 class="offer__title"><a href="{{ product.url }}">{{ display_title }}</a></h3>
+
+    <div class="offer__boxes" aria-hidden="true">
+      {%- for i in (1..icon_count) -%}<span style="--i: {{ forloop.index0 }}">{% render 'icon', name: 'box' %}</span>{%- endfor -%}
+    </div>
+
+    {%- if perks != blank -%}
+      <ul class="offer__perks" role="list">
+        {%- assign perk_lines = perks | newline_to_br | split: '<br />' -%}
+        {%- for perk in perk_lines -%}
+          {%- assign perk_text = perk | strip -%}
+          {%- if perk_text != blank -%}<li>{% render 'icon', name: 'check' %}<span>{{ perk_text }}</span></li>{%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <div class="offer__price">
+      <span class="offer__amount">{{ product.price | money }}</span>
+      {%- if boxes > 1 -%}<span class="offer__per">{{ 'products.per_box' | t: price: per_box }}</span>{%- endif -%}
+      {%- if savings > 0 -%}<span class="offer__save">{{ 'products.save_per_box' | t: pct: savings }}</span>{%- endif -%}
+    </div>
+
+    {%- if product.available and product.variants.size == 1 -%}
+      <button type="button" class="btn btn--block btn--lg {% if featured %}btn--primary{% else %}btn--ghost{% endif %}" data-quick-add="{{ variant.id }}">
+        {{ 'products.add_to_cart' | t }}
+      </button>
+    {%- elsif product.available -%}
+      <a class="btn btn--block btn--lg btn--ghost" href="{{ product.url }}">{{ 'products.choose' | t }}</a>
+    {%- else -%}
+      <a class="btn btn--block btn--lg btn--ghost is-disabled" href="{{ product.url }}">{{ 'products.sold_out' | t }}</a>
+    {%- endif -%}
+    <a class="offer__details" href="{{ product.url }}">{{ 'products.view_details' | t }} {% render 'icon', name: 'arrow' %}</a>
+  </div>
+</article>
