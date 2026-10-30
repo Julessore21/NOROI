@@ -310,12 +310,16 @@
       this.odds = Number(this.dataset.secretOdds) || 72;
       this.box = $('[data-sim-box]', this);
       this.result = $('[data-sim-result]', this);
-      this.btn = $('[data-sim-open]', this);
+      this.arena = $('[data-sim-open]', this);
       this.status = $('[data-sim-status]', this);
       this.cta = $('[data-sim-cta]', this);
       this.statsEl = $('[data-sim-stats]', this);
       this.stats = store.get('noroi-sim', { opened: 0, secrets: 0 });
-      this.btn.addEventListener('click', () => this.open());
+      this.hint = $('[data-sim-hint]', this);
+      const go = () => this.open();
+      this.arena.addEventListener('click', go);
+      this.arena.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      this.result.addEventListener('click', go);
       this.renderStats();
     }
     pick() {
@@ -350,8 +354,8 @@
       this.busy = true;
       const fig = this.pick();
       const wait = (ms) => new Promise((r) => setTimeout(r, reduced ? 0 : ms));
-      this.btn.disabled = true;
       this.cta.hidden = true;
+      if (this.hint) this.hint.hidden = true;
       this.result.hidden = true;
       this.classList.remove('is-revealed', 'is-secret', 'is-split', 'is-charging', 'is-flash');
       this.status.textContent = this.t.opening;
@@ -382,10 +386,7 @@
         store.set('noroi-sim', this.stats);
         this.renderStats();
         this.cta.hidden = false;
-        this.btn.textContent = this.t.again;
-        this.btn.disabled = false;
-        this.btn.classList.replace('btn--primary', 'btn--ghost');
-        this.cta.classList.replace('btn--ghost', 'btn--primary');
+        if (this.hint) { this.hint.textContent = this.t.again; this.hint.hidden = false; }
         this.busy = false;
       })();
     }
@@ -485,12 +486,6 @@
       }
     });
   }
-
-  /* ---------- Simulator: tapping the box opens it too ---------- */
-  $$('unbox-sim').forEach((sim) => {
-    const arena = $('.sim__arena', sim);
-    if (arena) arena.addEventListener('click', () => { if (!sim.classList.contains('is-revealed')) sim.open(); });
-  });
 
   /* ---------- Hero parallax (desktop, mouse) ---------- */
   if (!reduced && window.matchMedia('(hover: hover) and (min-width: 1100px)').matches) {

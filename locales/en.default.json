@@ -102,5 +102,8 @@
     "send": "Send message",
     "success": "Thanks — your message is in. We reply within 24–48h on business days.",
     "or_email": "Prefer email?"
+  },
+  "community": {
+    "tag_html": "Pulled something? Tag <strong>{{ handle }}</strong> and your box joins the wall."
   }
 }

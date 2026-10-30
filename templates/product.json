@@ -167,13 +167,6 @@
             "figure": "Yuji"
           }
         },
-        "p2": {
-          "type": "pull",
-          "settings": {
-            "fallback": "noroi-pull-2.jpg",
-            "figure": "Full display"
-          }
-        },
         "p3": {
           "type": "pull",
           "settings": {
@@ -198,7 +191,6 @@
       },
       "block_order": [
         "p1",
-        "p2",
         "p3",
         "p4",
         "p5"

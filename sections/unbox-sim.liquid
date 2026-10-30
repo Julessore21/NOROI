@@ -13,7 +13,7 @@
 
     {%- assign brand = settings.brand_name | default: shop.name | upcase -%}
     <unbox-sim class="sim__stage" data-secret-odds="{{ s.secret_odds }}" style="--box-art: url('{{ s.box_art | default: 'noroi-secret.jpg' | asset_url }}')">
-      <div class="sim__arena" aria-hidden="true">
+      <div class="sim__arena" role="button" tabindex="0" aria-label="{{ s.button | escape }}" data-sim-open>
         <div class="sim__aura"></div>
         <div class="sim__rays"></div>
         <div class="sim__box" data-sim-box>
@@ -52,9 +52,9 @@
 
       <div class="sim__controls">
         <p class="sim__status" data-sim-status role="status" aria-live="polite">{{ s.idle_text }}</p>
+        <p class="sim__hint" data-sim-hint hidden></p>
         <div class="sim__buttons">
-          <button type="button" class="btn btn--primary btn--lg" data-sim-open>{{ s.button }}</button>
-          <a class="btn btn--ghost btn--lg" href="{{ s.cta_link }}" data-sim-cta hidden>{{ s.cta_label }} {% render 'icon', name: 'arrow' %}</a>
+          <a class="btn btn--primary btn--lg" href="{{ s.cta_link }}" data-sim-cta hidden>{{ s.cta_label }} {% render 'icon', name: 'arrow' %}</a>
         </div>
         <p class="sim__stats muted small" data-sim-stats hidden></p>
       </div>
@@ -99,9 +99,9 @@
     { "type": "text", "id": "box_series", "label": "Series name on the box", "default": "The Culling Game" },
     { "type": "text", "id": "box_art", "label": "Box window image (theme asset file)", "default": "noroi-secret.jpg" },
     { "type": "range", "id": "secret_odds", "label": "Secret odds (1 in N)", "min": 12, "max": 288, "step": 12, "default": 72 },
-    { "type": "text", "id": "button", "label": "Open button", "default": "Open the box" },
-    { "type": "text", "id": "again_button", "label": "Open again button", "default": "Open another" },
-    { "type": "text", "id": "idle_text", "label": "Idle text", "default": "One sealed box. One random figure." },
+    { "type": "text", "id": "button", "label": "Box label (screen readers)", "default": "Open the box" },
+    { "type": "text", "id": "again_button", "label": "Hint after a pull", "default": "Tap the card to open another" },
+    { "type": "text", "id": "idle_text", "label": "Idle text", "default": "Tap the box to break the seal." },
     { "type": "text", "id": "opening_text", "label": "Opening text", "default": "Breaking the seal…" },
     { "type": "text", "id": "result_text", "label": "Result text", "info": "{name} is replaced by the figure.", "default": "You pulled {name}. Want the real one?" },
     { "type": "text", "id": "secret_text", "label": "Secret result text", "default": "THE SECRET. Who is it? You'll only know in a real box." },

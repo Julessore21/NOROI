@@ -30,21 +30,34 @@
       <ul class="pulls" role="list">
         {%- for block in section.blocks -%}
           {%- if block.type == 'pull' and block.settings.image != blank or block.type == 'pull' and block.settings.fallback != blank -%}
-            <li class="pull reveal" style="--d: {{ forloop.index0 | times: 60 }}ms" {{ block.shopify_attributes }}>
-              <div class="pull__media">
-                {%- if block.settings.image != blank -%}
-                  {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300, 450, 600', sizes: '(min-width: 990px) 20vw, 50vw', alt: block.settings.figure }}
-                {%- else -%}
-                  <img src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.figure | escape }}" loading="lazy" width="900" height="1125">
-                {%- endif -%}
-                {%- if block.settings.figure != blank -%}<span class="badge{% if block.settings.secret %} badge--accent{% endif %}">{{ block.settings.figure }}</span>{%- endif -%}
-              </div>
-              {%- if block.settings.quote != blank -%}<p class="pull__quote">“{{ block.settings.quote }}”</p>{%- endif -%}
-              {%- if block.settings.handle != blank -%}<p class="pull__handle muted small">{{ block.settings.handle }}</p>{%- endif -%}
+            <li class="pull reveal" style="--d: {{ forloop.index0 | times: 90 }}ms; --tilt: {% cycle '-2.4deg', '1.6deg', '-1.2deg', '2.2deg' %}" {{ block.shopify_attributes }}>
+              <figure class="pull__card">
+                <div class="pull__media">
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 500, 700', sizes: '(min-width: 990px) 22vw, 75vw', alt: block.settings.figure }}
+                  {%- else -%}
+                    <img src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.figure | escape }}" loading="lazy" width="900" height="1125">
+                  {%- endif -%}
+                  {%- if block.settings.secret -%}<span class="badge badge--accent">Secret</span>{%- endif -%}
+                  <span class="pull__shine" aria-hidden="true"></span>
+                </div>
+                <figcaption class="pull__caption">
+                  <span class="pull__text">
+                    <span class="pull__label">Pulled</span>
+                    <span class="pull__figure">{{ block.settings.figure }}</span>
+                  </span>
+                  <span class="pull__stamp" aria-hidden="true">呪</span>
+                </figcaption>
+                {%- if block.settings.quote != blank -%}<p class="pull__quote">“{{ block.settings.quote }}”</p>{%- endif -%}
+                {%- if block.settings.handle != blank -%}<p class="pull__handle">{{ block.settings.handle }}</p>{%- endif -%}
+              </figure>
             </li>
           {%- endif -%}
         {%- endfor -%}
       </ul>
+      {%- if s.social_handle != blank -%}
+        <p class="pulls__cta reveal">{{ 'community.tag_html' | t: handle: s.social_handle }}</p>
+      {%- endif -%}
     {%- endif -%}
 
     {%- if pull_count == 0 and s.show_empty -%}
