@@ -68,16 +68,21 @@
       assign df_name = 'Dela Gothic One'
       assign df_scale = '.86'
       assign df_track = '0em'
+    when 'bangers'
+      assign df_file = 'bangers.woff2'
+      assign df_name = 'Bangers'
+      assign df_scale = '1.3'
+      assign df_track = '.03em'
     when 'barlow'
       assign df_file = blank
       assign df_name = 'Barlow Condensed'
       assign df_scale = '1.25'
       assign df_track = '.01em'
     else
-      assign df_file = 'bangers.woff2'
-      assign df_name = 'Bangers'
-      assign df_scale = '1.3'
-      assign df_track = '.03em'
+      assign df_file = 'knewave.woff2'
+      assign df_name = 'Knewave'
+      assign df_scale = '1.08'
+      assign df_track = '.01em'
   endcase
 -%}
 {%- if df_file != blank -%}{{ df_file | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}{%- endif %}

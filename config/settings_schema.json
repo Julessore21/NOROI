@@ -99,8 +99,12 @@
         "type": "select",
         "id": "display_font",
         "label": "Display font (big titles)",
-        "default": "bangers",
+        "default": "knewave",
         "options": [
+          {
+            "value": "knewave",
+            "label": "Knewave — ink-brush manga cover"
+          },
           {
             "value": "bangers",
             "label": "Bangers — manga sound effects"
