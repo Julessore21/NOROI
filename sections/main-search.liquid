@@ -24,6 +24,15 @@
         {%- if paginate.pages > 1 -%}{% render 'pagination', paginate: paginate %}{%- endif -%}
       {%- endpaginate -%}
     {%- endif -%}
+    {%- if search.performed == false or search.results_count == 0 -%}
+      {%- if search.performed -%}<p class="center search-empty">{{ 'search.empty' | t }}</p>{%- endif -%}
+      <div class="grid grid--3">
+        {%- assign suggestions = collections.all.products | sort: 'price' -%}
+        {%- for product in suggestions limit: 6 -%}
+          {% render 'product-card', product: product, sizes: '(min-width: 990px) 33vw, 100vw' %}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
 

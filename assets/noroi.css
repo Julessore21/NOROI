@@ -414,6 +414,14 @@ h1, h2, h3, h4, p { margin: 0; }
 .field { display: grid; gap: .4rem; margin-bottom: 1rem; }
 .field label { font-weight: 700; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; }
 .field select { min-height: 48px; padding: 0 1rem; background: var(--c-surface); border: 1px solid var(--c-line); }
+.field input, .field textarea { width: 100%; min-height: 48px; padding: .8rem 1rem; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: 2px; }
+.field textarea { resize: vertical; }
+.field input:focus, .field textarea:focus { border-color: var(--c-text); outline: none; }
+.contact-form { margin-top: 2.5rem; }
+.contact-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+.contact-form__alt { margin-top: 1.2rem; font-size: .9rem; }
+.contact-form__alt a { color: var(--c-text); text-decoration: underline; }
+@media (max-width: 599px) { .contact-form__row { grid-template-columns: 1fr; } }
 .stock { display: flex; align-items: center; gap: .5rem; font-size: .9rem; margin: 1.2rem 0 .9rem; }
 .stock--out { color: var(--c-muted); }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-success); box-shadow: 0 0 0 4px rgba(79,179,122,.18); }
@@ -736,3 +744,5 @@ h1, h2, h3, h4, p { margin: 0; }
   .header--transparent { position: sticky; top: 0 !important; background: rgba(10,13,20,.94); border-color: var(--c-line); backdrop-filter: blur(14px); }
   .hero__content { padding-top: 0; }
 }
+
+.search-empty { color: var(--c-soft); max-width: 46ch; margin: 0 auto 2rem; }

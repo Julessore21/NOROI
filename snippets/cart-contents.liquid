@@ -56,9 +56,9 @@
           </a>
           <div class="line__info">
             <a class="line__title" href="{{ item.url }}">{{ item.product.title }}</a>
-            {%- unless item.product.has_only_default_variant -%}
+            {%- if item.product.variants.size > 1 -%}
               <p class="line__variant muted">{{ item.variant.title }}</p>
-            {%- endunless -%}
+            {%- endif -%}
             {%- for d in item.line_level_discount_allocations -%}
               <p class="line__discount">{{ d.discount_application.title }} (−{{ d.amount | money }})</p>
             {%- endfor -%}

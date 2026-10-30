@@ -40,7 +40,7 @@
         <span class="per-box">{{ 'products.per_box' | t: price: per_box }}</span>
       {%- endif -%}
     </div>
-    {%- if product.available and product.has_only_default_variant -%}
+    {%- if product.available and product.variants.size == 1 -%}
       <button type="button" class="btn btn--block {% if featured %}btn--primary{% else %}btn--ghost{% endif %}" data-quick-add="{{ variant.id }}">
         {{ 'products.add_to_cart' | t }}
       </button>

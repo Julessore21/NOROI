@@ -101,7 +101,7 @@
       {%- form 'product', product, id: form_id, class: 'pdp__form' -%}
         <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
 
-        {%- unless product.has_only_default_variant -%}
+        {%- if product.variants.size > 1 -%}
           {%- for option in product.options_with_values -%}
             <div class="field">
               <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
@@ -112,7 +112,7 @@
               </select>
             </div>
           {%- endfor -%}
-        {%- endunless -%}
+        {%- endif -%}
 
         {%- liquid
           assign tracked = false
