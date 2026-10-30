@@ -77,7 +77,7 @@
       </script>
     </unbox-sim>
 
-    <p class="sim__disclaimer muted small">{{ s.disclaimer }}</p>
+    {%- if s.disclaimer != blank -%}<p class="sim__disclaimer muted small">{{ s.disclaimer }}</p>{%- endif -%}
   </div>
 </section>
 

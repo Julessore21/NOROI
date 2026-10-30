@@ -51,7 +51,7 @@
             </a>
           {%- endfor -%}
         </div>
-        <p class="muted small">{{ s.note }}</p>
+        {%- if s.note != blank -%}<p class="muted small">{{ s.note }}</p>{%- endif -%}
       </div>
       <script type="application/json" data-tracker-strings>
   {

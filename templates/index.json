@@ -5,7 +5,8 @@
       "settings": {
         "title": "Unbox\n[the unknown.]",
         "cta2_link": "/#how-it-works",
-        "caption": "Campaign artwork for illustration."
+        "caption": "",
+        "meta": ""
       }
     },
     "trust": {
@@ -56,7 +57,8 @@
       "type": "offers",
       "settings": {
         "scheme": "light",
-        "heading": "One box. Three. [Or the display.]"
+        "heading": "One box. Three. [Or the display.]",
+        "footnote": ""
       },
       "blocks": {
         "o0": {
@@ -93,7 +95,8 @@
     "lineup": {
       "type": "lineup",
       "settings": {
-        "heading": "Five figures. [One secret.]"
+        "heading": "Five figures. [One secret.]",
+        "footnote": ""
       },
       "blocks": {
         "fig0": {
@@ -148,7 +151,7 @@
             "tag": "Secret",
             "fallback": "noroi-secret.jpg",
             "secret": true,
-            "note": "Silhouette for illustration only."
+            "note": ""
           }
         }
       },
@@ -173,7 +176,7 @@
         "text": "<p>One figure isn't shown on the packaging. Nobody knows who it is until the seal breaks — and no format guarantees it.</p>",
         "cta_label": "Try your luck",
         "cta_link": "/#shop",
-        "caption": "Silhouette for illustration only."
+        "caption": ""
       },
       "blocks": {
         "f0": {
@@ -237,7 +240,7 @@
         "anchor": "display",
         "layout": "left",
         "fallback": "noroi-display.jpg",
-        "caption": "Campaign render of the 6-box display.",
+        "caption": "",
         "eyebrow": "The full display",
         "heading": "Six sealed boxes. One shelf piece.",
         "text": "<p>The display box is the most efficient way to build the collection, and the box itself looks good on a shelf.</p>",
@@ -359,7 +362,8 @@
       "type": "unbox-sim",
       "settings": {
         "secret_odds": 72,
-        "secret_text": "THE SECRET. Who is it? You'll only know in a real box."
+        "secret_text": "THE SECRET. Who is it? You'll only know in a real box.",
+        "disclaimer": ""
       },
       "blocks": {
         "sim0": {
@@ -428,7 +432,8 @@
           "jujutsu-kaisen-blind-box-individuelle",
           "jujutsu-kaisen-trio-mystere",
           "jujutsu-kaisen-display-6-blind-boxes"
-        ]
+        ],
+        "note": ""
       },
       "blocks": {
         "trk0": {

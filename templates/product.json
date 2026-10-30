@@ -43,7 +43,8 @@
       "type": "lineup",
       "settings": {
         "heading": "Who's inside?",
-        "eyebrow": "The lineup"
+        "eyebrow": "The lineup",
+        "footnote": ""
       },
       "blocks": {
         "fig0": {
@@ -98,7 +99,7 @@
             "tag": "Secret",
             "fallback": "noroi-secret.jpg",
             "secret": true,
-            "note": "Silhouette for illustration only."
+            "note": ""
           }
         }
       },
@@ -163,7 +164,8 @@
       "type": "unbox-sim",
       "settings": {
         "heading": "Not sure yet? [Try one.]",
-        "secret_text": "THE SECRET. Who is it? You'll only know in a real box."
+        "secret_text": "THE SECRET. Who is it? You'll only know in a real box.",
+        "disclaimer": ""
       },
       "blocks": {
         "sim0": {
