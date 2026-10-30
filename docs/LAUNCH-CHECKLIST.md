@@ -1,26 +1,39 @@
-# Launch checklist (before removing the store password)
+# Launch checklist
 
-## Business / legal — blocking
-- [ ] Supplier verified (invoice, provenance, real stock). The theme says "factory-sealed", which must be true.
-- [ ] Rights to resell in the EEA and to use the product photos confirmed.
-- [ ] Legal pages filled in Settings > Policies: refund, shipping, privacy, terms, legal notice (Shopify lists them in the footer automatically).
-- [ ] The secret odds (≈ 1 in 72) re-checked against POP MART's official page. Edit them in `templates/index.json` and `product.json`, or in the theme editor.
-- [ ] Remove the compare-at prices (19.90 / 52.90 / 99.90) unless they are real previous prices. EU Omnibus rule: a strikethrough price must be the lowest price of the last 30 days.
+Live QA run on 2026-10-30 against tv82a0-5k.myshopify.com (theme NOROI/main, desktop 1440px + mobile 390px):
+every page answers 200 (home, catalogue, 3 products, cart, search, contact, 6 policies, 404 page), no JavaScript
+errors, quick add, cart drawer (+ / − / remove / upsell), product add to cart, format switch, cart page and
+checkout redirect all work. The contact form renders on `/pages/contact`.
 
-## Shopify admin
-- [ ] Products: track inventory and set "Continue selling when out of stock" to OFF (currently `continue`, so overselling is possible).
-- [ ] Translate product titles and descriptions to English. Handles can become English too, but add URL redirects and update `templates/*.json` and `config/settings_data.json`.
-- [ ] Optional: add a `custom.box_count` integer metafield (1 / 3 / 6) to the products.
-- [ ] Store language = English, plus the checkout and notification languages.
-- [ ] Navigation: `main-menu` (Shop, Lineup → `/#lineup`, How it works → `/#how-it-works`, FAQ → `/#faq`) and `footer` (Contact, Shipping, Returns).
-- [ ] Create a `contact` page (template `page`). The FAQ links to `/pages/contact`.
-- [ ] Free shipping: if you offer it, create the rate in Shipping, then set the same amount in Theme settings > Cart.
-- [ ] Place a test order (Bogus Gateway / test mode).
+Everything below is done in the Shopify admin, not in the theme.
 
-## Conversion features to switch on
-- [ ] **Reviews**: install Judge.me (free) or Shopify Product Reviews, then add its app block to the "Reviews & pulls" section (homepage + product). Never import fake reviews.
-- [ ] **Customer pulls**: add real unboxing photos (with permission) as "Customer pull" blocks.
-- [ ] **Box rewards**: Theme settings > Cart. Example: 2 boxes = free sticker (really put one in the parcel), 3 boxes = 10% (create the automatic discount "Buy 3+ boxes, 10% off" in Discounts first).
-- [ ] **Drop countdown**: enter the real launch date in the "Drop countdown" section, or leave it empty (hidden).
-- [ ] **Hero video**: upload a 6–10 s muted unboxing loop (real footage beats AI images).
-- [ ] **Abandoned checkout emails**: Marketing > Automations > Abandoned checkout (Shopify Email, free).
+## 1. Blocking — do before taking real orders
+- [ ] **Store name**: Settings > General > Store name = `NOROI` (the browser tab and privacy policy still say "Ma boutique").
+- [ ] **Store email**: Settings > General > set a real sender/contact email (currently Shopify's `…@businessmail.shop` placeholder; the contact page hides it until it is changed). Contact form messages go to this address.
+- [ ] **Payments**: Settings > Payments, activate Shopify Payments (identity + bank account). Then place one real order and refund it.
+- [ ] **Shipping**: Settings > Shipping and delivery, create real rates for France / EU.
+- [ ] **Shipping policy**: still contains `[À compléter …]` placeholders. Fill it in.
+- [ ] **Policies in English**: refund, shipping, terms, legal notice and contact info are written in French while the site is in English.
+- [ ] **Compare-at prices** (19.90 / 52.90 / 99.90): remove them unless they are real previous prices. Under the EU Omnibus rule, a strikethrough price must be the lowest price of the last 30 days.
+- [ ] **Inventory**: track quantity and turn OFF "Continue selling when out of stock".
+- [ ] Supplier verified (real stock, factory-sealed), since the site promises factory-sealed boxes.
+
+## 2. Content
+- [ ] **Products in English**: titles ("Blind Box individuelle", "TRIO MYSTÈRE (3 blinds box)", "Display de 6 Blind Boxes"), descriptions and the option value "Boîte individuelle". Example titles: `Single Blind Box`, `Mystery Trio (3 boxes)`, `Full Display (6 boxes)`. Keep the URL handles as they are, because the theme references them.
+- [ ] **Menus in English**: Online Store > Navigation.
+  - `main-menu`: Shop → `/collections/all`, Lineup → `/#lineup`, How it works → `/#how-it-works`, FAQ → `/#faq`, Contact → `/pages/contact`.
+  - `footer`: rename "Accueil / Catalogue / Rechercher".
+- [ ] Optionally add character names (Yuji, Gojo…) to product tags, so that searches find them. The search page already falls back to the 3 boxes.
+
+## 3. Go live
+- [ ] Pick a plan (Settings > Plan). The store cannot sell on the trial.
+- [ ] **Domain**: Settings > Domains > Buy new domain (e.g. `noroi.shop`), or Connect existing. Then set it as the primary domain. SSL is automatic.
+- [ ] Online Store > Preferences: remove the password if one is set, and add the homepage title and meta description.
+- [ ] Checkout and notification language = English.
+
+## 4. Conversion boosters (after launch)
+- [ ] **Reviews**: install Judge.me (free) and add its app block to the "Reviews & pulls" section. Use real reviews only.
+- [ ] **Abandoned checkout emails**: Marketing > Automations.
+- [ ] **Box rewards / free-shipping bar**: Theme settings > Cart. Both are off by default; create the matching discount or shipping rate first.
+- [ ] **Drop countdown**: enter the real date in the section, or leave it empty.
+- [ ] **Customer pulls**: add real unboxing photos as blocks.
