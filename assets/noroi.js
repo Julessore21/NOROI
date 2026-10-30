@@ -272,7 +272,10 @@
     if (items.length < 2 || reducedMotion) return;
     let i = 0;
     setInterval(() => {
-      items[i].classList.remove('is-active');
+      const out = items[i];
+      out.classList.remove('is-active');
+      out.classList.add('is-leaving');
+      setTimeout(() => out.classList.remove('is-leaving'), 700);
       i = (i + 1) % items.length;
       items[i].classList.add('is-active');
     }, 4500);

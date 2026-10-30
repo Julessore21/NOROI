@@ -141,9 +141,15 @@
       {%- endfor -%}
     </ul>
     <ul class="cart__trust" role="list">
-      <li>{% render 'icon', name: 'box' %} {{ 'cart.trust_sealed' | t }}</li>
-      <li>{% render 'icon', name: 'truck' %} {{ 'cart.trust_tracked' | t }}</li>
-      <li>{% render 'icon', name: 'return' %} {{ 'cart.trust_returns' | t }}</li>
+      {%- if context == 'page' -%}
+        <li>{% render 'icon', name: 'box' %} {{ 'cart.trust_sealed' | t }}</li>
+        <li>{% render 'icon', name: 'truck' %} {{ 'cart.trust_tracked' | t }}</li>
+        <li>{% render 'icon', name: 'return' %} {{ 'cart.trust_returns' | t }}</li>
+      {%- else -%}
+        <li>{% render 'icon', name: 'box' %} {{ 'cart.trust_sealed_short' | t }}</li>
+        <li>{% render 'icon', name: 'truck' %} {{ 'cart.trust_tracked_short' | t }}</li>
+        <li>{% render 'icon', name: 'return' %} {{ 'cart.trust_returns_short' | t }}</li>
+      {%- endif -%}
     </ul>
     {%- if context == 'page' -%}
       <a class="cart__keep link-muted" href="{{ routes.all_products_collection_url }}">← {{ 'cart.keep_shopping' | t }}</a>

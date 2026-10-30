@@ -39,7 +39,10 @@
     "summary": "Summary",
     "trust_sealed": "Factory-sealed, never opened",
     "trust_tracked": "Tracked shipping",
-    "trust_returns": "14-day withdrawal right"
+    "trust_returns": "14-day withdrawal right",
+    "trust_sealed_short": "Factory-sealed",
+    "trust_tracked_short": "Tracked",
+    "trust_returns_short": "14-day returns"
   },
   "collections": {
     "all": "Collections",
