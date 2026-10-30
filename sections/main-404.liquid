@@ -1,0 +1,13 @@
+<section class="section notfound">
+  <div class="container container--narrow center">
+    <span class="notfound__glyph" aria-hidden="true">呪</span>
+    <p class="eyebrow eyebrow--accent">404</p>
+    <h1 class="h1 display">{{ 'general.404_title' | t }}</h1>
+    <p class="muted">{{ 'general.404_text' | t }}</p>
+    <a class="btn btn--primary btn--lg" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue' | t }}</a>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "404", "settings": [] }
+{% endschema %}

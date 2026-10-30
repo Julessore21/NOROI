@@ -1,0 +1,18 @@
+{%- comment -%}
+  Outputs how many blind boxes a product contains, used for honest "price per box" anchoring.
+  Source of truth: product metafield custom.box_count (integer). Falls back to the handle.
+  Usage: {%- capture boxes -%}{% render 'box-count', product: product %}{%- endcapture -%}
+{%- endcomment -%}
+{%- liquid
+  assign n = product.metafields.custom.box_count.value
+  if n == blank
+    if product.handle contains 'display' or product.handle contains '6-'
+      assign n = 6
+    elsif product.handle contains 'trio' or product.handle contains '3-'
+      assign n = 3
+    else
+      assign n = 1
+    endif
+  endif
+  echo n
+-%}

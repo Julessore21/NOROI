@@ -1,0 +1,40 @@
+<section class="section steps" id="{{ section.settings.anchor | default: 'how-it-works' }}">
+  <div class="container">
+    <div class="section-head reveal">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="h1 display">{{ section.settings.heading }}</h2>
+    </div>
+    <ol class="steps__list" role="list">
+      {%- for block in section.blocks -%}
+        <li class="step reveal" style="--d: {{ forloop.index0 | times: 90 }}ms" {{ block.shopify_attributes }}>
+          <span class="step__num" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>
+          <h3 class="step__title">{{ block.settings.title }}</h3>
+          <p class="step__text muted">{{ block.settings.text }}</p>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How it works",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "how-it-works" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How blind boxes work" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Choose. Unbox. Collect." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Choose" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "How it works" }]
+}
+{% endschema %}

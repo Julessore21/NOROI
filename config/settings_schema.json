@@ -1,83 +1,45 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Skeleton",
-    "theme_version": "0.1.0",
-    "theme_author": "Shopify",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_name": "NOROI",
+    "theme_version": "1.0.0",
+    "theme_author": "NOROI",
+    "theme_documentation_url": "https://github.com/Julessore21/NOROI",
+    "theme_support_url": "https://github.com/Julessore21/NOROI"
   },
   {
-    "name": "t:general.typography",
+    "name": "Brand",
     "settings": [
-      {
-        "type": "header",
-        "content": "t:general.fonts"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_primary_font",
-        "default": "work_sans_n4",
-        "label": "t:general.primary"
-      }
+      { "type": "text", "id": "tagline", "label": "Tagline", "default": "Collect the unknown." },
+      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Square PNG, 96×96 px or larger." },
+      { "type": "image_picker", "id": "share_image", "label": "Social sharing image" },
+      { "type": "url", "id": "social_instagram", "label": "Instagram URL" },
+      { "type": "url", "id": "social_tiktok", "label": "TikTok URL" }
     ]
   },
   {
-    "name": "t:general.layout",
+    "name": "Colors",
     "settings": [
-      {
-        "type": "select",
-        "id": "max_page_width",
-        "label": "t:labels.page_width",
-        "options": [
-          {
-            "value": "90rem",
-            "label": "t:options.page_width.narrow"
-          },
-          {
-            "value": "110rem",
-            "label": "t:options.page_width.wide"
-          }
-        ],
-        "default": "90rem"
-      },
-      {
-        "type": "range",
-        "id": "min_page_margin",
-        "min": 10,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "t:labels.page_margin",
-        "default": 20
-      }
+      { "type": "color", "id": "color_bg", "label": "Background", "default": "#0C0D15" },
+      { "type": "color", "id": "color_surface", "label": "Surface", "default": "#14151F" },
+      { "type": "color", "id": "color_line", "label": "Borders", "default": "#262836" },
+      { "type": "color", "id": "color_text", "label": "Text", "default": "#F6F1EB" },
+      { "type": "color", "id": "color_muted", "label": "Muted text", "default": "#9A98A6" },
+      { "type": "color", "id": "color_accent", "label": "Crimson accent", "default": "#D7263D" },
+      { "type": "color", "id": "color_aura", "label": "Mystery aura (blue)", "default": "#3D7BFF" }
     ]
   },
   {
-    "name": "t:general.colors",
+    "name": "Cart",
     "settings": [
-      {
-        "type": "color",
-        "id": "background_color",
-        "default": "#FFFFFF",
-        "label": "t:labels.background"
-      },
-      {
-        "type": "color",
-        "id": "foreground_color",
-        "default": "#333333",
-        "label": "t:labels.foreground"
-      },
-      {
-        "type": "range",
-        "id": "input_corner_radius",
-        "min": 0,
-        "max": 10,
-        "step": 1,
-        "unit": "px",
-        "label": "t:labels.input_corner_radius",
-        "default": 4
-      }
+      { "type": "select", "id": "cart_type", "label": "After add to cart", "default": "drawer", "options": [
+        { "value": "drawer", "label": "Open cart drawer" },
+        { "value": "page", "label": "Go to cart page" }
+      ] },
+      { "type": "number", "id": "free_shipping_threshold", "label": "Free shipping threshold (store currency)", "default": 0, "info": "Shows a progress bar in the cart. 0 = hidden. Must match a real free-shipping rate in Settings > Shipping." },
+      { "type": "product", "id": "cart_upsell_product", "label": "Cart upsell product" },
+      { "type": "text", "id": "cart_upsell_heading", "label": "Upsell heading", "default": "Go further — lower price per box" },
+      { "type": "url", "id": "cart_empty_link", "label": "Empty cart button link" }
     ]
   }
 ]

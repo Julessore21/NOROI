@@ -1,0 +1,56 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-search",
+      "settings": {}
+    },
+    "trust": {
+      "type": "trust-bar",
+      "settings": {},
+      "blocks": {
+        "t0": {
+          "type": "item",
+          "settings": {
+            "icon": "box",
+            "title": "Factory-sealed boxes",
+            "text": "Random, untouched, unopened"
+          }
+        },
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": "Cards, Apple Pay, Shop Pay"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Tracked shipping",
+            "text": "Costs shown before you pay"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "14-day withdrawal",
+            "text": "See refund policy"
+          }
+        }
+      },
+      "block_order": [
+        "t0",
+        "t1",
+        "t2",
+        "t3"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "trust"
+  ]
+}

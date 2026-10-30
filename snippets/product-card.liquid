@@ -1,0 +1,53 @@
+{%- comment -%}
+  Params: product, badge (optional string), featured (optional bool), fallback_image (optional asset name), sizes
+{%- endcomment -%}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  capture boxes
+    render 'box-count', product: product
+  endcapture
+  assign boxes = boxes | plus: 0
+  assign per_box = product.price | divided_by: boxes | money
+-%}
+<article class="card{% if featured %} card--featured{% endif %}{% unless product.available %} is-soldout{% endunless %}">
+  <a href="{{ product.url }}" class="card__media">
+    {%- if product.featured_media -%}
+      {{ product.featured_media | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: sizes, alt: product.featured_media.alt | default: product.title }}
+    {%- elsif fallback_image != blank -%}
+      <img src="{{ fallback_image | asset_url }}" alt="{{ product.title | escape }}" loading="lazy" width="900" height="900">
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+    {%- endif -%}
+    {%- if badge != blank -%}
+      <span class="badge badge--accent">{{ badge }}</span>
+    {%- elsif product.available == false -%}
+      <span class="badge">{{ 'products.sold_out' | t }}</span>
+    {%- endif -%}
+  </a>
+  <div class="card__body">
+    {%- if boxes > 1 -%}
+      <p class="eyebrow">{{ 'products.boxes_count' | t: count: boxes }}</p>
+    {%- else -%}
+      <p class="eyebrow">{{ 'products.single_box' | t }}</p>
+    {%- endif -%}
+    <h3 class="card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <div class="card__price">
+      <span class="price">{{ product.price | money }}</span>
+      {%- if product.compare_at_price > product.price -%}
+        <s class="muted">{{ product.compare_at_price | money }}</s>
+      {%- endif -%}
+      {%- if boxes > 1 -%}
+        <span class="per-box">{{ 'products.per_box' | t: price: per_box }}</span>
+      {%- endif -%}
+    </div>
+    {%- if product.available and product.has_only_default_variant -%}
+      <button type="button" class="btn btn--block {% if featured %}btn--primary{% else %}btn--ghost{% endif %}" data-quick-add="{{ variant.id }}">
+        {{ 'products.add_to_cart' | t }}
+      </button>
+    {%- elsif product.available -%}
+      <a class="btn btn--block btn--ghost" href="{{ product.url }}">{{ 'products.choose' | t }}</a>
+    {%- else -%}
+      <a class="btn btn--block btn--ghost is-disabled" href="{{ product.url }}">{{ 'products.sold_out' | t }}</a>
+    {%- endif -%}
+  </div>
+</article>

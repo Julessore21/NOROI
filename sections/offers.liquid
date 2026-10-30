@@ -1,0 +1,70 @@
+<section class="section offers" id="{{ section.settings.anchor | default: 'shop' }}">
+  <div class="container">
+    <div class="section-head reveal">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="h1 display">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<p class="section-head__text">{{ section.settings.text }}</p>{%- endif -%}
+    </div>
+
+    <div class="offers__grid">
+      {%- for block in section.blocks -%}
+        <div class="offers__item reveal" style="--d: {{ forloop.index0 | times: 80 }}ms" {{ block.shopify_attributes }}>
+          {%- if block.settings.product != blank -%}
+            {% render 'product-card',
+              product: block.settings.product,
+              badge: block.settings.badge,
+              featured: block.settings.featured,
+              sizes: '(min-width: 990px) 33vw, (min-width: 600px) 50vw, 100vw'
+            %}
+          {%- else -%}
+            <article class="card card--placeholder{% if block.settings.featured %} card--featured{% endif %}">
+              <div class="card__media">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
+              <div class="card__body">
+                <h3 class="card__title">{{ 'products.pick_product' | t }}</h3>
+              </div>
+            </article>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.footnote != blank -%}
+      <p class="offers__note muted small">{{ section.settings.footnote }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Offers",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "shop" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Choose your odds" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One box. Three. Or the whole display." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "The more you open, the lower the price per box — and the closer you get to the full set." },
+    { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "Each box is sealed and random. Duplicates are possible and the secret figure is never guaranteed." }
+  ],
+  "blocks": [
+    {
+      "type": "offer",
+      "name": "Offer",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "badge", "label": "Badge", "info": "Keep it factual, e.g. 'Best price per box'." },
+        { "type": "checkbox", "id": "featured", "label": "Highlight this offer", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Offers",
+      "blocks": [
+        { "type": "offer" },
+        { "type": "offer", "settings": { "badge": "Discovery pack", "featured": true } },
+        { "type": "offer", "settings": { "badge": "Best price per box" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

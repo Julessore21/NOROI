@@ -1,0 +1,361 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "trust": {
+      "type": "trust-bar",
+      "settings": {},
+      "blocks": {
+        "t0": {
+          "type": "item",
+          "settings": {
+            "icon": "box",
+            "title": "Factory-sealed boxes",
+            "text": "Random, untouched, unopened"
+          }
+        },
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": "Cards, Apple Pay, Shop Pay"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Tracked shipping",
+            "text": "Costs shown before you pay"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "14-day withdrawal",
+            "text": "See refund policy"
+          }
+        }
+      },
+      "block_order": [
+        "t0",
+        "t1",
+        "t2",
+        "t3"
+      ]
+    },
+    "offers": {
+      "type": "offers",
+      "settings": {},
+      "blocks": {
+        "o0": {
+          "type": "offer",
+          "settings": {
+            "product": "jujutsu-kaisen-blind-box-individuelle",
+            "badge": "",
+            "featured": false
+          }
+        },
+        "o1": {
+          "type": "offer",
+          "settings": {
+            "product": "jujutsu-kaisen-trio-mystere",
+            "badge": "Discovery pack",
+            "featured": true
+          }
+        },
+        "o2": {
+          "type": "offer",
+          "settings": {
+            "product": "jujutsu-kaisen-display-6-blind-boxes",
+            "badge": "Best price per box",
+            "featured": false
+          }
+        }
+      },
+      "block_order": [
+        "o0",
+        "o1",
+        "o2"
+      ]
+    },
+    "lineup": {
+      "type": "lineup",
+      "settings": {},
+      "blocks": {
+        "fig0": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori",
+            "tag": "Standard",
+            "fallback": "noroi-yuji.jpg",
+            "secret": false
+          }
+        },
+        "fig1": {
+          "type": "figure",
+          "settings": {
+            "name": "Megumi Fushiguro",
+            "tag": "Standard",
+            "fallback": "noroi-megumi.jpg",
+            "secret": false
+          }
+        },
+        "fig2": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuta Okkotsu",
+            "tag": "Standard",
+            "fallback": "noroi-yuta.jpg",
+            "secret": false
+          }
+        },
+        "fig3": {
+          "type": "figure",
+          "settings": {
+            "name": "Choso",
+            "tag": "Standard",
+            "fallback": "noroi-choso.jpg",
+            "secret": false
+          }
+        },
+        "fig4": {
+          "type": "figure",
+          "settings": {
+            "name": "Naoya Zen'in",
+            "tag": "Standard",
+            "fallback": "noroi-naoya.jpg",
+            "secret": false
+          }
+        },
+        "fig5": {
+          "type": "figure",
+          "settings": {
+            "name": "Maki Zen'in",
+            "tag": "Standard",
+            "fallback": "",
+            "secret": false,
+            "note": "Photo coming soon"
+          }
+        },
+        "fig6": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori & Panda",
+            "tag": "Secret",
+            "fallback": "",
+            "secret": true,
+            "note": "The hidden figure. Approx. 1 in 72 boxes."
+          }
+        }
+      },
+      "block_order": [
+        "fig0",
+        "fig1",
+        "fig2",
+        "fig3",
+        "fig4",
+        "fig5",
+        "fig6"
+      ]
+    },
+    "secret": {
+      "type": "image-text",
+      "settings": {
+        "anchor": "secret",
+        "layout": "right",
+        "aura": true,
+        "fallback": "",
+        "eyebrow": "The secret",
+        "heading": "Yuji Itadori & Panda",
+        "text": "<p>Hidden among the boxes is one figure you can't see on the packaging. No format guarantees it — it's luck, nothing else.</p>",
+        "cta_label": "Try your luck",
+        "cta_link": "#shop"
+      },
+      "blocks": {
+        "f0": {
+          "type": "fact",
+          "settings": {
+            "label": "Odds (manufacturer)",
+            "value": "≈ 1 in 72 boxes"
+          }
+        },
+        "f1": {
+          "type": "fact",
+          "settings": {
+            "label": "Guaranteed?",
+            "value": "Never"
+          }
+        }
+      },
+      "block_order": [
+        "f0",
+        "f1"
+      ]
+    },
+    "steps": {
+      "type": "steps",
+      "settings": {},
+      "blocks": {
+        "s0": {
+          "type": "step",
+          "settings": {
+            "title": "Choose",
+            "text": "Pick one box, a 3-box pack or the full 6-box display. Bigger formats mean a lower price per box."
+          }
+        },
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Unbox",
+            "text": "Each box is sealed. Tear it open and meet whoever was waiting inside."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Collect",
+            "text": "Chase the six standard figures — and the secret if fate allows. Trade duplicates with friends."
+          }
+        }
+      },
+      "block_order": [
+        "s0",
+        "s1",
+        "s2"
+      ]
+    },
+    "display": {
+      "type": "image-text",
+      "settings": {
+        "anchor": "display",
+        "layout": "left",
+        "fallback": "noroi-display.jpg",
+        "caption": "Campaign render of the 6-box display.",
+        "eyebrow": "The full display",
+        "heading": "Six sealed boxes. One shelf piece.",
+        "text": "<p>The display box is the most efficient way to build the collection, and the box itself looks good on a shelf.</p>",
+        "cta_label": "Get the display",
+        "cta_link": "/products/jujutsu-kaisen-display-6-blind-boxes"
+      },
+      "blocks": {
+        "f0": {
+          "type": "fact",
+          "settings": {
+            "label": "Contents",
+            "value": "6 sealed blind boxes"
+          }
+        },
+        "f1": {
+          "type": "fact",
+          "settings": {
+            "label": "Figure size",
+            "value": "≈ 8–10 cm"
+          }
+        },
+        "f2": {
+          "type": "fact",
+          "settings": {
+            "label": "Material",
+            "value": "PVC / ABS"
+          }
+        },
+        "f3": {
+          "type": "fact",
+          "settings": {
+            "label": "Age",
+            "value": "15+"
+          }
+        }
+      },
+      "block_order": [
+        "f0",
+        "f1",
+        "f2",
+        "f3"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "contact_text": "Still unsure? <a href=\"/pages/contact\">Contact us</a>."
+      },
+      "blocks": {
+        "q0": {
+          "type": "question",
+          "settings": {
+            "question": "What's inside a blind box?",
+            "answer": "<p>One sealed box contains one random figure from the Culling Game series: one of the six standard characters or, rarely, the secret figure. You only find out who when you open it.</p>"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Can I choose my character?",
+            "answer": "<p>No. Every box is sealed and identical from the outside, which is the whole point of the ritual. If you want more chances at a specific character, bigger formats lower the price per box.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I get duplicates?",
+            "answer": "<p>Yes. Each box is random, so duplicates are possible, including in the 3-box pack. A 6-box display is a full manufacturer case; we do not guarantee a complete set or the secret figure.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "What are the odds of the secret figure?",
+            "answer": "<p>The manufacturer states roughly 1 secret in every 72 boxes. It is never guaranteed, whatever format you buy.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "How much is shipping and how long does it take?",
+            "answer": "<p>Every order ships with tracking. Shipping costs and delivery estimates for your address are shown at checkout before you pay.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I return my order?",
+            "answer": "<p>You have 14 days after delivery to withdraw from your purchase. Unopened boxes are the easiest to return. Full details are in our refund policy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ]
+    },
+    "banner": {
+      "type": "cta-banner",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "offers",
+    "lineup",
+    "secret",
+    "steps",
+    "display",
+    "faq",
+    "banner",
+    "newsletter"
+  ]
+}

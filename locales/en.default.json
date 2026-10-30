@@ -1,71 +1,91 @@
 {
-  "404": {
-    "title": "404",
-    "not_found": "Page not found.",
-    "back_to_shopping": "Back to shopping"
+  "accessibility": {
+    "close": "Close",
+    "main_nav": "Main navigation",
+    "menu": "Menu",
+    "search": "Search",
+    "skip_to_content": "Skip to content"
   },
-  "blog": {
-    "article_comments": "Comments",
-    "article_metadata_html": "{{ date }} by {{ author }}",
-    "comment_form_body": "Comment",
-    "comment_form_email": "Email",
-    "comment_form_name": "Name",
-    "comment_form_submit": "Post",
-    "comment_form_title": "Add a comment"
+  "general": {
+    "404_title": "Nothing sealed here.",
+    "404_text": "This page vanished. The boxes didn't.",
+    "pagination": "Pagination"
   },
   "cart": {
-    "checkout": "Checkout",
-    "title": "Cart",
-    "update": "Update",
-    "remove": "Remove"
-  },
-  "customers": {
-    "login": {
-      "email": "Email",
-      "password": "Password",
-      "submit": "Sign in",
-      "title": "Login"
-    }
+    "title": "Your bag",
+    "checkout": "Secure checkout",
+    "continue": "Shop the drop",
+    "decrease": "Decrease quantity for {{ title }}",
+    "increase": "Increase quantity for {{ title }}",
+    "empty": "Your bag is empty.",
+    "empty_sub": "Somebody is waiting inside a sealed box.",
+    "free_shipping_remaining_html": "You're <strong>{{ amount }}</strong> away from free shipping",
+    "free_shipping_unlocked": "Free shipping unlocked",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "taxes_included": "Taxes included. Shipping calculated at checkout.",
+    "taxes_excluded": "Taxes and shipping calculated at checkout.",
+    "update": "Update"
   },
   "collections": {
-    "title": "Collections"
+    "all": "Collections",
+    "empty": "No products here yet."
+  },
+  "footer": {
+    "account": "Account",
+    "legal": "Legal",
+    "rights": "All rights reserved."
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
-    "card": "Gift card",
-    "expired": "This gift card has expired",
+    "expired": "This gift card has expired.",
     "expires_on": "Expires on {{ expires_on }}",
-    "use_at_checkout": "Use this gift card at checkout"
+    "use_at_checkout": "Use this code at checkout:"
   },
-  "hello_world": {
-    "title": "Hello, World!",
-    "intro": "The Skeleton theme is a minimal, carefully structured Shopify theme designed to help you quickly get started. Designed with modularity, maintainability, and Shopify's best practices in mind.",
-    "description": "Themes shape the online store experience for merchants and their customers. Build fast, flexible themes at scale using Liquid, Shopify's theme templating language, along with HTML, CSS, JavaScript, and JSON.",
-    "key_concepts_title": "Key Concepts",
-    "key_concepts_body": "Shopify themes are a package of template files, building blocks, and supporting assets. Use these building blocks to create modular, customizable themes.",
-    "key_concepts_link": "Learn more about key concepts",
-    "liquid_title": "Liquid",
-    "liquid_body": "The Liquid templating language is the backbone of Shopify themes, and is used to load dynamic content on storefronts. Extend Liquid objects to store and present custom data using metafields.",
-    "liquid_link": "View the Liquid reference",
-    "best_practices_title": "Best Practices",
-    "best_practices_body": "To optimize your theme development experience, Shopify has established a set of best practices that you can refer to when developing your theme and setting up your toolchains and processes.",
-    "best_practices_link": "Follow best practices",
-    "liquid_tips_title": "Liquid tips",
-    "liquid_tips_refresh": "Show another tip",
-    "liquid_tips_1": "Prefer whitespace control with {%- -%} to keep rendered markup clean",
-    "liquid_tips_2": "Reach for the render tag instead of include so each snippet gets its own scope",
-    "liquid_tips_3": "Assign expensive lookups to a variable once and reuse it across the template"
+  "newsletter": {
+    "email": "Your email",
+    "success": "You're on the list. We'll tell you when the seal breaks."
   },
   "password": {
-    "title": "This shop is private",
-    "password": "Password",
-    "enter": "Enter"
+    "enter": "Enter",
+    "owner": "Store owner? Enter password",
+    "password": "Password"
+  },
+  "products": {
+    "add": "Add",
+    "add_to_cart": "Add to bag",
+    "added": "Added to bag",
+    "boxes_count": {
+      "one": "{{ count }} box",
+      "other": "{{ count }} boxes"
+    },
+    "choose": "Choose options",
+    "description": "Description",
+    "error": "Something went wrong. Please try again.",
+    "format": "Format",
+    "in_stock": "In stock",
+    "low_stock": {
+      "one": "Only {{ count }} left",
+      "other": "Only {{ count }} left"
+    },
+    "media_n": "Show image {{ n }}",
+    "per_box": "{{ price }} / box",
+    "pick_product": "Select a product in the theme editor",
+    "qty_down": "Decrease quantity",
+    "qty_up": "Increase quantity",
+    "quantity": "Quantity",
+    "shipping_calc": "Shipping calculated at checkout",
+    "single_box": "1 box",
+    "sold_out": "Sold out",
+    "tax_excluded": "Tax excluded.",
+    "tax_included": "Tax included."
   },
   "search": {
-    "title": "Search",
-    "placeholder": "Search articles, pages, or products",
-    "submit": "Search",
-    "no_results_html": "No results found for {{ terms }}",
-    "results_for_html": "{{ count }} results found for {{ terms }}"
+    "placeholder": "Search the drop…",
+    "results": {
+      "one": "{{ count }} result for “{{ terms }}”",
+      "other": "{{ count }} results for “{{ terms }}”"
+    },
+    "title": "Search"
   }
 }

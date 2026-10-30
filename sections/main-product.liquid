@@ -1,0 +1,261 @@
+{%- liquid
+  assign s = section.settings
+  assign current_variant = product.selected_or_first_available_variant
+  capture boxes
+    render 'box-count', product: product
+  endcapture
+  assign boxes = boxes | plus: 0
+  assign per_box = current_variant.price | divided_by: boxes | money
+  assign form_id = 'ProductForm-' | append: section.id
+-%}
+
+<section class="section pdp" data-product-section>
+  <div class="container container--wide pdp__grid">
+
+    {%- comment -%} Gallery {%- endcomment -%}
+    <div class="pdp__gallery" data-gallery>
+      <div class="gallery__main" data-gallery-track>
+        {%- for media in product.media -%}
+          {%- liquid
+            assign img_loading = 'lazy'
+            if forloop.first
+              assign img_loading = 'eager'
+            endif
+          -%}
+          <figure class="gallery__slide" id="Media-{{ media.id }}" data-media-id="{{ media.id }}">
+            {%- if media.media_type == 'image' -%}
+              {{ media | image_url: width: 1400 | image_tag: widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 55vw, 100vw', loading: img_loading, alt: media.alt | default: product.title }}
+            {%- else -%}
+              {{ media | media_tag: image_size: '1400x' }}
+            {%- endif -%}
+          </figure>
+        {%- else -%}
+          <figure class="gallery__slide">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</figure>
+        {%- endfor -%}
+      </div>
+      {%- if product.media.size > 1 -%}
+        <div class="gallery__thumbs" role="list">
+          {%- for media in product.media -%}
+            <button type="button" class="gallery__thumb{% if forloop.first %} is-active{% endif %}" data-thumb="{{ media.id }}" aria-label="{{ 'products.media_n' | t: n: forloop.index }}">
+              {{ media.preview_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Info {%- endcomment -%}
+    <div class="pdp__info">
+      {%- if s.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>{%- endif -%}
+      <h1 class="pdp__title display">{{ product.title }}</h1>
+
+      <div class="pdp__price" data-price-wrap>
+        <span class="price price--lg" data-price>{{ current_variant.price | money }}</span>
+        <s class="muted" data-compare{% unless current_variant.compare_at_price > current_variant.price %} hidden{% endunless %}>{{ current_variant.compare_at_price | money }}</s>
+        {%- if boxes > 1 -%}
+          <span class="per-box">{{ 'products.per_box' | t: price: per_box }}</span>
+        {%- endif -%}
+      </div>
+      <p class="small muted">
+        {%- if cart.taxes_included -%}{{ 'products.tax_included' | t }}{%- else -%}{{ 'products.tax_excluded' | t }}{%- endif -%}
+        {%- if shop.shipping_policy.body != blank %} · <a href="{{ shop.shipping_policy.url }}">{{ 'products.shipping_calc' | t }}</a>{% endif -%}
+      </p>
+
+      {%- comment -%} Format switcher: cross-links the 1 / 3 / 6 box products with honest per-box pricing {%- endcomment -%}
+      {%- if s.formats.count > 1 -%}
+        <div class="formats" role="radiogroup" aria-label="{{ 'products.format' | t }}">
+          <p class="formats__label">{{ 'products.format' | t }}</p>
+          {%- for f in s.formats -%}
+            {%- capture fb -%}{% render 'box-count', product: f %}{%- endcapture -%}
+            {%- assign fb = fb | plus: 0 -%}
+            {%- assign f_per = f.price | divided_by: fb | money -%}
+            {%- assign is_current = false -%}
+            {%- if f.id == product.id -%}{%- assign is_current = true -%}{%- endif -%}
+            <a href="{{ f.url }}" class="format{% if is_current %} is-active{% endif %}{% unless f.available %} is-soldout{% endunless %}" role="radio" aria-checked="{{ is_current }}">
+              <span class="format__name">
+                {%- if fb > 1 -%}{{ 'products.boxes_count' | t: count: fb }}{%- else -%}{{ 'products.single_box' | t }}{%- endif -%}
+              </span>
+              <span class="format__price">{{ f.price | money }}</span>
+              <span class="format__per muted">
+                {%- if f.available -%}
+                  {%- if fb > 1 -%}{{ 'products.per_box' | t: price: f_per }}{%- else -%}&nbsp;{%- endif -%}
+                {%- else -%}
+                  {{ 'products.sold_out' | t }}
+                {%- endif -%}
+              </span>
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.highlights != blank -%}
+        <ul class="checklist" role="list">
+          {%- assign lines = s.highlights | newline_to_br | split: '<br />' -%}
+          {%- for line in lines -%}
+            {%- assign l = line | strip -%}
+            {%- if l != blank -%}<li>{{ l }}</li>{%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- form 'product', product, id: form_id, class: 'pdp__form' -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <div class="field">
+              <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+              <select id="Option-{{ section.id }}-{{ forloop.index0 }}" data-option-index="{{ forloop.index0 }}">
+                {%- for value in option.values -%}
+                  <option value="{{ value | escape }}"{% if option.selected_value == value %} selected{% endif %}>{{ value }}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        {%- liquid
+          assign tracked = false
+          if current_variant.inventory_management == 'shopify' and current_variant.inventory_policy == 'deny'
+            assign tracked = true
+          endif
+        -%}
+        <p class="stock{% if current_variant.available %} stock--in{% else %} stock--out{% endif %}" data-stock>
+          {%- if current_variant.available == false -%}
+            {{ 'products.sold_out' | t }}
+          {%- elsif tracked and current_variant.inventory_quantity <= s.low_stock and current_variant.inventory_quantity > 0 -%}
+            <span class="dot dot--warn"></span> {{ 'products.low_stock' | t: count: current_variant.inventory_quantity }}
+          {%- else -%}
+            <span class="dot"></span> {% if s.in_stock_text != blank %}{{ s.in_stock_text }}{% else %}{{ 'products.in_stock' | t }}{% endif %}
+          {%- endif -%}
+        </p>
+
+        <div class="pdp__buy">
+          <div class="qty">
+            <button type="button" class="qty__btn" data-qty-step="-1" aria-label="{{ 'products.qty_down' | t }}">{% render 'icon', name: 'minus' %}</button>
+            <input class="qty__input" type="number" name="quantity" value="1" min="1" max="{% if tracked %}{{ current_variant.inventory_quantity }}{% else %}99{% endif %}" aria-label="{{ 'products.quantity' | t }}">
+            <button type="button" class="qty__btn" data-qty-step="1" aria-label="{{ 'products.qty_up' | t }}">{% render 'icon', name: 'plus' %}</button>
+          </div>
+          <button type="submit" name="add" class="btn btn--primary btn--lg btn--grow" data-add-btn {% unless current_variant.available %}disabled{% endunless %}>
+            <span data-add-label>{%- if current_variant.available -%}{{ 'products.add_to_cart' | t }}{%- else -%}{{ 'products.sold_out' | t }}{%- endif -%}</span>
+          </button>
+        </div>
+        {%- if s.show_dynamic_checkout -%}
+          <div class="pdp__dynamic">{{ form | payment_button }}</div>
+        {%- endif -%}
+        <p class="form-msg form-msg--err" data-form-error hidden role="alert"></p>
+      {%- endform -%}
+
+      <ul class="mini-trust" role="list">
+        {%- if s.trust_1 != blank -%}<li>{% render 'icon', name: 'lock' %} {{ s.trust_1 }}</li>{%- endif -%}
+        {%- if s.trust_2 != blank -%}<li>{% render 'icon', name: 'truck' %} {{ s.trust_2 }}</li>{%- endif -%}
+        {%- if s.trust_3 != blank -%}<li>{% render 'icon', name: 'return' %} {{ s.trust_3 }}</li>{%- endif -%}
+      </ul>
+
+      <div class="accordion accordion--pdp">
+        {%- if product.description != blank -%}
+          <details class="accordion__item" open>
+            <summary>{{ 'products.description' | t }} {% render 'icon', name: 'plus' %}</summary>
+            <div class="accordion__body rte">{{ product.description }}</div>
+          </details>
+        {%- endif -%}
+        {%- for block in section.blocks -%}
+          <details class="accordion__item" {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.title }} {% render 'icon', name: 'plus' %}</summary>
+            <div class="accordion__body rte">
+              {{ block.settings.content }}
+              {%- if block.settings.show_policies -%}
+                <p>
+                  {%- if shop.shipping_policy.body != blank -%}<a href="{{ shop.shipping_policy.url }}">{{ shop.shipping_policy.title }}</a>{%- endif -%}
+                  {%- if shop.refund_policy.body != blank %} · <a href="{{ shop.refund_policy.url }}">{{ shop.refund_policy.title }}</a>{%- endif -%}
+                </p>
+              {%- endif -%}
+            </div>
+          </details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Mobile sticky add-to-cart {%- endcomment -%}
+  <div class="sticky-buy" data-sticky-buy aria-hidden="true">
+    <div class="sticky-buy__info">
+      <p class="sticky-buy__title">{{ product.title }}</p>
+      <p class="sticky-buy__price" data-price-sticky>{{ current_variant.price | money }}</p>
+    </div>
+    <button type="submit" form="{{ form_id }}" class="btn btn--primary" data-add-btn tabindex="-1" {% unless current_variant.available %}disabled{% endunless %}>
+      {%- if current_variant.available -%}{{ 'products.add_to_cart' | t }}{%- else -%}{{ 'products.sold_out' | t }}{%- endif -%}
+    </button>
+  </div>
+
+  <script type="application/json" data-product-json>
+    {
+      "variants": [
+        {%- for v in product.variants -%}
+          {
+            "id": {{ v.id }},
+            "options": {{ v.options | json }},
+            "available": {{ v.available }},
+            "price": {{ v.price | money | json }},
+            "compare": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | money | json }}{% else %}null{% endif %},
+            "media": {% if v.featured_media %}{{ v.featured_media.id }}{% else %}null{% endif %}
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+</section>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ request.origin | append: product.url | json }},
+    {%- if product.featured_image -%}
+      "image": [{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' | json }}],
+    {%- endif -%}
+    "description": {{ product.description | strip_html | strip | json }},
+    {%- if current_variant.sku != blank -%}"sku": {{ current_variant.sku | json }},{%- endif -%}
+    "brand": { "@type": "Brand", "name": {{ product.vendor | json }} },
+    "offers": [
+      {%- for v in product.variants -%}
+        {
+          "@type": "Offer",
+          "availability": "http://schema.org/{% if v.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price": {{ v.price | divided_by: 100.0 | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "url": {{ request.origin | append: v.url | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Drop 001 · The Culling Game" },
+    { "type": "product_list", "id": "formats", "label": "Format switcher products", "limit": 4, "info": "Pick the 1-box, 3-box and 6-box products to cross-link them on every product page." },
+    { "type": "textarea", "id": "highlights", "label": "Highlights (one per line)", "default": "Factory-sealed blind box\n6 standard figures + 1 secret\nApprox. 8–10 cm, PVC/ABS · Ages 15+" },
+    { "type": "text", "id": "in_stock_text", "label": "In-stock message", "default": "In stock — ready to ship" },
+    { "type": "range", "id": "low_stock", "label": "Show 'only X left' at or below", "min": 1, "max": 20, "step": 1, "default": 5, "info": "Only shown when Shopify tracks inventory for the variant and blocks overselling." },
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Show express checkout buttons", "default": true },
+    { "type": "text", "id": "trust_1", "label": "Trust line 1", "default": "Secure checkout" },
+    { "type": "text", "id": "trust_2", "label": "Trust line 2", "default": "Tracked delivery" },
+    { "type": "text", "id": "trust_3", "label": "Trust line 3", "default": "14-day returns on unopened boxes" }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Accordion tab",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "How blind boxes work" },
+        { "type": "richtext", "id": "content", "label": "Content" },
+        { "type": "checkbox", "id": "show_policies", "label": "Add shipping & refund policy links", "default": false }
+      ]
+    }
+  ]
+}
+{% endschema %}

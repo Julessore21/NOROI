@@ -1,0 +1,64 @@
+{%- liquid
+  assign s = section.settings
+-%}
+<section class="hero hero--{{ s.height }}" style="--hero-focus: {{ s.focus_x }}% {{ s.focus_y }}%; --hero-overlay: {{ s.overlay | divided_by: 100.0 }}">
+  <div class="hero__media">
+    {%- if s.image != blank -%}
+      {{ s.image | image_url: width: 2400 | image_tag: widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', fetchpriority: 'high', loading: 'eager', alt: s.image.alt | default: '' }}
+    {%- else -%}
+      <img src="{{ 'noroi-hero.jpg' | asset_url }}" alt="" width="1672" height="941" fetchpriority="high">
+    {%- endif -%}
+  </div>
+  <div class="hero__content container container--wide">
+    <div class="hero__copy reveal">
+      {%- if s.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>{%- endif -%}
+      <h1 class="hero__title display">{{ s.title | newline_to_br }}</h1>
+      {%- if s.text != blank -%}<p class="hero__text">{{ s.text }}</p>{%- endif -%}
+      <div class="hero__ctas">
+        {%- if s.cta_label != blank -%}
+          <a href="{{ s.cta_link }}" class="btn btn--primary btn--lg">{{ s.cta_label }} {% render 'icon', name: 'arrow' %}</a>
+        {%- endif -%}
+        {%- if s.cta2_label != blank -%}
+          <a href="{{ s.cta2_link }}" class="btn btn--ghost btn--lg">{{ s.cta2_label }}</a>
+        {%- endif -%}
+      </div>
+      {%- if s.trust != blank -%}
+        <ul class="hero__trust" role="list">
+          {%- assign trust_items = s.trust | split: '|' -%}
+          {%- for t in trust_items -%}
+            <li>{% render 'icon', name: 'spark' %} {{ t | strip }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+  {%- if s.caption != blank -%}
+    <p class="hero__caption">{{ s.caption }}</p>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Leave empty to use the built-in campaign banner." },
+    { "type": "range", "id": "focus_x", "label": "Image focus (horizontal)", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 50 },
+    { "type": "range", "id": "focus_y", "label": "Image focus (vertical)", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 45 },
+    { "type": "range", "id": "overlay", "label": "Overlay darkness", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 45 },
+    { "type": "select", "id": "height", "label": "Height", "default": "full", "options": [
+      { "value": "full", "label": "Full screen" },
+      { "value": "large", "label": "Large" }
+    ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Drop 001 · The Culling Game" },
+    { "type": "textarea", "id": "title", "label": "Heading", "default": "Unbox\nthe unknown." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Six sealed figures. One hidden secret. Every box is a gamble only you can open." },
+    { "type": "text", "id": "cta_label", "label": "Primary button", "default": "Shop the drop" },
+    { "type": "url", "id": "cta_link", "label": "Primary link", "default": "/collections/all" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary button", "default": "How it works" },
+    { "type": "url", "id": "cta2_link", "label": "Secondary link", "default": "/#how-it-works" },
+    { "type": "text", "id": "trust", "label": "Trust points", "info": "Separate with |", "default": "Factory-sealed boxes | Secure checkout | Tracked shipping" },
+    { "type": "text", "id": "caption", "label": "Image caption", "info": "Use it to flag campaign artwork honestly.", "default": "Campaign artwork. The glowing silhouette is a mood piece, not a figure in this series." }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

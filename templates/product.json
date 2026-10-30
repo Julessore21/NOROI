@@ -1,0 +1,173 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "formats": [
+          "jujutsu-kaisen-blind-box-individuelle",
+          "jujutsu-kaisen-trio-mystere",
+          "jujutsu-kaisen-display-6-blind-boxes"
+        ]
+      },
+      "blocks": {
+        "tab0": {
+          "type": "tab",
+          "settings": {
+            "title": "How blind boxes work",
+            "content": "<p>Each box contains one random figure from the series. You can't choose or see the character before opening. Duplicates are possible, and the secret figure (≈ 1 in 72 boxes per the manufacturer) is never guaranteed.</p>"
+          }
+        },
+        "tab1": {
+          "type": "tab",
+          "settings": {
+            "title": "Product details",
+            "content": "<ul><li>Series: Jujutsu Kaisen — The Culling Game</li><li>6 standard figures + 1 secret</li><li>Figure size: approx. 8–10 cm</li><li>Material: PVC / ABS</li><li>Not suitable for children under 15</li></ul>"
+          }
+        },
+        "tab2": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping & returns",
+            "content": "<p>Every order ships with tracking. Costs and delivery estimates are shown at checkout. You have 14 days after delivery to withdraw from your purchase.</p>",
+            "show_policies": true
+          }
+        }
+      },
+      "block_order": [
+        "tab0",
+        "tab1",
+        "tab2"
+      ]
+    },
+    "lineup": {
+      "type": "lineup",
+      "settings": {
+        "heading": "Who's inside?",
+        "eyebrow": "The lineup"
+      },
+      "blocks": {
+        "fig0": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori",
+            "tag": "Standard",
+            "fallback": "noroi-yuji.jpg",
+            "secret": false
+          }
+        },
+        "fig1": {
+          "type": "figure",
+          "settings": {
+            "name": "Megumi Fushiguro",
+            "tag": "Standard",
+            "fallback": "noroi-megumi.jpg",
+            "secret": false
+          }
+        },
+        "fig2": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuta Okkotsu",
+            "tag": "Standard",
+            "fallback": "noroi-yuta.jpg",
+            "secret": false
+          }
+        },
+        "fig3": {
+          "type": "figure",
+          "settings": {
+            "name": "Choso",
+            "tag": "Standard",
+            "fallback": "noroi-choso.jpg",
+            "secret": false
+          }
+        },
+        "fig4": {
+          "type": "figure",
+          "settings": {
+            "name": "Naoya Zen'in",
+            "tag": "Standard",
+            "fallback": "noroi-naoya.jpg",
+            "secret": false
+          }
+        },
+        "fig5": {
+          "type": "figure",
+          "settings": {
+            "name": "Maki Zen'in",
+            "tag": "Standard",
+            "fallback": "",
+            "secret": false,
+            "note": "Photo coming soon"
+          }
+        },
+        "fig6": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori & Panda",
+            "tag": "Secret",
+            "fallback": "",
+            "secret": true,
+            "note": "The hidden figure. Approx. 1 in 72 boxes."
+          }
+        }
+      },
+      "block_order": [
+        "fig0",
+        "fig1",
+        "fig2",
+        "fig3",
+        "fig4",
+        "fig5",
+        "fig6"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "contact_text": ""
+      },
+      "blocks": {
+        "q0": {
+          "type": "question",
+          "settings": {
+            "question": "What's inside a blind box?",
+            "answer": "<p>One sealed box contains one random figure from the Culling Game series: one of the six standard characters or, rarely, the secret figure. You only find out who when you open it.</p>"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Can I choose my character?",
+            "answer": "<p>No. Every box is sealed and identical from the outside, which is the whole point of the ritual. If you want more chances at a specific character, bigger formats lower the price per box.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I get duplicates?",
+            "answer": "<p>Yes. Each box is random, so duplicates are possible, including in the 3-box pack. A 6-box display is a full manufacturer case; we do not guarantee a complete set or the secret figure.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "What are the odds of the secret figure?",
+            "answer": "<p>The manufacturer states roughly 1 secret in every 72 boxes. It is never guaranteed, whatever format you buy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "lineup",
+    "faq"
+  ]
+}

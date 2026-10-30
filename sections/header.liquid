@@ -1,0 +1,65 @@
+{%- liquid
+  assign menu = section.settings.menu
+  assign transparent = false
+  if section.settings.transparent_home and request.page_type == 'index'
+    assign transparent = true
+  endif
+-%}
+<header class="header{% if transparent %} header--transparent{% endif %}" data-header>
+  <div class="header__inner container container--wide">
+    <button type="button" class="icon-btn header__burger" data-menu-open aria-controls="MobileMenu" aria-expanded="false" aria-label="{{ 'accessibility.menu' | t }}">
+      {% render 'icon', name: 'menu' %}
+    </button>
+
+    <a href="{{ routes.root_url }}" class="header__logo" aria-label="{{ shop.name }}">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 240 | image_tag: alt: shop.name, width: section.settings.logo_width, height: section.settings.logo_width, class: 'header__logo-img' }}
+      {%- else -%}
+        <img src="{{ 'noroi-logo.jpg' | asset_url }}" alt="{{ shop.name }}" width="{{ section.settings.logo_width }}" height="{{ section.settings.logo_width }}" class="header__logo-img header__logo-img--blend">
+      {%- endif -%}
+    </a>
+
+    <nav class="header__nav" aria-label="{{ 'accessibility.main_nav' | t }}">
+      <ul role="list">
+        {%- for link in menu.links -%}
+          <li><a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <a href="{{ routes.search_url }}" class="icon-btn" aria-label="{{ 'accessibility.search' | t }}">{% render 'icon', name: 'search' %}</a>
+      <a href="{{ routes.cart_url }}" class="icon-btn header__cart" data-cart-open aria-label="{{ 'cart.title' | t }}">
+        {% render 'icon', name: 'cart' %}
+        <span class="header__count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="MobileMenu" hidden>
+    <nav aria-label="{{ 'accessibility.main_nav' | t }}">
+      <ul role="list">
+        {%- for link in menu.links -%}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+    {%- if section.settings.menu_cta_link != blank -%}
+      <a class="btn btn--primary btn--block" href="{{ section.settings.menu_cta_link }}">{{ section.settings.menu_cta_label }}</a>
+    {%- endif -%}
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo", "info": "Leave empty to use the built-in NOROI emblem." },
+    { "type": "range", "id": "logo_width", "label": "Logo size", "min": 40, "max": 120, "step": 4, "unit": "px", "default": 64 },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "transparent_home", "label": "Transparent over homepage hero", "default": true },
+    { "type": "text", "id": "menu_cta_label", "label": "Mobile menu button label", "default": "Shop the drop" },
+    { "type": "url", "id": "menu_cta_link", "label": "Mobile menu button link", "default": "/collections/all" }
+  ]
+}
+{% endschema %}

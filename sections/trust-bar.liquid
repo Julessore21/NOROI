@@ -1,0 +1,41 @@
+<section class="trust">
+  <div class="container container--wide">
+    <ul class="trust__list" role="list">
+      {%- for block in section.blocks -%}
+        <li class="trust__item" {{ block.shopify_attributes }}>
+          {% render 'icon', name: block.settings.icon %}
+          <div>
+            <p class="trust__title">{{ block.settings.title }}</p>
+            {%- if block.settings.text != blank -%}<p class="trust__text muted small">{{ block.settings.text }}</p>{%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust bar",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "default": "lock", "options": [
+          { "value": "lock", "label": "Lock" },
+          { "value": "truck", "label": "Truck" },
+          { "value": "box", "label": "Box" },
+          { "value": "shield", "label": "Shield" },
+          { "value": "return", "label": "Return" },
+          { "value": "mail", "label": "Mail" }
+        ] },
+        { "type": "text", "id": "title", "label": "Title", "default": "Secure checkout" },
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Trust bar" }]
+}
+{% endschema %}

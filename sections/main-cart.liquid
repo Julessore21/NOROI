@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="container container--narrow">
+    <h1 class="h2 page-title">{{ 'cart.title' | t }}</h1>
+    <div class="cart-page" data-cart-page>
+      {% render 'cart-contents', context: 'page' %}
+    </div>
+    <noscript>
+      <form action="{{ routes.cart_url }}" method="post" class="cart-noscript">
+        {%- for item in cart.items -%}
+          <label>{{ item.product.title }}
+            <input type="number" name="updates[]" value="{{ item.quantity }}" min="0">
+          </label>
+        {%- endfor -%}
+        <button type="submit" class="btn btn--ghost">{{ 'cart.update' | t }}</button>
+      </form>
+    </noscript>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": []
+}
+{% endschema %}

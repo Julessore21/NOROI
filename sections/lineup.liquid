@@ -1,0 +1,66 @@
+<section class="section lineup" id="{{ section.settings.anchor | default: 'lineup' }}">
+  <div class="container container--wide">
+    <div class="section-head reveal">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="h1 display">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<p class="section-head__text">{{ section.settings.text }}</p>{%- endif -%}
+    </div>
+
+    <ul class="lineup__grid" role="list">
+      {%- for block in section.blocks -%}
+        {%- assign b = block.settings -%}
+        <li class="figure{% if b.secret %} figure--secret{% endif %} reveal" style="--d: {{ forloop.index0 | times: 60 }}ms" {{ block.shopify_attributes }}>
+          <div class="figure__media">
+            {%- if b.image != blank -%}
+              {{ b.image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '300, 450, 600, 700', sizes: '(min-width: 990px) 25vw, 50vw', alt: b.name }}
+            {%- elsif b.fallback != blank -%}
+              <img src="{{ b.fallback | asset_url }}" alt="{{ b.name | escape }}" loading="lazy" width="900" height="1124">
+            {%- else -%}
+              <div class="figure__veil" aria-hidden="true">
+                <span class="figure__q">{% if b.secret %}?{% else %}呪{% endif %}</span>
+              </div>
+            {%- endif -%}
+            <span class="badge{% if b.secret %} badge--accent{% endif %}">{{ b.tag }}</span>
+          </div>
+          <div class="figure__body">
+            <p class="figure__name">{{ b.name }}</p>
+            {%- if b.note != blank -%}<p class="figure__note muted small">{{ b.note }}</p>{%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.settings.footnote != blank -%}
+      <p class="lineup__note muted small">{{ section.settings.footnote }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lineup",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "lineup" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Culling Game series" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Six figures. One secret." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Every sealed box hides one of the six standard figures — or, if fate allows, the secret." },
+    { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "Photos are campaign renders of the series figures; final paint may differ slightly." }
+  ],
+  "blocks": [
+    {
+      "type": "figure",
+      "name": "Figure",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Character name", "default": "Character" },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "Standard" },
+        { "type": "text", "id": "note", "label": "Note" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "fallback", "label": "Built-in image file", "info": "Theme asset used when no image is picked, e.g. noroi-yuji.jpg. Leave empty for a mystery card." },
+        { "type": "checkbox", "id": "secret", "label": "Secret figure styling", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lineup" }]
+}
+{% endschema %}

@@ -1,0 +1,21 @@
+<section class="section">
+  <div class="container">
+    <div class="section-head"><h1 class="h1 display">{{ 'collections.all' | t }}</h1></div>
+    <div class="grid grid--3">
+      {%- for c in collections -%}
+        <a class="tile" href="{{ c.url }}">
+          {%- if c.featured_image -%}
+            {{ c.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw', widths: '450, 700, 900', alt: c.title }}
+          {%- else -%}
+            {{ 'collection-1' | placeholder_svg_tag: 'placeholder' }}
+          {%- endif -%}
+          <span class="tile__title">{{ c.title }} {% render 'icon', name: 'arrow' %}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}
