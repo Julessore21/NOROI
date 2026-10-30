@@ -10,44 +10,205 @@
   {
     "name": "Brand",
     "settings": [
-      { "type": "text", "id": "brand_name", "label": "Brand name", "default": "NOROI" },
-      { "type": "text", "id": "tagline", "label": "Tagline", "default": "Collect the unknown." },
-      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Square PNG, 96×96 px or larger." },
-      { "type": "image_picker", "id": "share_image", "label": "Social sharing image" },
-      { "type": "url", "id": "social_instagram", "label": "Instagram URL" },
-      { "type": "url", "id": "social_tiktok", "label": "TikTok URL" }
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand name",
+        "default": "NOROI"
+      },
+      {
+        "type": "text",
+        "id": "tagline",
+        "label": "Tagline",
+        "default": "Collect the unknown."
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Square PNG, 96×96 px or larger."
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Social sharing image"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      }
     ]
   },
   {
     "name": "Colors",
     "settings": [
-      { "type": "color", "id": "color_bg", "label": "Background", "default": "#0A0D14" },
-      { "type": "color", "id": "color_surface", "label": "Surface", "default": "#10141D" },
-      { "type": "color", "id": "color_line", "label": "Borders", "default": "#262836" },
-      { "type": "color", "id": "color_text", "label": "Text", "default": "#EEE9E3" },
-      { "type": "color", "id": "color_muted", "label": "Muted text", "default": "#9A98A6" },
-      { "type": "color", "id": "color_accent", "label": "Crimson accent", "default": "#B93748" },
-      { "type": "color", "id": "color_aura", "label": "Mystery aura (blue)", "default": "#3D7BFF" }
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Background",
+        "default": "#0A0D14"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Surface",
+        "default": "#10141D"
+      },
+      {
+        "type": "color",
+        "id": "color_line",
+        "label": "Borders",
+        "default": "#262836"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#EEE9E3"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted text",
+        "default": "#9A98A6"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Crimson accent",
+        "default": "#B93748"
+      },
+      {
+        "type": "color",
+        "id": "color_aura",
+        "label": "Mystery aura (blue)",
+        "default": "#3D7BFF"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "select",
+        "id": "display_font",
+        "label": "Display font (big titles)",
+        "default": "bangers",
+        "options": [
+          {
+            "value": "bangers",
+            "label": "Bangers — manga sound effects"
+          },
+          {
+            "value": "shojumaru",
+            "label": "Shojumaru — brush-cut anime title"
+          },
+          {
+            "value": "dela",
+            "label": "Dela Gothic One — heavy Japanese gothic"
+          },
+          {
+            "value": "barlow",
+            "label": "Barlow Condensed — clean condensed"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Buttons, prices and small labels always stay in Barlow Condensed for legibility."
+      }
     ]
   },
   {
     "name": "Cart",
     "settings": [
-      { "type": "select", "id": "cart_type", "label": "After add to cart", "default": "drawer", "options": [
-        { "value": "drawer", "label": "Open cart drawer" },
-        { "value": "page", "label": "Go to cart page" }
-      ] },
-      { "type": "number", "id": "free_shipping_threshold", "label": "Free shipping threshold (store currency)", "default": 0, "info": "Shows a progress bar in the cart. 0 = hidden. Must match a real free-shipping rate in Settings > Shipping." },
-      { "type": "header", "content": "Box rewards" },
-      { "type": "paragraph", "content": "Rewards are counted in boxes (a 3-pack counts as 3). Only promise what is real: create the matching automatic discount in Discounts, or actually ship the gift." },
-      { "type": "range", "id": "reward1_boxes", "label": "Reward 1: boxes needed (0 = off)", "min": 0, "max": 12, "step": 1, "default": 0 },
-      { "type": "text", "id": "reward1_label", "label": "Reward 1 label", "default": "Free NOROI sticker" },
-      { "type": "range", "id": "reward2_boxes", "label": "Reward 2: boxes needed (0 = off)", "min": 0, "max": 12, "step": 1, "default": 0 },
-      { "type": "text", "id": "reward2_label", "label": "Reward 2 label", "default": "10% off your order" },
-      { "type": "header", "content": "Upsell" },
-      { "type": "product", "id": "cart_upsell_product", "label": "Cart upsell product" },
-      { "type": "text", "id": "cart_upsell_heading", "label": "Upsell heading", "default": "Go further — lower price per box" },
-      { "type": "url", "id": "cart_empty_link", "label": "Empty cart button link" }
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "After add to cart",
+        "default": "drawer",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Open cart drawer"
+          },
+          {
+            "value": "page",
+            "label": "Go to cart page"
+          }
+        ]
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold (store currency)",
+        "default": 0,
+        "info": "Shows a progress bar in the cart. 0 = hidden. Must match a real free-shipping rate in Settings > Shipping."
+      },
+      {
+        "type": "header",
+        "content": "Box rewards"
+      },
+      {
+        "type": "paragraph",
+        "content": "Rewards are counted in boxes (a 3-pack counts as 3). Only promise what is real: create the matching automatic discount in Discounts, or actually ship the gift."
+      },
+      {
+        "type": "range",
+        "id": "reward1_boxes",
+        "label": "Reward 1: boxes needed (0 = off)",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "default": 0
+      },
+      {
+        "type": "text",
+        "id": "reward1_label",
+        "label": "Reward 1 label",
+        "default": "Free NOROI sticker"
+      },
+      {
+        "type": "range",
+        "id": "reward2_boxes",
+        "label": "Reward 2: boxes needed (0 = off)",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "default": 0
+      },
+      {
+        "type": "text",
+        "id": "reward2_label",
+        "label": "Reward 2 label",
+        "default": "10% off your order"
+      },
+      {
+        "type": "header",
+        "content": "Upsell"
+      },
+      {
+        "type": "product",
+        "id": "cart_upsell_product",
+        "label": "Cart upsell product"
+      },
+      {
+        "type": "text",
+        "id": "cart_upsell_heading",
+        "label": "Upsell heading",
+        "default": "Go further — lower price per box"
+      },
+      {
+        "type": "url",
+        "id": "cart_empty_link",
+        "label": "Empty cart button link"
+      }
     ]
   }
 ]
