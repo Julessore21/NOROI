@@ -98,8 +98,8 @@
       {
         "type": "select",
         "id": "display_font",
-        "label": "Display font (big titles)",
-        "default": "knewave",
+        "label": "Title font",
+        "default": "bangers",
         "options": [
           {
             "value": "knewave",
@@ -120,6 +120,23 @@
           {
             "value": "barlow",
             "label": "Barlow Condensed — clean condensed"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "accent_font",
+        "label": "Accent font (highlighted words)",
+        "default": "knewave",
+        "info": "Used for the red words in titles.",
+        "options": [
+          {
+            "value": "knewave",
+            "label": "Knewave — ink-brush manga"
+          },
+          {
+            "value": "same",
+            "label": "Same as title font"
           }
         ]
       },

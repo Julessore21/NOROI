@@ -1042,3 +1042,6 @@ h1, h2, h3, h4, p { margin: 0; }
 .offer__title { font-size: calc(clamp(1.5rem, 2vw, 1.9rem) * var(--display-scale, 1)); }
 @media (max-width: 749px) { .hero__title { font-size: calc(clamp(2.3rem, 11vw, 3.4rem) * var(--display-scale, 1)); } }
 @media (min-width: 1100px) { .hero__copy { max-width: 860px; } }
+
+/* Accent words in titles: manga brush font */
+.display em, .cart-page__title em { font-family: var(--font-accent); font-size: var(--accent-size, 1em); font-weight: 400; letter-spacing: .01em; padding-right: .06em; }

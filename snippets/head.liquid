@@ -86,10 +86,20 @@
   endcase
 -%}
 {%- if df_file != blank -%}{{ df_file | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}{%- endif %}
+{%- liquid
+  assign accent_on = false
+  if settings.accent_font == 'knewave' and df_name != 'Knewave'
+    assign accent_on = true
+  endif
+-%}
+{%- if accent_on -%}{{ 'knewave.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}{%- endif %}
 
 <style>
   @font-face { font-family: 'Barlow Condensed'; font-weight: 600; font-style: normal; font-display: swap; src: url('{{ 'barlow-condensed-600.woff2' | asset_url }}') format('woff2'); }
   @font-face { font-family: 'Barlow Condensed'; font-weight: 800; font-style: normal; font-display: swap; src: url('{{ 'barlow-condensed-800.woff2' | asset_url }}') format('woff2'); }
+  {%- if accent_on %}
+  @font-face { font-family: 'Knewave'; font-weight: 400; font-style: normal; font-display: swap; src: url('{{ 'knewave.woff2' | asset_url }}') format('woff2'); }
+  {%- endif %}
   {%- if df_file != blank %}
   @font-face { font-family: '{{ df_name }}'; font-weight: 400; font-style: normal; font-display: swap; src: url('{{ df_file | asset_url }}') format('woff2'); }
   {%- endif %}
@@ -97,6 +107,8 @@
 
   :root {
     --font-display: '{{ df_name }}', 'Barlow Condensed', Impact, sans-serif;
+    --font-accent: {% if accent_on %}'Knewave', {% endif %}var(--font-display);
+    --accent-size: {% if accent_on %}calc(1.08em / {{ df_scale }}){% else %}1em{% endif %};
     --display-scale: {{ df_scale }};
     --display-track: {{ df_track }};
     --display-weight: {% if df_name == 'Barlow Condensed' %}800{% else %}400{% endif %};
