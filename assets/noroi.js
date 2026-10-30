@@ -486,6 +486,71 @@
     });
   }
 
+  /* ---------- Simulator: tapping the box opens it too ---------- */
+  $$('unbox-sim').forEach((sim) => {
+    const arena = $('.sim__arena', sim);
+    if (arena) arena.addEventListener('click', () => { if (!sim.classList.contains('is-revealed')) sim.open(); });
+  });
+
+  /* ---------- Hero parallax (desktop, mouse) ---------- */
+  if (!reduced && window.matchMedia('(hover: hover) and (min-width: 1100px)').matches) {
+    $$('[data-hero]').forEach((hero) => {
+      hero.classList.add('is-parallax');
+      let raf = 0;
+      hero.addEventListener('pointermove', (e) => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = 0;
+          const r = hero.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          hero.style.setProperty('--px', `${(-x * 22).toFixed(1)}px`);
+          hero.style.setProperty('--py', `${(-y * 14).toFixed(1)}px`);
+        });
+      }, { passive: true });
+      hero.addEventListener('pointerleave', () => { hero.style.setProperty('--px', '0px'); hero.style.setProperty('--py', '0px'); });
+    });
+  }
+
+  /* ---------- Key numbers count up when they enter the screen ---------- */
+  const countUp = (el) => {
+    const src = el.textContent;
+    const nums = src.match(/\d+/g);
+    if (!nums) return;
+    const start = performance.now();
+    const dur = 1400;
+    const step = (now) => {
+      const k = Math.min(1, (now - start) / dur);
+      const e = 1 - Math.pow(1 - k, 3);
+      let i = 0;
+      el.textContent = src.replace(/\d+/g, () => String(Math.round(Number(nums[i++]) * e)));
+      if (k < 1) requestAnimationFrame(step); else el.textContent = src;
+    };
+    requestAnimationFrame(step);
+  };
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) { countUp(en.target); io.unobserve(en.target); }
+    }), { threshold: 0.6 });
+    $$('.stats__value').forEach((el) => io.observe(el));
+  }
+
+  /* ---------- Reading progress bar ---------- */
+  if (!reduced) {
+    const bar = document.createElement('div');
+    bar.className = 'progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+
   /* ---------- Hero particles: rising embers and a few kanji ---------- */
   $$('[data-particles]').forEach((canvas) => {
     if (reduced) return;

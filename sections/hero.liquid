@@ -7,7 +7,7 @@
     assign hero_ratio = s.image.aspect_ratio
   endif
 -%}
-<section class="hero hero--{{ s.height }}" style="--hero-ratio: {{ hero_ratio }}; --hero-focus: {{ s.focus_x }}% {{ s.focus_y }}%; --hero-overlay: {{ s.overlay | divided_by: 100.0 }}">
+<section class="hero hero--{{ s.height }}" data-hero style="--hero-ratio: {{ hero_ratio }}; --hero-focus: {{ s.focus_x }}% {{ s.focus_y }}%; --hero-overlay: {{ s.overlay | divided_by: 100.0 }}">
   <div class="hero__media">
     {%- if s.video != blank -%}
       {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '1600x' }}
@@ -16,6 +16,7 @@
     {%- else -%}
       <img src="{{ 'noroi-hero.jpg' | asset_url }}" alt="" width="1672" height="941" fetchpriority="high">
     {%- endif -%}
+    {%- if s.secret_glow -%}<span class="hero__glow" style="left: {{ s.glow_x }}%; top: {{ s.glow_y }}%" aria-hidden="true"></span>{%- endif -%}
   </div>
   {%- if s.particles -%}<canvas class="hero__particles" data-particles aria-hidden="true"></canvas>{%- endif -%}
   <div class="hero__content container container--wide">
@@ -56,6 +57,9 @@
     { "type": "image_picker", "id": "image", "label": "Image", "info": "Leave empty to use the built-in campaign banner." },
     { "type": "video", "id": "video", "label": "Background video", "info": "Optional. A short real unboxing loop (muted). Replaces the image." },
     { "type": "checkbox", "id": "particles", "label": "Floating embers & kanji", "default": true },
+    { "type": "checkbox", "id": "secret_glow", "label": "Breathing glow on the secret", "info": "Blue aura placed over the secret silhouette of the image.", "default": true },
+    { "type": "range", "id": "glow_x", "label": "Glow position (horizontal)", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 89 },
+    { "type": "range", "id": "glow_y", "label": "Glow position (vertical)", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 42 },
     { "type": "range", "id": "focus_x", "label": "Image focus (horizontal)", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 50 },
     { "type": "range", "id": "focus_y", "label": "Image focus (vertical)", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 45 },
     { "type": "range", "id": "overlay", "label": "Overlay darkness", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 45 },

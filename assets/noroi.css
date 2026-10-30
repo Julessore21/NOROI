@@ -150,7 +150,7 @@ h1, h2, h3, h4, p { margin: 0; }
   content: ''; position: absolute; inset: 0;
   background:
     linear-gradient(180deg, rgba(10,13,20,.55) 0%, transparent 18%, transparent 48%, rgba(10,13,20,.65) 78%, var(--c-bg) 100%),
-    linear-gradient(90deg, rgba(10,13,20, var(--hero-overlay)) 0%, transparent 55%);
+    linear-gradient(90deg, rgba(10,13,20, calc(var(--hero-overlay) + .3)) 0%, rgba(10,13,20, var(--hero-overlay)) 32%, transparent 60%);
 }
 .hero__content { align-self: end; padding-block: 110px clamp(2.5rem, 5vw, 4.5rem); }
 .hero__copy { max-width: 680px; }
@@ -257,7 +257,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .split__veil { position: relative; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid rgba(var(--c-aura-rgb), .35); background: radial-gradient(circle at 50% 45%, rgba(var(--c-aura-rgb), .28), #07070c 65%); }
 .split__veil::before { content: ''; position: absolute; width: 62%; aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(var(--c-aura-rgb), .3); box-shadow: 0 0 100px rgba(var(--c-aura-rgb), .25), inset 0 0 80px rgba(var(--c-aura-rgb), .25); }
 .split__veil span { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(8rem, 20vw, 16rem); font-family: Georgia, serif; font-weight: 400; color: #c4eaff; text-shadow: 0 0 40px rgba(var(--c-aura-rgb), 1), 0 0 130px rgba(var(--c-aura-rgb), .8); animation: pulse 3.2s ease-in-out infinite; }
-.split--aura { background: radial-gradient(circle at 75% 50%, #10254a, var(--c-bg) 55%); }
+.split--aura { background: radial-gradient(circle at 75% 50%, #10254a, var(--c-bg) 55%); overflow: clip; }
 .split--aura .eyebrow--accent { color: #7fb3ff; }
 /* Mystery card: shown portrait and capped so low-res artwork stays crisp */
 .split--aura .split__media { width: min(100%, 440px); margin-inline: auto; isolation: isolate; }
@@ -746,3 +746,69 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
 .search-empty { color: var(--c-soft); max-width: 46ch; margin: 0 auto 2rem; }
+
+/* ==========================================================================
+   Motion pass: hero entrance, secret glow, parallax, count-up, shine, progress
+   ========================================================================== */
+/* Hero: staggered cinematic entrance */
+.js .hero__copy > * { animation: heroIn 1s cubic-bezier(.2,.7,.2,1) both; }
+.js .hero__copy > :nth-child(1) { animation-delay: .25s; }
+.js .hero__copy > .hero__title { animation: heroTitle 1.1s cubic-bezier(.2,.7,.2,1) .4s both; }
+.js .hero__copy > :nth-child(3) { animation-delay: .75s; }
+.js .hero__copy > :nth-child(4) { animation-delay: .9s; }
+.js .hero__copy > :nth-child(5) { animation-delay: 1.05s; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes heroTitle { from { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(40px); } to { opacity: 1; clip-path: inset(-20% -10% -30% -10%); transform: none; } }
+
+/* Hero: parallax (desktop) + breathing aura on the secret */
+.hero__media img, .hero__media video, .hero__glow { translate: var(--px, 0) var(--py, 0); transition: translate .6s cubic-bezier(.2,.7,.2,1); }
+.hero.is-parallax .hero__media img, .hero.is-parallax .hero__media video { scale: 1.04; }
+.hero__glow { position: absolute; width: 18%; aspect-ratio: 1; margin: -9% 0 0 -9%; border-radius: 50%; pointer-events: none; mix-blend-mode: screen;
+  background: radial-gradient(circle, rgba(120,170,255,.55), rgba(var(--c-aura-rgb), .25) 40%, transparent 68%);
+  animation: secretBreath 4.2s ease-in-out 1.2s infinite both; }
+@keyframes secretBreath { 0%, 100% { opacity: .25; transform: scale(.85); } 50% { opacity: .9; transform: scale(1.12); } }
+@media (max-width: 749px) { .hero__trust { display: none; } }
+
+/* Section titles: a light sweeps across the accent words when they appear */
+.js .reveal .h1.display em, .js .reveal .h2.display em {
+  background: linear-gradient(100deg, var(--c-accent) 0 40%, #ffc2ca 50%, var(--c-accent) 60% 100%);
+  background-size: 260% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; color: transparent; }
+.js .reveal.is-in .h1.display em, .js .reveal.is-in .h2.display em { animation: emShine 1.6s cubic-bezier(.4,0,.2,1) .45s both; }
+@keyframes emShine { from { background-position: 100% 0; } to { background-position: 0 0; } }
+
+/* Primary buttons: light sweep on hover */
+.btn--primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn--primary::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.28) 50%, transparent 70%); transform: translateX(-120%); transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+.btn--primary:hover::after { transform: translateX(120%); }
+
+/* Simulator: floor shadow that follows the float, the box itself is clickable */
+.sim__arena::after { content: ''; position: absolute; left: 50%; top: calc(50% + 160px); width: 170px; height: 18px; margin-left: -85px; border-radius: 50%; background: radial-gradient(closest-side, rgba(var(--glow), .45), transparent); filter: blur(4px); animation: floorShadow 4s ease-in-out infinite; pointer-events: none; }
+@keyframes floorShadow { 50% { transform: scale(.82); opacity: .6; } }
+.is-split .sim__arena::after, .is-revealed .sim__arena::after { opacity: 0; animation: none; }
+.sim__stage:not(.is-charging):not(.is-revealed) .sim__arena { cursor: pointer; }
+.sim__stage:not(.is-charging):not(.is-revealed) .sim__arena:hover .sim__aura { opacity: .8; transform: scale(1.05); }
+@media (max-width: 479px) { .sim__arena::after { top: calc(50% + 150px); } }
+
+/* Lineup: the secret card breathes and flickers like a cursed signal */
+.figure--secret .figure__media { animation: secretCard 3.6s ease-in-out infinite; }
+@keyframes secretCard { 0%, 100% { box-shadow: 0 0 0 rgba(var(--c-aura-rgb), 0); } 50% { box-shadow: 0 0 34px -4px rgba(var(--c-aura-rgb), .75); } }
+.figure--secret .figure__media img { animation: flicker 7s steps(1) infinite; }
+@keyframes flicker { 0%, 90%, 100% { opacity: 1; translate: 0; } 91% { opacity: .55; translate: -3px 0; } 92% { opacity: 1; translate: 2px 0; } 93% { opacity: .7; translate: 0; } }
+.figure { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.figure:hover { transform: translateY(-6px); }
+
+/* CTA banner: slow drift so the scene feels alive */
+.banner__media img { animation: drift 26s ease-in-out infinite alternate; }
+@keyframes drift { from { transform: scale(1.04) translate(0, 0); } to { transform: scale(1.12) translate(-2%, -1%); } }
+.banner::before { background: radial-gradient(ellipse at center, rgba(10,13,20,.35), rgba(10,13,20,.78)), linear-gradient(180deg, var(--c-bg), transparent 22%, transparent 78%, var(--c-bg)); }
+
+/* Key numbers: tabular digits while counting */
+.stats__value { font-variant-numeric: tabular-nums; }
+
+/* Reading progress */
+.progress { position: fixed; left: 0; top: 0; z-index: 70; width: 100%; height: 2px; background: linear-gradient(90deg, var(--c-accent), #ff6b7d); transform-origin: 0 50%; transform: scaleX(0); pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero__copy > *, .hero__glow, .figure--secret .figure__media, .figure--secret .figure__media img, .banner__media img, .sim__arena::after { animation: none !important; }
+  .js .reveal .h1.display em, .js .reveal .h2.display em { animation: none; background-position: 0 0; }
+}
