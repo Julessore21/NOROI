@@ -259,6 +259,10 @@ h1, h2, h3, h4, p { margin: 0; }
 .split__veil span { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(8rem, 20vw, 16rem); font-family: Georgia, serif; font-weight: 400; color: #c4eaff; text-shadow: 0 0 40px rgba(var(--c-aura-rgb), 1), 0 0 130px rgba(var(--c-aura-rgb), .8); animation: pulse 3.2s ease-in-out infinite; }
 .split--aura { background: radial-gradient(circle at 75% 50%, #10254a, var(--c-bg) 55%); }
 .split--aura .eyebrow--accent { color: #7fb3ff; }
+/* Mystery card: shown portrait and capped so low-res artwork stays crisp */
+.split--aura .split__media { width: min(100%, 440px); margin-inline: auto; isolation: isolate; }
+.split--aura .split__media::before { content: ''; position: absolute; inset: 8% -12% 12%; z-index: -1; border-radius: 50%; background: radial-gradient(circle, rgba(var(--c-aura-rgb), .45), transparent 65%); filter: blur(30px); animation: pulse 4s ease-in-out infinite; }
+.split--aura .split__media img { aspect-ratio: 4 / 5; border-color: rgba(var(--c-aura-rgb), .45); box-shadow: 0 0 0 1px rgba(var(--c-aura-rgb), .15), 0 30px 80px -20px rgba(var(--c-aura-rgb), .55); }
 .facts { margin: 0 0 2rem; border-top: 1px solid var(--c-line); }
 .facts__row { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--c-line); }
 .facts dt { color: var(--c-muted); }
