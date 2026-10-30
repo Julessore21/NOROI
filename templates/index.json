@@ -164,41 +164,6 @@
         "fig6"
       ]
     },
-    "secret": {
-      "type": "image-text",
-      "settings": {
-        "anchor": "secret",
-        "layout": "right",
-        "aura": true,
-        "fallback": "noroi-secret.jpg",
-        "eyebrow": "The secret",
-        "heading": "Who's [behind the ?]",
-        "text": "<p>One figure isn't shown on the packaging. Nobody knows who it is until the seal breaks — and no format guarantees it.</p>",
-        "cta_label": "Try your luck",
-        "cta_link": "/#shop",
-        "caption": ""
-      },
-      "blocks": {
-        "f0": {
-          "type": "fact",
-          "settings": {
-            "label": "Odds (manufacturer)",
-            "value": "≈ 1 in 72 boxes"
-          }
-        },
-        "f1": {
-          "type": "fact",
-          "settings": {
-            "label": "Guaranteed?",
-            "value": "Never"
-          }
-        }
-      },
-      "block_order": [
-        "f0",
-        "f1"
-      ]
-    },
     "steps": {
       "type": "steps",
       "settings": {
@@ -596,7 +561,6 @@
     "sim",
     "marquee",
     "lineup",
-    "secret",
     "stats",
     "tracker",
     "steps",
