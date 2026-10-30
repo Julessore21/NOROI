@@ -15,7 +15,6 @@
 - [ ] Navigation: `main-menu` (Shop, Lineup → `/#lineup`, How it works → `/#how-it-works`, FAQ → `/#faq`) and `footer` (Contact, Shipping, Returns).
 - [ ] Create a `contact` page (template `page`). The FAQ links to `/pages/contact`.
 - [ ] Free shipping: if you offer it, create the rate in Shipping, then set the same amount in Theme settings > Cart.
-- [ ] Add a real Maki Zen'in photo in the Lineup section. No Maki image exists in the assets. Note: `noroi-maki-editorial.jpg` from V7 actually shows Naoya.
 - [ ] Place a test order (Bogus Gateway / test mode).
 
 ## Conversion features to switch on
@@ -25,4 +24,3 @@
 - [ ] **Drop countdown**: enter the real launch date in the "Drop countdown" section, or leave it empty (hidden).
 - [ ] **Hero video**: upload a 6–10 s muted unboxing loop (real footage beats AI images).
 - [ ] **Abandoned checkout emails**: Marketing > Automations > Abandoned checkout (Shopify Email, free).
-- [ ] **Maki photo**: add it to Lineup, Simulator and Tracker sections (image field).

@@ -1,7 +1,13 @@
 {%- liquid
   assign s = section.settings
 -%}
-<section class="hero hero--{{ s.height }}" style="--hero-focus: {{ s.focus_x }}% {{ s.focus_y }}%; --hero-overlay: {{ s.overlay | divided_by: 100.0 }}">
+{%- liquid
+  assign hero_ratio = '1672 / 941'
+  if s.image != blank
+    assign hero_ratio = s.image.aspect_ratio
+  endif
+-%}
+<section class="hero hero--{{ s.height }}" style="--hero-ratio: {{ hero_ratio }}; --hero-focus: {{ s.focus_x }}% {{ s.focus_y }}%; --hero-overlay: {{ s.overlay | divided_by: 100.0 }}">
   <div class="hero__media">
     {%- if s.video != blank -%}
       {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '1600x' }}
@@ -53,13 +59,13 @@
     { "type": "range", "id": "focus_x", "label": "Image focus (horizontal)", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 50 },
     { "type": "range", "id": "focus_y", "label": "Image focus (vertical)", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 45 },
     { "type": "range", "id": "overlay", "label": "Overlay darkness", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 45 },
-    { "type": "select", "id": "height", "label": "Height", "default": "full", "options": [
-      { "value": "full", "label": "Full screen" },
-      { "value": "large", "label": "Large" }
+    { "type": "select", "id": "height", "label": "Image framing", "default": "full", "options": [
+      { "value": "full", "label": "Whole image (responsive)" },
+      { "value": "large", "label": "Fill the screen (may crop)" }
     ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Drop 001 · The Culling Game" },
     { "type": "textarea", "id": "title", "label": "Heading", "default": "Unbox\n[the unknown.]" },
-    { "type": "textarea", "id": "text", "label": "Text", "default": "Six sealed figures. One hidden secret. Every box is a gamble only you can open." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Five figures. One hidden secret. Every box is a gamble only you can open." },
     { "type": "text", "id": "cta_label", "label": "Primary button", "default": "Shop the drop" },
     { "type": "url", "id": "cta_link", "label": "Primary link", "default": "/collections/all" },
     { "type": "text", "id": "cta2_label", "label": "Secondary button", "default": "How it works" },

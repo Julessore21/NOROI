@@ -12,20 +12,35 @@
     </div>
 
     <unbox-sim class="sim__stage" data-secret-odds="{{ s.secret_odds }}">
-      <div class="sim__box" data-sim-box aria-hidden="true">
-        <div class="sim__lid"></div>
-        <div class="sim__body">
-          <span class="sim__brand">{{ settings.brand_name | default: shop.name | upcase }}</span>
-          <span class="sim__kanji">呪</span>
-          <span class="sim__seal"></span>
+      <div class="sim__arena" aria-hidden="true">
+        <div class="sim__aura"></div>
+        <div class="sim__rays"></div>
+        <div class="sim__box" data-sim-box>
+          {%- capture face -%}
+            <span class="sim__brand">{{ settings.brand_name | default: shop.name | upcase }}</span>
+            <span class="sim__kanji">呪</span>
+            <span class="sim__tape"></span>
+            <span class="sim__corner sim__corner--tl"></span><span class="sim__corner sim__corner--br"></span>
+          {%- endcapture -%}
+          <div class="sim__half sim__half--l"><div class="sim__face">{{ face }}</div></div>
+          <div class="sim__half sim__half--r"><div class="sim__face">{{ face }}</div></div>
+          <div class="sim__seam"></div>
         </div>
+        <div class="sim__burst" data-sim-burst></div>
+        <div class="sim__flash"></div>
       </div>
 
       <div class="sim__result" data-sim-result hidden>
-        <div class="sim__card tilt" data-sim-card>
-          <div class="sim__card-media" data-sim-media></div>
-          <p class="sim__rarity" data-sim-rarity></p>
-          <p class="sim__name" data-sim-name></p>
+        <div class="sim__card" data-sim-card>
+          <div class="sim__card-inner">
+            <div class="sim__card-back"><span>呪</span></div>
+            <div class="sim__card-front">
+              <div class="sim__card-media" data-sim-media></div>
+              <p class="sim__rarity" data-sim-rarity></p>
+              <p class="sim__name" data-sim-name></p>
+              <span class="sim__shine"></span>
+            </div>
+          </div>
         </div>
       </div>
 

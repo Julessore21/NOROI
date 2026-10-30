@@ -92,7 +92,7 @@
     "lineup": {
       "type": "lineup",
       "settings": {
-        "heading": "Six figures. [One secret.]"
+        "heading": "Five figures. [One secret.]"
       },
       "blocks": {
         "fig0": {
@@ -140,16 +140,6 @@
             "secret": false
           }
         },
-        "fig5": {
-          "type": "figure",
-          "settings": {
-            "name": "Maki Zen'in",
-            "tag": "",
-            "fallback": "",
-            "secret": false,
-            "note": "Photo coming soon"
-          }
-        },
         "fig6": {
           "type": "figure",
           "settings": {
@@ -167,7 +157,6 @@
         "fig2",
         "fig3",
         "fig4",
-        "fig5",
         "fig6"
       ]
     },
@@ -230,7 +219,7 @@
           "type": "step",
           "settings": {
             "title": "Collect",
-            "text": "Chase the six standard figures — and the secret if fate allows. Trade duplicates with friends."
+            "text": "Chase the five standard figures — and the secret if fate allows. Trade duplicates with friends."
           }
         }
       },
@@ -300,7 +289,7 @@
           "type": "question",
           "settings": {
             "question": "What's inside a blind box?",
-            "answer": "<p>One sealed box contains one random figure from the Culling Game series: one of the six standard characters or, rarely, the secret figure. You only find out who when you open it.</p>"
+            "answer": "<p>One sealed box contains one random figure from the Culling Game series: one of the five standard characters or, rarely, the secret figure. You only find out who when you open it.</p>"
           }
         },
         "q1": {
@@ -410,14 +399,6 @@
             "secret": false
           }
         },
-        "sim5": {
-          "type": "figure",
-          "settings": {
-            "name": "Maki Zen'in",
-            "fallback": "",
-            "secret": false
-          }
-        },
         "sim6": {
           "type": "figure",
           "settings": {
@@ -433,7 +414,6 @@
         "sim2",
         "sim3",
         "sim4",
-        "sim5",
         "sim6"
       ]
     },
@@ -488,14 +468,6 @@
             "secret": false
           }
         },
-        "trk5": {
-          "type": "figure",
-          "settings": {
-            "name": "Maki Zen'in",
-            "fallback": "",
-            "secret": false
-          }
-        },
         "trk6": {
           "type": "figure",
           "settings": {
@@ -511,7 +483,6 @@
         "trk2",
         "trk3",
         "trk4",
-        "trk5",
         "trk6"
       ]
     },
@@ -530,7 +501,7 @@
         "s1": {
           "type": "stat",
           "settings": {
-            "value": "6",
+            "value": "5",
             "label": "Standard figures"
           }
         },

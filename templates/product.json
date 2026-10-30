@@ -21,7 +21,7 @@
           "type": "tab",
           "settings": {
             "title": "Product details",
-            "content": "<ul><li>Series: Jujutsu Kaisen — The Culling Game</li><li>6 standard figures + 1 secret</li><li>Figure size: approx. 8–10 cm</li><li>Material: PVC / ABS</li><li>Not suitable for children under 15</li></ul>"
+            "content": "<ul><li>Series: Jujutsu Kaisen — The Culling Game</li><li>5 standard figures + 1 secret</li><li>Figure size: approx. 8–10 cm</li><li>Material: PVC / ABS</li><li>Not suitable for children under 15</li></ul>"
           }
         },
         "tab2": {
@@ -91,16 +91,6 @@
             "secret": false
           }
         },
-        "fig5": {
-          "type": "figure",
-          "settings": {
-            "name": "Maki Zen'in",
-            "tag": "",
-            "fallback": "",
-            "secret": false,
-            "note": "Photo coming soon"
-          }
-        },
         "fig6": {
           "type": "figure",
           "settings": {
@@ -118,7 +108,6 @@
         "fig2",
         "fig3",
         "fig4",
-        "fig5",
         "fig6"
       ]
     },
@@ -132,7 +121,7 @@
           "type": "question",
           "settings": {
             "question": "What's inside a blind box?",
-            "answer": "<p>One sealed box contains one random figure from the Culling Game series: one of the six standard characters or, rarely, the secret figure. You only find out who when you open it.</p>"
+            "answer": "<p>One sealed box contains one random figure from the Culling Game series: one of the five standard characters or, rarely, the secret figure. You only find out who when you open it.</p>"
           }
         },
         "q1": {
@@ -216,14 +205,6 @@
             "secret": false
           }
         },
-        "sim5": {
-          "type": "figure",
-          "settings": {
-            "name": "Maki Zen'in",
-            "fallback": "",
-            "secret": false
-          }
-        },
         "sim6": {
           "type": "figure",
           "settings": {
@@ -239,7 +220,6 @@
         "sim2",
         "sim3",
         "sim4",
-        "sim5",
         "sim6"
       ]
     }

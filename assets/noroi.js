@@ -329,30 +329,53 @@
       this.statsEl.hidden = false;
       this.statsEl.textContent = fill(this.t.stats, { opened: this.stats.opened, secrets: this.stats.secrets });
     }
+    burst(secret) {
+      const host = $('[data-sim-burst]', this);
+      host.innerHTML = '';
+      const n = secret ? 46 : 30;
+      for (let i = 0; i < n; i++) {
+        const p = document.createElement('i');
+        const angle = (Math.PI * 2 * i) / n + Math.random() * 0.4;
+        const dist = 140 + Math.random() * (secret ? 260 : 180);
+        p.style.setProperty('--x', `${Math.cos(angle) * dist}px`);
+        p.style.setProperty('--y', `${Math.sin(angle) * dist}px`);
+        p.style.setProperty('--s', (0.4 + Math.random() * 1.1).toFixed(2));
+        p.style.setProperty('--t', `${600 + Math.random() * 500}ms`);
+        if (Math.random() < 0.18) p.className = 'is-glyph';
+        host.appendChild(p);
+      }
+    }
     open() {
       if (this.busy || !this.figures.length) return;
       this.busy = true;
       const fig = this.pick();
+      const wait = (ms) => new Promise((r) => setTimeout(r, reduced ? 0 : ms));
       this.btn.disabled = true;
+      this.cta.hidden = true;
       this.result.hidden = true;
-      this.classList.remove('is-revealed', 'is-secret');
-      this.box.classList.remove('is-open');
+      this.classList.remove('is-revealed', 'is-secret', 'is-split', 'is-charging', 'is-flash');
       this.status.textContent = this.t.opening;
-      void this.box.offsetWidth;
-      this.box.classList.add('is-shaking');
+      if (fig.secret) this.classList.add('is-secret');
 
-      const reveal = () => {
-        this.box.classList.remove('is-shaking');
-        this.box.classList.add('is-open');
-        const media = $('[data-sim-media]', this);
-        media.innerHTML = fig.image
-          ? `<img src="${fig.image}" alt="" width="700" height="875">`
-          : '<span class="sim__q" aria-hidden="true">?</span>';
-        $('[data-sim-name]', this).textContent = fig.name;
-        $('[data-sim-rarity]', this).textContent = fig.secret ? this.t.secret : this.t.standard;
+      // fill the card while it is hidden
+      $('[data-sim-media]', this).innerHTML = fig.image
+        ? `<img src="${fig.image}" alt="" width="700" height="875">`
+        : '<span class="sim__q" aria-hidden="true">?</span>';
+      $('[data-sim-name]', this).textContent = fig.name;
+      $('[data-sim-rarity]', this).textContent = fig.secret ? this.t.secret : this.t.standard;
+
+      (async () => {
+        void this.offsetWidth;
+        this.classList.add('is-charging');           // 1. charge: shake builds, seam glows
+        await wait(1300);
+        this.burst(fig.secret);
+        this.classList.add('is-flash', 'is-split');  // 2. flash + split + sparks
+        await wait(260);
         this.result.hidden = false;
-        this.classList.add('is-revealed');
-        if (fig.secret) this.classList.add('is-secret');
+        this.classList.add('is-revealed');           // 3. card flips in, 4. shine sweeps
+        this.classList.remove('is-charging');
+        await wait(900);
+        this.classList.remove('is-flash');
         this.status.textContent = fill(fig.secret ? this.t.gotSecret : this.t.got, { name: fig.name });
         this.stats.opened += 1;
         if (fig.secret) this.stats.secrets += 1;
@@ -364,8 +387,7 @@
         this.btn.classList.replace('btn--primary', 'btn--ghost');
         this.cta.classList.replace('btn--ghost', 'btn--primary');
         this.busy = false;
-      };
-      setTimeout(reveal, reduced ? 50 : 1500);
+      })();
     }
   }
   customElements.define('unbox-sim', UnboxSim);
