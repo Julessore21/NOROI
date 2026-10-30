@@ -765,7 +765,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .footer__brand img { width: 84px; height: 84px; }
 
 /* Hero eyebrow legibility */
-.hero__copy .eyebrow { display: inline-block; background: rgba(10,13,20,.55); padding: .35rem .7rem .35rem 0; backdrop-filter: blur(4px); }
+.hero__copy .eyebrow { text-shadow: 0 0 18px rgba(0,0,0,1), 0 1px 3px rgba(0,0,0,.9); }
 @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
 
 /* Small screens: the hero image is short, so the header sits above it instead of over it */
@@ -885,3 +885,5 @@ h1, h2, h3, h4, p { margin: 0; }
 #shopify-pc__prefs__dialog .shopify-pc__prefs__header-close { color: var(--c-text) !important; background: none !important; }
 #shopify-pc__prefs__dialog header button:not(.shopify-pc__prefs__header-close) { border-radius: 2px !important; font-family: 'Barlow Condensed', sans-serif !important; font-weight: 800 !important; letter-spacing: .1em; text-transform: uppercase; background: rgba(255,255,255,.08) !important; border: 1px solid rgba(255,255,255,.22) !important; color: var(--c-text) !important; }
 #shopify-pc__prefs__dialog #shopify-pc__prefs__header-save { background: var(--c-accent) !important; border-color: var(--c-accent) !important; color: #fff !important; }
+#shopify-pc__prefs__dialog .shopify-pc__prefs__header-close { box-shadow: none !important; outline: none; }
+#shopify-pc__prefs__dialog .shopify-pc__prefs__header-close:focus-visible { outline: 2px solid var(--c-accent) !important; outline-offset: 2px; }
