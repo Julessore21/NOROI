@@ -2,3 +2,7 @@
 node_modules/
 .shopify/
 config/settings_data.json.bak
+
+# raw handoff material (kept locally, not part of the theme)
+NOROI_GITHUB_CLAUDE_HANDOFF/
+NOROI_GITHUB_CLAUDE_HANDOFF.zip

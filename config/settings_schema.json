@@ -20,12 +20,12 @@
   {
     "name": "Colors",
     "settings": [
-      { "type": "color", "id": "color_bg", "label": "Background", "default": "#0C0D15" },
-      { "type": "color", "id": "color_surface", "label": "Surface", "default": "#14151F" },
+      { "type": "color", "id": "color_bg", "label": "Background", "default": "#0A0D14" },
+      { "type": "color", "id": "color_surface", "label": "Surface", "default": "#10141D" },
       { "type": "color", "id": "color_line", "label": "Borders", "default": "#262836" },
-      { "type": "color", "id": "color_text", "label": "Text", "default": "#F6F1EB" },
+      { "type": "color", "id": "color_text", "label": "Text", "default": "#EEE9E3" },
       { "type": "color", "id": "color_muted", "label": "Muted text", "default": "#9A98A6" },
-      { "type": "color", "id": "color_accent", "label": "Crimson accent", "default": "#D7263D" },
+      { "type": "color", "id": "color_accent", "label": "Crimson accent", "default": "#B93748" },
       { "type": "color", "id": "color_aura", "label": "Mystery aura (blue)", "default": "#3D7BFF" }
     ]
   },

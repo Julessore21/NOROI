@@ -1,8 +1,8 @@
-<section class="section steps" id="{{ section.settings.anchor | default: 'how-it-works' }}">
+<section class="section steps" data-scheme="{{ section.settings.scheme }}" id="{{ section.settings.anchor | default: 'how-it-works' }}">
   <div class="container">
     <div class="section-head reveal">
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      <h2 class="h1 display">{{ section.settings.heading }}</h2>
+      <h2 class="h1 display">{{ section.settings.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
     </div>
     <ol class="steps__list" role="list">
       {%- for block in section.blocks -%}
@@ -21,6 +21,10 @@
   "name": "How it works",
   "max_blocks": 4,
   "settings": [
+    { "type": "select", "id": "scheme", "label": "Color scheme", "default": "dark", "options": [
+      { "value": "dark", "label": "Dark" },
+      { "value": "light", "label": "Light (ivory)" }
+    ] },
     { "type": "text", "id": "anchor", "label": "Anchor id", "default": "how-it-works" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How blind boxes work" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Choose. Unbox. Collect." }

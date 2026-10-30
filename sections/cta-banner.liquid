@@ -8,7 +8,7 @@
     {%- endif -%}
   </div>
   <div class="banner__content container reveal">
-    <h2 class="h1 display">{{ s.heading }}</h2>
+    <h2 class="h1 display">{{ s.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
     {%- if s.text != blank -%}<p>{{ s.text }}</p>{%- endif -%}
     {%- if s.cta_label != blank -%}
       <a class="btn btn--primary btn--lg" href="{{ s.cta_link }}">{{ s.cta_label }} {% render 'icon', name: 'arrow' %}</a>

@@ -2,7 +2,7 @@
   <div class="container container--narrow newsletter__inner reveal">
     <span class="newsletter__glyph" aria-hidden="true">呪</span>
     {%- if section.settings.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ section.settings.eyebrow }}</p>{%- endif -%}
-    <h2 class="h1 display">{{ section.settings.heading }}</h2>
+    <h2 class="h1 display">{{ section.settings.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
     {%- if section.settings.text != blank -%}<p class="muted">{{ section.settings.text }}</p>{%- endif -%}
 
     {%- form 'customer', class: 'newsletter__form', id: 'NewsletterForm' -%}

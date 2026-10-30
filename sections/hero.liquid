@@ -12,7 +12,7 @@
   <div class="hero__content container container--wide">
     <div class="hero__copy reveal">
       {%- if s.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>{%- endif -%}
-      <h1 class="hero__title display">{{ s.title | newline_to_br }}</h1>
+      <h1 class="hero__title display">{{ s.title | newline_to_br | replace: '[', '<em>' | replace: ']', '</em>' }}</h1>
       {%- if s.text != blank -%}<p class="hero__text">{{ s.text }}</p>{%- endif -%}
       <div class="hero__ctas">
         {%- if s.cta_label != blank -%}
@@ -32,6 +32,9 @@
       {%- endif -%}
     </div>
   </div>
+  {%- if s.meta != blank -%}
+    <p class="hero__meta container container--wide">{{ s.meta }}</p>
+  {%- endif -%}
   {%- if s.caption != blank -%}
     <p class="hero__caption">{{ s.caption }}</p>
   {%- endif -%}
@@ -50,13 +53,14 @@
       { "value": "large", "label": "Large" }
     ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Drop 001 · The Culling Game" },
-    { "type": "textarea", "id": "title", "label": "Heading", "default": "Unbox\nthe unknown." },
+    { "type": "textarea", "id": "title", "label": "Heading", "default": "Unbox\n[the unknown.]" },
     { "type": "textarea", "id": "text", "label": "Text", "default": "Six sealed figures. One hidden secret. Every box is a gamble only you can open." },
     { "type": "text", "id": "cta_label", "label": "Primary button", "default": "Shop the drop" },
     { "type": "url", "id": "cta_link", "label": "Primary link", "default": "/collections/all" },
     { "type": "text", "id": "cta2_label", "label": "Secondary button", "default": "How it works" },
     { "type": "url", "id": "cta2_link", "label": "Secondary link", "default": "/#how-it-works" },
     { "type": "text", "id": "trust", "label": "Trust points", "info": "Separate with |", "default": "Factory-sealed boxes | Secure checkout | Tracked shipping" },
+    { "type": "text", "id": "meta", "label": "Series line", "default": "POP MART × Jujutsu Kaisen — The Culling Game series" },
     { "type": "text", "id": "caption", "label": "Image caption", "info": "Use it to flag campaign artwork honestly.", "default": "Campaign artwork. The glowing silhouette is a mood piece, not a figure in this series." }
   ],
   "presets": [{ "name": "Hero" }]

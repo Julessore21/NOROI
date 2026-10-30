@@ -13,7 +13,7 @@
     </div>
     <div class="split__copy reveal" style="--d: 120ms">
       {%- if s.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>{%- endif -%}
-      <h2 class="h1 display">{{ s.heading }}</h2>
+      <h2 class="h1 display">{{ s.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
       {%- if s.text != blank -%}<div class="rte">{{ s.text }}</div>{%- endif -%}
       {%- if section.blocks.size > 0 -%}
         <dl class="facts">
@@ -41,7 +41,7 @@
       { "value": "left", "label": "Left" },
       { "value": "right", "label": "Right" }
     ] },
-    { "type": "checkbox", "id": "aura", "label": "Crimson aura background", "default": false },
+    { "type": "checkbox", "id": "aura", "label": "Blue mystery aura", "default": false },
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "text", "id": "fallback", "label": "Built-in image file", "info": "Theme asset used when no image is picked. Empty = mystery card." },
     { "type": "text", "id": "caption", "label": "Image caption" },

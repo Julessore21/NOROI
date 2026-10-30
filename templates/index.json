@@ -2,7 +2,9 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "title": "Unbox\n[the unknown.]"
+      }
     },
     "trust": {
       "type": "trust-bar",
@@ -50,7 +52,10 @@
     },
     "offers": {
       "type": "offers",
-      "settings": {},
+      "settings": {
+        "scheme": "light",
+        "heading": "One box. Three. [Or the display.]"
+      },
       "blocks": {
         "o0": {
           "type": "offer",
@@ -85,7 +90,9 @@
     },
     "lineup": {
       "type": "lineup",
-      "settings": {},
+      "settings": {
+        "heading": "Six figures. [One secret.]"
+      },
       "blocks": {
         "fig0": {
           "type": "figure",
@@ -171,7 +178,7 @@
         "aura": true,
         "fallback": "",
         "eyebrow": "The secret",
-        "heading": "Yuji Itadori & Panda",
+        "heading": "Yuji Itadori [& Panda]",
         "text": "<p>Hidden among the boxes is one figure you can't see on the packaging. No format guarantees it — it's luck, nothing else.</p>",
         "cta_label": "Try your luck",
         "cta_link": "#shop"
@@ -199,7 +206,10 @@
     },
     "steps": {
       "type": "steps",
-      "settings": {},
+      "settings": {
+        "scheme": "light",
+        "heading": "Choose. Unbox. [Collect.]"
+      },
       "blocks": {
         "s0": {
           "type": "step",
@@ -339,7 +349,9 @@
     },
     "banner": {
       "type": "cta-banner",
-      "settings": {}
+      "settings": {
+        "heading": "Your curse [is waiting.]"
+      }
     },
     "newsletter": {
       "type": "newsletter",

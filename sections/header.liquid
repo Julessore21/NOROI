@@ -12,7 +12,9 @@
     </button>
 
     <a href="{{ routes.root_url }}" class="header__logo" aria-label="{{ shop.name }}">
-      {%- if section.settings.logo != blank -%}
+      {%- if section.settings.logo_style == 'wordmark' -%}
+        <span class="wordmark">{{ shop.name | upcase }}<span aria-hidden="true">呪</span></span>
+      {%- elsif section.settings.logo != blank -%}
         {{ section.settings.logo | image_url: width: 240 | image_tag: alt: shop.name, width: section.settings.logo_width, height: section.settings.logo_width, class: 'header__logo-img' }}
       {%- else -%}
         <img src="{{ 'noroi-logo.jpg' | asset_url }}" alt="{{ shop.name }}" width="{{ section.settings.logo_width }}" height="{{ section.settings.logo_width }}" class="header__logo-img header__logo-img--blend">
@@ -54,6 +56,10 @@
 {
   "name": "Header",
   "settings": [
+    { "type": "select", "id": "logo_style", "label": "Logo style", "default": "wordmark", "options": [
+      { "value": "wordmark", "label": "Text wordmark (NOROI 呪)" },
+      { "value": "emblem", "label": "Emblem image" }
+    ] },
     { "type": "image_picker", "id": "logo", "label": "Logo", "info": "Leave empty to use the built-in NOROI emblem." },
     { "type": "range", "id": "logo_width", "label": "Logo size", "min": 40, "max": 120, "step": 4, "unit": "px", "default": 64 },
     { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },

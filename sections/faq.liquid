@@ -1,8 +1,8 @@
-<section class="section faq" id="{{ section.settings.anchor | default: 'faq' }}">
+<section class="section faq" data-scheme="{{ section.settings.scheme }}" id="{{ section.settings.anchor | default: 'faq' }}">
   <div class="container container--narrow">
     <div class="section-head reveal">
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      <h2 class="h1 display">{{ section.settings.heading }}</h2>
+      <h2 class="h1 display">{{ section.settings.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
     </div>
     <div class="accordion">
       {%- for block in section.blocks -%}
@@ -40,6 +40,10 @@
 {
   "name": "FAQ",
   "settings": [
+    { "type": "select", "id": "scheme", "label": "Color scheme", "default": "dark", "options": [
+      { "value": "dark", "label": "Dark" },
+      { "value": "light", "label": "Light (ivory)" }
+    ] },
     { "type": "text", "id": "anchor", "label": "Anchor id", "default": "faq" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Before you open" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Questions" },
