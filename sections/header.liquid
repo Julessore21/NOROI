@@ -13,7 +13,7 @@
 
     <a href="{{ routes.root_url }}" class="header__logo" aria-label="{{ shop.name }}">
       {%- if section.settings.logo_style == 'wordmark' -%}
-        <span class="wordmark">{{ shop.name | upcase }}<span aria-hidden="true">呪</span></span>
+        <span class="wordmark">{{ settings.brand_name | default: shop.name | upcase }}<span aria-hidden="true">呪</span></span>
       {%- elsif section.settings.logo != blank -%}
         {{ section.settings.logo | image_url: width: 240 | image_tag: alt: shop.name, width: section.settings.logo_width, height: section.settings.logo_width, class: 'header__logo-img' }}
       {%- else -%}

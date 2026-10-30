@@ -43,7 +43,7 @@
     {%- endif -%}
 
     <div class="footer__bottom">
-      <p class="small muted">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'footer.rights' | t }}</p>
+      <p class="small muted">&copy; {{ 'now' | date: '%Y' }} {{ settings.brand_name | default: shop.name }}. {{ 'footer.rights' | t }}</p>
       <ul class="pay-icons" role="list">
         {%- for type in shop.enabled_payment_types -%}
           <li>{{ type | payment_type_svg_tag }}</li>

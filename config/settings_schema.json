@@ -10,6 +10,7 @@
   {
     "name": "Brand",
     "settings": [
+      { "type": "text", "id": "brand_name", "label": "Brand name", "default": "NOROI" },
       { "type": "text", "id": "tagline", "label": "Tagline", "default": "Collect the unknown." },
       { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Square PNG, 96×96 px or larger." },
       { "type": "image_picker", "id": "share_image", "label": "Social sharing image" },
