@@ -94,11 +94,11 @@
         "fig6": {
           "type": "figure",
           "settings": {
-            "name": "Yuji Itadori & Panda",
+            "name": "?",
             "tag": "Secret",
-            "fallback": "",
+            "fallback": "noroi-secret.jpg",
             "secret": true,
-            "note": "The hidden figure. Approx. 1 in 72 boxes."
+            "note": "Silhouette for illustration only."
           }
         }
       },
@@ -162,7 +162,8 @@
     "sim": {
       "type": "unbox-sim",
       "settings": {
-        "heading": "Not sure yet? [Try one.]"
+        "heading": "Not sure yet? [Try one.]",
+        "secret_text": "THE SECRET. Who is it? You'll only know in a real box."
       },
       "blocks": {
         "sim0": {
@@ -208,8 +209,8 @@
         "sim6": {
           "type": "figure",
           "settings": {
-            "name": "Yuji Itadori & Panda",
-            "fallback": "",
+            "name": "?",
+            "fallback": "noroi-secret.jpg",
             "secret": true
           }
         }
