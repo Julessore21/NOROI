@@ -29,10 +29,14 @@
     {%- if pull_count > 0 -%}
       <ul class="pulls" role="list">
         {%- for block in section.blocks -%}
-          {%- if block.type == 'pull' and block.settings.image != blank -%}
+          {%- if block.type == 'pull' and block.settings.image != blank or block.type == 'pull' and block.settings.fallback != blank -%}
             <li class="pull reveal" style="--d: {{ forloop.index0 | times: 60 }}ms" {{ block.shopify_attributes }}>
               <div class="pull__media">
-                {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300, 450, 600', sizes: '(min-width: 990px) 25vw, 50vw', alt: block.settings.figure }}
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300, 450, 600', sizes: '(min-width: 990px) 20vw, 50vw', alt: block.settings.figure }}
+                {%- else -%}
+                  <img src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.figure | escape }}" loading="lazy" width="900" height="1125">
+                {%- endif -%}
                 {%- if block.settings.figure != blank -%}<span class="badge{% if block.settings.secret %} badge--accent{% endif %}">{{ block.settings.figure }}</span>{%- endif -%}
               </div>
               {%- if block.settings.quote != blank -%}<p class="pull__quote">“{{ block.settings.quote }}”</p>{%- endif -%}
@@ -76,6 +80,7 @@
       "settings": [
         { "type": "paragraph", "content": "Only use real customer photos, with their permission." },
         { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "fallback", "label": "Built-in photo file", "info": "Theme asset used when no photo is picked." },
         { "type": "text", "id": "figure", "label": "Figure pulled" },
         { "type": "checkbox", "id": "secret", "label": "It's the secret", "default": false },
         { "type": "text", "id": "quote", "label": "Customer quote" },

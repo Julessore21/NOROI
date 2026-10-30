@@ -496,7 +496,51 @@
     },
     "community": {
       "type": "community",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "p1": {
+          "type": "pull",
+          "settings": {
+            "fallback": "noroi-pull-1.jpg",
+            "figure": "Yuji"
+          }
+        },
+        "p2": {
+          "type": "pull",
+          "settings": {
+            "fallback": "noroi-pull-2.jpg",
+            "figure": "Full display"
+          }
+        },
+        "p3": {
+          "type": "pull",
+          "settings": {
+            "fallback": "noroi-pull-3.jpg",
+            "figure": "Yuji & Naoya"
+          }
+        },
+        "p4": {
+          "type": "pull",
+          "settings": {
+            "fallback": "noroi-pull-4.jpg",
+            "figure": "Yuji"
+          }
+        },
+        "p5": {
+          "type": "pull",
+          "settings": {
+            "fallback": "noroi-pull-5.jpg",
+            "figure": "Choso"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ]
     },
     "marquee": {
       "type": "marquee",

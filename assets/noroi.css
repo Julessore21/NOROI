@@ -684,16 +684,18 @@ h1, h2, h3, h4, p { margin: 0; }
 .rewards__tip { position: absolute; top: 16px; right: 0; white-space: nowrap; font-size: .68rem; color: var(--c-muted); }
 
 /* ---------- Community / reviews ---------- */
-.pulls { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.pulls { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
 .pull__media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid var(--c-line); }
-.pull__media img { width: 100%; height: 100%; object-fit: cover; }
+.pull__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.pull:hover .pull__media img { transform: scale(1.05); }
+.pull__media .badge { position: absolute; left: 10px; bottom: 10px; top: auto; }
 .pull__quote { margin-top: .8rem; font-weight: 600; }
 .pull__handle { margin-top: .3rem; }
 .community__app { margin-bottom: 3rem; }
 .community__empty { position: relative; text-align: center; max-width: 560px; margin: 0 auto; padding: 3rem 2rem; border: 1px dashed var(--c-line); display: grid; gap: .8rem; justify-items: center; }
 .community__glyph { font-family: serif; font-size: 3.5rem; line-height: 1; color: rgba(var(--c-accent-rgb), .55); }
 .community__handle { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--c-accent); letter-spacing: .04em; }
-@media (max-width: 899px) { .pulls { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 899px) { .pulls { grid-template-columns: repeat(2, 1fr); } .pull:last-child:nth-child(odd) { grid-column: 1 / -1; } .pull:last-child:nth-child(odd) .pull__media { aspect-ratio: 16 / 11; } }
 .pdp__app { margin: 1.5rem 0; }
 
 /* ---------- Drop countdown ---------- */
