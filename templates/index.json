@@ -208,7 +208,7 @@
     "steps": {
       "type": "steps",
       "settings": {
-        "scheme": "light",
+        "scheme": "dark",
         "heading": "Choose. Unbox. [Collect.]"
       },
       "blocks": {
@@ -357,16 +357,181 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {}
+    },
+    "drop": {
+      "type": "drop-countdown",
+      "settings": {
+        "date": ""
+      }
+    },
+    "sim": {
+      "type": "unbox-sim",
+      "settings": {
+        "secret_odds": 72
+      },
+      "blocks": {
+        "sim0": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori",
+            "fallback": "noroi-yuji.jpg",
+            "secret": false
+          }
+        },
+        "sim1": {
+          "type": "figure",
+          "settings": {
+            "name": "Megumi Fushiguro",
+            "fallback": "noroi-megumi.jpg",
+            "secret": false
+          }
+        },
+        "sim2": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuta Okkotsu",
+            "fallback": "noroi-yuta.jpg",
+            "secret": false
+          }
+        },
+        "sim3": {
+          "type": "figure",
+          "settings": {
+            "name": "Choso",
+            "fallback": "noroi-choso.jpg",
+            "secret": false
+          }
+        },
+        "sim4": {
+          "type": "figure",
+          "settings": {
+            "name": "Naoya Zen'in",
+            "fallback": "noroi-naoya.jpg",
+            "secret": false
+          }
+        },
+        "sim5": {
+          "type": "figure",
+          "settings": {
+            "name": "Maki Zen'in",
+            "fallback": "",
+            "secret": false
+          }
+        },
+        "sim6": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori & Panda",
+            "fallback": "",
+            "secret": true
+          }
+        }
+      },
+      "block_order": [
+        "sim0",
+        "sim1",
+        "sim2",
+        "sim3",
+        "sim4",
+        "sim5",
+        "sim6"
+      ]
+    },
+    "tracker": {
+      "type": "collection-tracker",
+      "settings": {
+        "scheme": "light",
+        "products": [
+          "jujutsu-kaisen-blind-box-individuelle",
+          "jujutsu-kaisen-trio-mystere",
+          "jujutsu-kaisen-display-6-blind-boxes"
+        ]
+      },
+      "blocks": {
+        "trk0": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori",
+            "fallback": "noroi-yuji.jpg",
+            "secret": false
+          }
+        },
+        "trk1": {
+          "type": "figure",
+          "settings": {
+            "name": "Megumi Fushiguro",
+            "fallback": "noroi-megumi.jpg",
+            "secret": false
+          }
+        },
+        "trk2": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuta Okkotsu",
+            "fallback": "noroi-yuta.jpg",
+            "secret": false
+          }
+        },
+        "trk3": {
+          "type": "figure",
+          "settings": {
+            "name": "Choso",
+            "fallback": "noroi-choso.jpg",
+            "secret": false
+          }
+        },
+        "trk4": {
+          "type": "figure",
+          "settings": {
+            "name": "Naoya Zen'in",
+            "fallback": "noroi-naoya.jpg",
+            "secret": false
+          }
+        },
+        "trk5": {
+          "type": "figure",
+          "settings": {
+            "name": "Maki Zen'in",
+            "fallback": "",
+            "secret": false
+          }
+        },
+        "trk6": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori & Panda",
+            "fallback": "",
+            "secret": true
+          }
+        }
+      },
+      "block_order": [
+        "trk0",
+        "trk1",
+        "trk2",
+        "trk3",
+        "trk4",
+        "trk5",
+        "trk6"
+      ]
+    },
+    "community": {
+      "type": "community",
+      "settings": {}
     }
   },
   "order": [
     "hero",
+    "drop",
     "trust",
     "offers",
+    "sim",
     "lineup",
     "secret",
+    "tracker",
     "steps",
     "display",
+    "community",
     "faq",
     "banner",
     "newsletter"

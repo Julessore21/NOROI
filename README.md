@@ -26,6 +26,13 @@ Shopify ignores `docs/`.
 - Real stock only: "Only X left" shows only when Shopify tracks inventory
 - Trust bar, FAQ with FAQPage schema, Product schema, OG tags
 - Pre-launch password page that collects emails
+- **Unboxing simulator** (`unbox-sim`): tap a sealed box, it shakes, tears and reveals a figure with the real odds
+- **Collection tracker** (`collection-tracker`): visitors tick what they own (saved on their device) and get a format suggestion
+- **Box rewards bar** in the cart (Theme settings > Cart): gift or discount unlocked at N boxes
+- **Reviews & pulls** (`community`): accepts a reviews app block (Judge.me…) and real customer unboxing photos; shows an invitation while empty
+- **Drop countdown** (`drop-countdown`): real launch date + waitlist, hides itself after the date
+- Holographic 3D tilt on cards, floating embers/kanji in the hero, optional hero video
+- Every animation respects `prefers-reduced-motion`
 
 Box count comes from the `custom.box_count` product metafield (integer), with the product handle as a fallback.
 

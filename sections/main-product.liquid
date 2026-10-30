@@ -160,6 +160,10 @@
           </details>
         {%- endif -%}
         {%- for block in section.blocks -%}
+          {%- if block.type == '@app' -%}
+            <div class="pdp__app">{% render block %}</div>
+            {%- continue -%}
+          {%- endif -%}
           <details class="accordion__item" {{ block.shopify_attributes }}>
             <summary>{{ block.settings.title }} {% render 'icon', name: 'plus' %}</summary>
             <div class="accordion__body rte">
@@ -247,6 +251,7 @@
     { "type": "text", "id": "trust_3", "label": "Trust line 3", "default": "14-day returns on unopened boxes" }
   ],
   "blocks": [
+    { "type": "@app" },
     {
       "type": "tab",
       "name": "Accordion tab",

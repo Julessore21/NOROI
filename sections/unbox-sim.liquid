@@ -1,0 +1,104 @@
+{%- comment -%}
+  Unboxing simulator: a playful, clearly-labelled simulation of opening one blind box.
+  Odds come from the section settings (secret odds = 1 in N, standard figures share the rest).
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<section class="section sim" id="{{ s.anchor | default: 'try' }}">
+  <div class="container">
+    <div class="section-head reveal">
+      {%- if s.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>{%- endif -%}
+      <h2 class="h1 display">{{ s.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
+      {%- if s.text != blank -%}<p class="section-head__text">{{ s.text }}</p>{%- endif -%}
+    </div>
+
+    <unbox-sim class="sim__stage" data-secret-odds="{{ s.secret_odds }}">
+      <div class="sim__box" data-sim-box aria-hidden="true">
+        <div class="sim__lid"></div>
+        <div class="sim__body">
+          <span class="sim__brand">{{ settings.brand_name | default: shop.name | upcase }}</span>
+          <span class="sim__kanji">呪</span>
+          <span class="sim__seal"></span>
+        </div>
+      </div>
+
+      <div class="sim__result" data-sim-result hidden>
+        <div class="sim__card tilt" data-sim-card>
+          <div class="sim__card-media" data-sim-media></div>
+          <p class="sim__rarity" data-sim-rarity></p>
+          <p class="sim__name" data-sim-name></p>
+        </div>
+      </div>
+
+      <div class="sim__controls">
+        <p class="sim__status" data-sim-status role="status" aria-live="polite">{{ s.idle_text }}</p>
+        <div class="sim__buttons">
+          <button type="button" class="btn btn--primary btn--lg" data-sim-open>{{ s.button }}</button>
+          <a class="btn btn--ghost btn--lg" href="{{ s.cta_link }}" data-sim-cta hidden>{{ s.cta_label }} {% render 'icon', name: 'arrow' %}</a>
+        </div>
+        <p class="sim__stats muted small" data-sim-stats hidden></p>
+      </div>
+
+      <script type="application/json" data-sim-figures>
+        [
+          {%- for block in section.blocks -%}
+            {
+              "name": {{ block.settings.name | json }},
+              "secret": {{ block.settings.secret | json }},
+              "image": {% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 700 | json }}{% elsif block.settings.fallback != blank %}{{ block.settings.fallback | asset_url | json }}{% else %}null{% endif %}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      </script>
+      <script type="application/json" data-sim-strings>
+        {
+          "opening": {{ s.opening_text | json }},
+          "got": {{ s.result_text | json }},
+          "gotSecret": {{ s.secret_text | json }},
+          "again": {{ s.again_button | json }},
+          "standard": "Standard",
+          "secret": "Secret",
+          "stats": {{ s.stats_text | json }}
+        }
+      </script>
+    </unbox-sim>
+
+    <p class="sim__disclaimer muted small">{{ s.disclaimer }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Unboxing simulator",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "try" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Feel the ritual" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Open one. [Right now.]" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Tap the box and see who you pull, with the real odds." },
+    { "type": "range", "id": "secret_odds", "label": "Secret odds (1 in N)", "min": 12, "max": 288, "step": 12, "default": 72 },
+    { "type": "text", "id": "button", "label": "Open button", "default": "Open the box" },
+    { "type": "text", "id": "again_button", "label": "Open again button", "default": "Open another" },
+    { "type": "text", "id": "idle_text", "label": "Idle text", "default": "One sealed box. One random figure." },
+    { "type": "text", "id": "opening_text", "label": "Opening text", "default": "Breaking the seal…" },
+    { "type": "text", "id": "result_text", "label": "Result text", "info": "{name} is replaced by the figure.", "default": "You pulled {name}. Want the real one?" },
+    { "type": "text", "id": "secret_text", "label": "Secret result text", "default": "THE SECRET. {name}. Almost nobody gets this." },
+    { "type": "text", "id": "stats_text", "label": "Stats text", "info": "{opened} and {secrets} are replaced.", "default": "Virtual boxes opened: {opened} · Secrets: {secrets}" },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Open a real box" },
+    { "type": "url", "id": "cta_link", "label": "CTA link", "default": "/collections/all" },
+    { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "Simulation for fun only. It does not affect what's inside real boxes, which are sealed and random." }
+  ],
+  "blocks": [
+    {
+      "type": "figure",
+      "name": "Figure",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Character" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "fallback", "label": "Built-in image file" },
+        { "type": "checkbox", "id": "secret", "label": "Secret figure", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Unboxing simulator" }]
+}
+{% endschema %}

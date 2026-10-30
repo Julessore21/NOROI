@@ -25,7 +25,12 @@
     "subtotal": "Subtotal",
     "taxes_included": "Taxes included. Shipping calculated at checkout.",
     "taxes_excluded": "Taxes and shipping calculated at checkout.",
-    "update": "Update"
+    "update": "Update",
+    "reward_next_html": {
+      "one": "Add <strong>{{ count }} more box</strong> to unlock: {{ reward }}",
+      "other": "Add <strong>{{ count }} more boxes</strong> to unlock: {{ reward }}"
+    },
+    "reward_done": "All rewards unlocked"
   },
   "collections": {
     "all": "Collections",

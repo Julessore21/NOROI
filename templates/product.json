@@ -163,11 +163,92 @@
         "q2",
         "q3"
       ]
+    },
+    "community": {
+      "type": "community",
+      "settings": {
+        "heading": "Real [pulls.]"
+      }
+    },
+    "sim": {
+      "type": "unbox-sim",
+      "settings": {
+        "heading": "Not sure yet? [Try one.]"
+      },
+      "blocks": {
+        "sim0": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori",
+            "fallback": "noroi-yuji.jpg",
+            "secret": false
+          }
+        },
+        "sim1": {
+          "type": "figure",
+          "settings": {
+            "name": "Megumi Fushiguro",
+            "fallback": "noroi-megumi.jpg",
+            "secret": false
+          }
+        },
+        "sim2": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuta Okkotsu",
+            "fallback": "noroi-yuta.jpg",
+            "secret": false
+          }
+        },
+        "sim3": {
+          "type": "figure",
+          "settings": {
+            "name": "Choso",
+            "fallback": "noroi-choso.jpg",
+            "secret": false
+          }
+        },
+        "sim4": {
+          "type": "figure",
+          "settings": {
+            "name": "Naoya Zen'in",
+            "fallback": "noroi-naoya.jpg",
+            "secret": false
+          }
+        },
+        "sim5": {
+          "type": "figure",
+          "settings": {
+            "name": "Maki Zen'in",
+            "fallback": "",
+            "secret": false
+          }
+        },
+        "sim6": {
+          "type": "figure",
+          "settings": {
+            "name": "Yuji Itadori & Panda",
+            "fallback": "",
+            "secret": true
+          }
+        }
+      },
+      "block_order": [
+        "sim0",
+        "sim1",
+        "sim2",
+        "sim3",
+        "sim4",
+        "sim5",
+        "sim6"
+      ]
     }
   },
   "order": [
     "main",
+    "sim",
     "lineup",
+    "community",
     "faq"
   ]
 }

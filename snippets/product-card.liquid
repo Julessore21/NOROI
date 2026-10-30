@@ -10,7 +10,7 @@
   assign per_box = product.price | divided_by: boxes | money
 -%}
 <article class="card{% if featured %} card--featured{% endif %}{% unless product.available %} is-soldout{% endunless %}">
-  <a href="{{ product.url }}" class="card__media">
+  <a href="{{ product.url }}" class="card__media tilt">
     {%- if product.featured_media -%}
       {{ product.featured_media | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: sizes, alt: product.featured_media.alt | default: product.title }}
     {%- elsif fallback_image != blank -%}

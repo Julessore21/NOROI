@@ -1,0 +1,106 @@
+{%- comment -%}
+  Collection tracker: visitors tick the figures they own (saved in their browser),
+  then get an honest suggestion of which format fits the number they're missing.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<section class="section tracker" data-scheme="{{ s.scheme }}" id="{{ s.anchor | default: 'tracker' }}">
+  <div class="container">
+    <div class="section-head reveal">
+      {%- if s.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>{%- endif -%}
+      <h2 class="h1 display">{{ s.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
+      {%- if s.text != blank -%}<p class="section-head__text">{{ s.text }}</p>{%- endif -%}
+    </div>
+
+    <collection-tracker class="tracker__app" data-storage-key="noroi-tracker-{{ s.series_key | handleize }}">
+      <ul class="tracker__grid" role="list">
+        {%- for block in section.blocks -%}
+          {%- assign b = block.settings -%}
+          <li {{ block.shopify_attributes }}>
+            <button type="button" class="tracker__item{% if b.secret %} tracker__item--secret{% endif %}" aria-pressed="false" data-figure="{{ b.name | handleize }}" data-secret="{{ b.secret }}">
+              <span class="tracker__media">
+                {%- if b.image != blank -%}
+                  {{ b.image | image_url: width: 300 | image_tag: loading: 'lazy', alt: '' }}
+                {%- elsif b.fallback != blank -%}
+                  <img src="{{ b.fallback | asset_url }}" alt="" loading="lazy" width="300" height="375">
+                {%- else -%}
+                  <span class="tracker__q" aria-hidden="true">{% if b.secret %}?{% else %}呪{% endif %}</span>
+                {%- endif -%}
+                <span class="tracker__check" aria-hidden="true"></span>
+              </span>
+              <span class="tracker__name">{{ b.name }}</span>
+            </button>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      <div class="tracker__panel">
+        <div class="tracker__progress">
+          <p class="tracker__count"><strong data-tracker-owned>0</strong> / <span data-tracker-total>0</span> {{ s.owned_label }}</p>
+          <div class="ship-bar__track"><span data-tracker-bar style="width:0%"></span></div>
+        </div>
+        <p class="tracker__advice" data-tracker-advice>{{ s.start_text }}</p>
+        <div class="tracker__offers">
+          {%- for p in s.products -%}
+            {%- capture pb -%}{% render 'box-count', product: p %}{%- endcapture -%}
+            <a class="format" href="{{ p.url }}" data-tracker-offer="{{ pb | strip }}">
+              <span class="format__name">
+                {%- assign pbn = pb | plus: 0 -%}
+                {%- if pbn > 1 -%}{{ 'products.boxes_count' | t: count: pbn }}{%- else -%}{{ 'products.single_box' | t }}{%- endif -%}
+              </span>
+              <span class="format__price">{{ p.price | money }}</span>
+            </a>
+          {%- endfor -%}
+        </div>
+        <p class="muted small">{{ s.note }}</p>
+      </div>
+      <script type="application/json" data-tracker-strings>
+  {
+    "start": {{ s.start_text | json }},
+    "missing": {{ s.missing_text | json }},
+    "complete": {{ s.complete_text | json }},
+    "secretOnly": {{ s.secret_only_text | json }}
+  }
+</script>
+    </collection-tracker>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Collection tracker",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "select", "id": "scheme", "label": "Color scheme", "default": "dark", "options": [
+      { "value": "dark", "label": "Dark" },
+      { "value": "light", "label": "Light (ivory)" }
+    ] },
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "tracker" },
+    { "type": "text", "id": "series_key", "label": "Series key", "info": "Change it for a new series so saved progress starts fresh.", "default": "jjk-culling-game" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Your collection" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Who's [still missing?]" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Tap the figures you already own. We'll remember them on this device." },
+    { "type": "text", "id": "owned_label", "label": "Owned label", "default": "standard figures owned" },
+    { "type": "text", "id": "start_text", "label": "Start text", "default": "Start by tapping the figures you have." },
+    { "type": "text", "id": "missing_text", "label": "Missing text", "info": "{n} is replaced by the number missing.", "default": "{n} to go. More boxes, more chances — and a lower price per box." },
+    { "type": "text", "id": "complete_text", "label": "Complete text", "default": "Full standard set. Only the secret is left — good luck." },
+    { "type": "text", "id": "secret_only_text", "label": "Secret owned text", "default": "You pulled the secret. Respect." },
+    { "type": "product_list", "id": "products", "label": "Formats to suggest", "limit": 3 },
+    { "type": "textarea", "id": "note", "label": "Note", "default": "Boxes are random: buying more boxes improves your chances but never guarantees a specific figure." }
+  ],
+  "blocks": [
+    {
+      "type": "figure",
+      "name": "Figure",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Character" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "fallback", "label": "Built-in image file" },
+        { "type": "checkbox", "id": "secret", "label": "Secret figure", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Collection tracker" }]
+}
+{% endschema %}

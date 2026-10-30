@@ -282,3 +282,236 @@
     $$('.reveal', e.target).forEach((el) => el.classList.add('is-in'));
   });
 })();
+
+/* ==========================================================================
+   Experience layer: unboxing simulator, collection tracker, countdown,
+   holographic tilt, hero particles. All respect prefers-reduced-motion.
+   ========================================================================== */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const store = {
+    get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+  const fill = (str, map) => Object.keys(map).reduce((s, k) => s.split(`{${k}}`).join(map[k]), str || '');
+
+  /* ---------- Unboxing simulator ---------- */
+  class UnboxSim extends HTMLElement {
+    connectedCallback() {
+      this.figures = JSON.parse($('[data-sim-figures]', this).textContent);
+      this.t = JSON.parse($('[data-sim-strings]', this).textContent);
+      this.odds = Number(this.dataset.secretOdds) || 72;
+      this.box = $('[data-sim-box]', this);
+      this.result = $('[data-sim-result]', this);
+      this.btn = $('[data-sim-open]', this);
+      this.status = $('[data-sim-status]', this);
+      this.cta = $('[data-sim-cta]', this);
+      this.statsEl = $('[data-sim-stats]', this);
+      this.stats = store.get('noroi-sim', { opened: 0, secrets: 0 });
+      this.btn.addEventListener('click', () => this.open());
+      this.renderStats();
+    }
+    pick() {
+      const secrets = this.figures.filter((f) => f.secret);
+      const standard = this.figures.filter((f) => !f.secret);
+      if (secrets.length && Math.random() < 1 / this.odds) return secrets[Math.floor(Math.random() * secrets.length)];
+      return standard[Math.floor(Math.random() * standard.length)];
+    }
+    renderStats() {
+      if (!this.stats.opened) return;
+      this.statsEl.hidden = false;
+      this.statsEl.textContent = fill(this.t.stats, { opened: this.stats.opened, secrets: this.stats.secrets });
+    }
+    open() {
+      if (this.busy || !this.figures.length) return;
+      this.busy = true;
+      const fig = this.pick();
+      this.btn.disabled = true;
+      this.result.hidden = true;
+      this.classList.remove('is-revealed', 'is-secret');
+      this.box.classList.remove('is-open');
+      this.status.textContent = this.t.opening;
+      void this.box.offsetWidth;
+      this.box.classList.add('is-shaking');
+
+      const reveal = () => {
+        this.box.classList.remove('is-shaking');
+        this.box.classList.add('is-open');
+        const media = $('[data-sim-media]', this);
+        media.innerHTML = fig.image
+          ? `<img src="${fig.image}" alt="" width="700" height="875">`
+          : '<span class="sim__q" aria-hidden="true">?</span>';
+        $('[data-sim-name]', this).textContent = fig.name;
+        $('[data-sim-rarity]', this).textContent = fig.secret ? this.t.secret : this.t.standard;
+        this.result.hidden = false;
+        this.classList.add('is-revealed');
+        if (fig.secret) this.classList.add('is-secret');
+        this.status.textContent = fill(fig.secret ? this.t.gotSecret : this.t.got, { name: fig.name });
+        this.stats.opened += 1;
+        if (fig.secret) this.stats.secrets += 1;
+        store.set('noroi-sim', this.stats);
+        this.renderStats();
+        this.cta.hidden = false;
+        this.btn.textContent = this.t.again;
+        this.btn.disabled = false;
+        this.btn.classList.replace('btn--primary', 'btn--ghost');
+        this.cta.classList.replace('btn--ghost', 'btn--primary');
+        this.busy = false;
+      };
+      setTimeout(reveal, reduced ? 50 : 1500);
+    }
+  }
+  customElements.define('unbox-sim', UnboxSim);
+
+  /* ---------- Collection tracker ---------- */
+  class CollectionTracker extends HTMLElement {
+    connectedCallback() {
+      this.key = this.dataset.storageKey;
+      this.t = JSON.parse($('[data-tracker-strings]', this).textContent);
+      this.items = $$('[data-figure]', this);
+      this.owned = new Set(store.get(this.key, []));
+      this.items.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.figure;
+          this.owned.has(id) ? this.owned.delete(id) : this.owned.add(id);
+          store.set(this.key, [...this.owned]);
+          this.render();
+        });
+      });
+      this.render();
+    }
+    render() {
+      const standard = this.items.filter((b) => b.dataset.secret !== 'true');
+      let ownedStd = 0;
+      let secretOwned = false;
+      this.items.forEach((b) => {
+        const on = this.owned.has(b.dataset.figure);
+        b.setAttribute('aria-pressed', String(on));
+        if (on && b.dataset.secret === 'true') secretOwned = true;
+        if (on && b.dataset.secret !== 'true') ownedStd += 1;
+      });
+      const total = standard.length;
+      const missing = total - ownedStd;
+      $('[data-tracker-owned]', this).textContent = ownedStd;
+      $('[data-tracker-total]', this).textContent = total;
+      $('[data-tracker-bar]', this).style.width = `${total ? (ownedStd / total) * 100 : 0}%`;
+
+      let advice = this.t.start;
+      if (secretOwned) advice = this.t.secretOnly;
+      else if (this.owned.size && missing === 0) advice = this.t.complete;
+      else if (this.owned.size) advice = fill(this.t.missing, { n: missing });
+      $('[data-tracker-advice]', this).textContent = advice;
+
+      // Suggest the smallest format that covers what's missing (capped at the biggest)
+      const offers = $$('[data-tracker-offer]', this);
+      const sizes = offers.map((o) => Number(o.dataset.trackerOffer)).sort((a, b) => a - b);
+      const want = missing <= 0 ? sizes[0] : sizes.find((n) => n >= missing) || sizes[sizes.length - 1];
+      offers.forEach((o) => o.classList.toggle('is-active', this.owned.size > 0 && Number(o.dataset.trackerOffer) === want));
+    }
+  }
+  customElements.define('collection-tracker', CollectionTracker);
+
+  /* ---------- Countdown ---------- */
+  class DropCountdown extends HTMLElement {
+    connectedCallback() {
+      this.target = Number(this.dataset.target);
+      this.tick();
+      this.timer = setInterval(() => this.tick(), 1000);
+    }
+    disconnectedCallback() { clearInterval(this.timer); }
+    tick() {
+      let diff = Math.max(0, this.target - Date.now());
+      if (diff === 0) { clearInterval(this.timer); this.closest('section').hidden = true; return; }
+      const parts = { d: 86400000, h: 3600000, m: 60000, s: 1000 };
+      Object.entries(parts).forEach(([k, ms]) => {
+        const v = Math.floor(diff / ms);
+        diff -= v * ms;
+        const el = $(`[data-cd="${k}"]`, this);
+        if (el) el.textContent = String(v).padStart(2, '0');
+      });
+    }
+  }
+  customElements.define('drop-countdown', DropCountdown);
+
+  /* ---------- Holographic tilt ---------- */
+  if (!reduced && window.matchMedia('(hover: hover)').matches) {
+    document.addEventListener('pointermove', (e) => {
+      const el = e.target.closest('.tilt');
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      el.style.setProperty('--rx', `${(0.5 - y) * 10}deg`);
+      el.style.setProperty('--ry', `${(x - 0.5) * 12}deg`);
+      el.style.setProperty('--mx', `${x * 100}%`);
+      el.style.setProperty('--my', `${y * 100}%`);
+      el.classList.add('is-tilting');
+    }, { passive: true });
+    document.addEventListener('pointerout', (e) => {
+      const el = e.target.closest('.tilt');
+      if (el && !el.contains(e.relatedTarget)) {
+        el.classList.remove('is-tilting');
+        el.style.removeProperty('--rx');
+        el.style.removeProperty('--ry');
+      }
+    });
+  }
+
+  /* ---------- Hero particles: rising embers and a few kanji ---------- */
+  $$('[data-particles]').forEach((canvas) => {
+    if (reduced) return;
+    const ctx = canvas.getContext('2d');
+    const glyphs = ['呪', '怨', '術', '廻'];
+    let w, h, dpr, parts = [], running = false, raf = 0;
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    const spawn = (initial) => {
+      const kanji = Math.random() < 0.08;
+      return {
+        x: Math.random() * w,
+        y: initial ? Math.random() * h : h + 20,
+        r: kanji ? 14 + Math.random() * 14 : 0.6 + Math.random() * 1.8,
+        vy: 0.2 + Math.random() * 0.6,
+        vx: (Math.random() - 0.5) * 0.25,
+        a: 0.15 + Math.random() * 0.5,
+        blue: Math.random() < 0.25,
+        glyph: kanji ? glyphs[Math.floor(Math.random() * glyphs.length)] : null
+      };
+    };
+    resize();
+    const count = w < 750 ? 28 : 55;
+    for (let i = 0; i < count; i++) parts.push(spawn(true));
+    window.addEventListener('resize', resize, { passive: true });
+    new IntersectionObserver(([en]) => { running = en.isIntersecting; if (running && !raf) raf = requestAnimationFrame(loop); }).observe(canvas);
+    function loop() {
+      raf = 0;
+      if (!running) return;
+      ctx.clearRect(0, 0, w, h);
+      parts.forEach((p, i) => {
+        p.y -= p.vy; p.x += p.vx;
+        if (p.y < -30) parts[i] = spawn(false);
+        const color = p.blue ? '120,170,255' : '215,60,80';
+        if (p.glyph) {
+          ctx.font = `${p.r}px serif`;
+          ctx.fillStyle = `rgba(${color},${p.a * 0.35})`;
+          ctx.fillText(p.glyph, p.x, p.y);
+        } else {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${color},${p.a})`;
+          ctx.shadowColor = `rgba(${color},.9)`;
+          ctx.shadowBlur = 8;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      });
+      raf = requestAnimationFrame(loop);
+    }
+  });
+})();

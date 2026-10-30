@@ -1,0 +1,56 @@
+{%- comment -%}
+  Real drop countdown + waitlist. Hidden automatically when no date is set or the date has passed.
+  Date format: 2026-11-21T18:00:00+01:00
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign now = 'now' | date: '%s' | plus: 0
+  assign target = 0
+  if s.date != blank
+    assign target = s.date | date: '%s' | plus: 0
+  endif
+-%}
+{%- if target > now -%}
+  <section class="drop" data-scheme="dark">
+    <div class="container container--wide drop__inner">
+      <div class="drop__copy">
+        {%- if s.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="h2 display">{{ s.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
+        {%- if s.text != blank -%}<p class="muted">{{ s.text }}</p>{%- endif -%}
+      </div>
+      <drop-countdown class="countdown" data-target="{{ target | times: 1000 }}">
+        <div><span data-cd="d">--</span><small>Days</small></div>
+        <div><span data-cd="h">--</span><small>Hours</small></div>
+        <div><span data-cd="m">--</span><small>Min</small></div>
+        <div><span data-cd="s">--</span><small>Sec</small></div>
+      </drop-countdown>
+      {%- form 'customer', class: 'drop__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter, waitlist">
+        {%- if form.posted_successfully? -%}
+          <p class="form-msg form-msg--ok" role="status">{{ 'newsletter.success' | t }}</p>
+        {%- else -%}
+          <div class="newsletter__field">
+            <label for="DropEmail-{{ section.id }}" class="visually-hidden">{{ 'newsletter.email' | t }}</label>
+            <input id="DropEmail-{{ section.id }}" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ 'newsletter.email' | t }}">
+            <button type="submit" class="btn btn--primary">{{ s.button }}</button>
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Drop countdown",
+  "settings": [
+    { "type": "paragraph", "content": "Only set a real launch date. The section hides itself once the date has passed." },
+    { "type": "text", "id": "date", "label": "Drop date", "info": "Format: 2026-11-21T18:00:00+01:00" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Drop 001" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The seal breaks [soon.]" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Join the list to be notified the minute the drop opens." },
+    { "type": "text", "id": "button", "label": "Button", "default": "Notify me" }
+  ],
+  "presets": [{ "name": "Drop countdown" }]
+}
+{% endschema %}

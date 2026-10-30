@@ -38,6 +38,13 @@
         { "value": "page", "label": "Go to cart page" }
       ] },
       { "type": "number", "id": "free_shipping_threshold", "label": "Free shipping threshold (store currency)", "default": 0, "info": "Shows a progress bar in the cart. 0 = hidden. Must match a real free-shipping rate in Settings > Shipping." },
+      { "type": "header", "content": "Box rewards" },
+      { "type": "paragraph", "content": "Rewards are counted in boxes (a 3-pack counts as 3). Only promise what is real: create the matching automatic discount in Discounts, or actually ship the gift." },
+      { "type": "range", "id": "reward1_boxes", "label": "Reward 1: boxes needed (0 = off)", "min": 0, "max": 12, "step": 1, "default": 0 },
+      { "type": "text", "id": "reward1_label", "label": "Reward 1 label", "default": "Free NOROI sticker" },
+      { "type": "range", "id": "reward2_boxes", "label": "Reward 2: boxes needed (0 = off)", "min": 0, "max": 12, "step": 1, "default": 0 },
+      { "type": "text", "id": "reward2_label", "label": "Reward 2 label", "default": "10% off your order" },
+      { "type": "header", "content": "Upsell" },
       { "type": "product", "id": "cart_upsell_product", "label": "Cart upsell product" },
       { "type": "text", "id": "cart_upsell_heading", "label": "Upsell heading", "default": "Go further — lower price per box" },
       { "type": "url", "id": "cart_empty_link", "label": "Empty cart button link" }
