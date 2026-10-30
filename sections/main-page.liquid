@@ -36,9 +36,10 @@
             <textarea id="ContactBody" name="contact[body]" rows="6" required>{{ form.body }}</textarea>
           </div>
           <button type="submit" class="btn btn--primary btn--lg">{{ 'contact.send' | t }}</button>
-          {%- if shop.email != blank -%}
+          {%- comment -%} Hide Shopify's auto-generated placeholder address {%- endcomment -%}
+          {%- unless shop.email == blank or shop.email contains 'businessmail.shop' -%}
             <p class="contact-form__alt muted">{{ 'contact.or_email' | t }} <a href="mailto:{{ shop.email }}">{{ shop.email }}</a></p>
-          {%- endif -%}
+          {%- endunless -%}
         {%- endif -%}
       {%- endform -%}
     {%- endif -%}
