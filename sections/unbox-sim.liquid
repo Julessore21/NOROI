@@ -11,17 +11,23 @@
       {%- if s.text != blank -%}<p class="section-head__text">{{ s.text }}</p>{%- endif -%}
     </div>
 
-    <unbox-sim class="sim__stage" data-secret-odds="{{ s.secret_odds }}">
+    {%- assign brand = settings.brand_name | default: shop.name | upcase -%}
+    <unbox-sim class="sim__stage" data-secret-odds="{{ s.secret_odds }}" style="--box-art: url('{{ s.box_art | default: 'noroi-secret.jpg' | asset_url }}')">
       <div class="sim__arena" aria-hidden="true">
         <div class="sim__aura"></div>
         <div class="sim__rays"></div>
         <div class="sim__box" data-sim-box>
           {%- capture face -%}
-            <span class="sim__brand">{{ settings.brand_name | default: shop.name | upcase }}</span>
-            <span class="sim__kanji">呪</span>
-            <span class="sim__tape"></span>
-            <span class="sim__corner sim__corner--tl"></span><span class="sim__corner sim__corner--br"></span>
+            <span class="sim__frame"></span>
+            <span class="sim__top-band"><b>{{ brand }}</b><i>呪</i></span>
+            <span class="sim__window"><span class="sim__window-q">?</span></span>
+            <span class="sim__series">{{ s.box_series }}</span>
+            <span class="sim__meta">1 random figure inside</span>
+            <span class="sim__foil">?</span>
+            <span class="sim__holo"></span>
           {%- endcapture -%}
+          <div class="sim__lidwrap"><div class="sim__lid"><span class="sim__lid-kanji">呪</span><span class="sim__seal">Sealed</span></div></div>
+          <div class="sim__sidewrap"><div class="sim__side"><span>Collect the unknown</span></div></div>
           <div class="sim__half sim__half--l"><div class="sim__face">{{ face }}</div></div>
           <div class="sim__half sim__half--r"><div class="sim__face">{{ face }}</div></div>
           <div class="sim__seam"></div>
@@ -90,6 +96,8 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Feel the ritual" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Open one. [Right now.]" },
     { "type": "textarea", "id": "text", "label": "Text", "default": "Tap the box and see who you pull, with the real odds." },
+    { "type": "text", "id": "box_series", "label": "Series name on the box", "default": "The Culling Game" },
+    { "type": "text", "id": "box_art", "label": "Box window image (theme asset file)", "default": "noroi-secret.jpg" },
     { "type": "range", "id": "secret_odds", "label": "Secret odds (1 in N)", "min": 12, "max": 288, "step": 12, "default": 72 },
     { "type": "text", "id": "button", "label": "Open button", "default": "Open the box" },
     { "type": "text", "id": "again_button", "label": "Open again button", "default": "Open another" },
