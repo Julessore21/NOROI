@@ -54,64 +54,13 @@
 <meta name="twitter:title" content="{{ og_title | escape }}">
 <meta name="twitter:description" content="{{ page_description | default: shop.description | default: settings.tagline | escape }}">
 
-{{ 'barlow-condensed-800.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
-{{ 'manrope-var.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
-{%- liquid
-  case settings.display_font
-    when 'shojumaru'
-      assign df_file = 'shojumaru.woff2'
-      assign df_name = 'Shojumaru'
-      assign df_scale = '1'
-      assign df_track = '.015em'
-    when 'dela'
-      assign df_file = 'dela-gothic-one.woff2'
-      assign df_name = 'Dela Gothic One'
-      assign df_scale = '.86'
-      assign df_track = '0em'
-    when 'bangers'
-      assign df_file = 'bangers.woff2'
-      assign df_name = 'Bangers'
-      assign df_scale = '1.3'
-      assign df_track = '.03em'
-    when 'barlow'
-      assign df_file = blank
-      assign df_name = 'Barlow Condensed'
-      assign df_scale = '1.25'
-      assign df_track = '.01em'
-    else
-      assign df_file = 'knewave.woff2'
-      assign df_name = 'Knewave'
-      assign df_scale = '1.08'
-      assign df_track = '.01em'
-  endcase
--%}
-{%- if df_file != blank -%}{{ df_file | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}{%- endif %}
-{%- liquid
-  assign accent_on = false
-  if settings.accent_font == 'knewave' and df_name != 'Knewave'
-    assign accent_on = true
-  endif
--%}
-{%- if accent_on -%}{{ 'knewave.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}{%- endif %}
+{{ 'inter-var.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
 
 <style>
-  @font-face { font-family: 'Barlow Condensed'; font-weight: 600; font-style: normal; font-display: swap; src: url('{{ 'barlow-condensed-600.woff2' | asset_url }}') format('woff2'); }
-  @font-face { font-family: 'Barlow Condensed'; font-weight: 800; font-style: normal; font-display: swap; src: url('{{ 'barlow-condensed-800.woff2' | asset_url }}') format('woff2'); }
-  {%- if accent_on %}
-  @font-face { font-family: 'Knewave'; font-weight: 400; font-style: normal; font-display: swap; src: url('{{ 'knewave.woff2' | asset_url }}') format('woff2'); }
-  {%- endif %}
-  {%- if df_file != blank %}
-  @font-face { font-family: '{{ df_name }}'; font-weight: 400; font-style: normal; font-display: swap; src: url('{{ df_file | asset_url }}') format('woff2'); }
-  {%- endif %}
-  @font-face { font-family: 'Manrope'; font-weight: 400 700; font-style: normal; font-display: swap; src: url('{{ 'manrope-var.woff2' | asset_url }}') format('woff2'); }
+  @font-face { font-family: 'Inter'; font-weight: 400 800; font-style: normal; font-display: swap; src: url('{{ 'inter-var.woff2' | asset_url }}') format('woff2'); }
 
   :root {
-    --font-display: '{{ df_name }}', 'Barlow Condensed', Impact, sans-serif;
-    --font-accent: {% if accent_on %}'Knewave', {% endif %}var(--font-display);
-    --accent-size: {% if accent_on %}calc(1.08em / {{ df_scale }}){% else %}1em{% endif %};
-    --display-scale: {{ df_scale }};
-    --display-track: {{ df_track }};
-    --display-weight: {% if df_name == 'Barlow Condensed' %}800{% else %}400{% endif %};
+    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Segoe UI', Roboto, sans-serif;
     --c-bg: {{ settings.color_bg }};
     --c-surface: {{ settings.color_surface }};
     --c-line: {{ settings.color_line }};
