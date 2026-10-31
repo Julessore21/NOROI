@@ -39,14 +39,13 @@
   endif
 
   # Next format up: the cheapest product holding more boxes than anything in the bag
-  assign next = blank
   assign next_boxes = 0
   for p in formats
     capture nb
       render 'box-count', product: p
     endcapture
     assign nb = nb | plus: 0
-    if nb > max_boxes and p.available and next == blank
+    if nb > max_boxes and p.available and next_boxes == 0
       assign next = p
       assign next_boxes = nb
     endif
@@ -156,7 +155,7 @@
       {%- endfor -%}
     </ul>
 
-    {%- if next != blank -%}
+    {%- if next_boxes > 0 -%}
       {%- liquid
         assign next_per_cents = next.price | divided_by: next_boxes
         assign next_per = next_per_cents | money
