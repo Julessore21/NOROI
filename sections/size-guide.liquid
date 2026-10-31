@@ -8,6 +8,15 @@
 -%}
 <section class="section size" id="{{ s.anchor | default: 'size' }}">
   <div class="container size__grid">
+    {%- if s.image != blank or s.image_file != blank -%}
+      <div class="size__photo reveal">
+        {%- if s.image != blank -%}
+          {{ s.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1400', sizes: '(min-width: 900px) 50vw, 100vw', alt: s.heading }}
+        {%- else -%}
+          <img src="{{ s.image_file | asset_url }}" alt="{{ s.figure_title | escape }}: {{ s.figure_label | escape }}" loading="lazy" width="1440" height="1270">
+        {%- endif -%}
+      </div>
+    {%- else -%}
     <div class="size__visual reveal" style="--fig: {{ ratio }}%;" aria-hidden="true">
       <div class="size__stage">
         <div class="size__phone">
@@ -25,6 +34,7 @@
       <div class="size__floor"></div>
     </div>
 
+    {%- endif -%}
     <div class="size__copy reveal" style="--d: 120ms">
       {%- if s.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>{%- endif -%}
       <h2 class="h1 display">{{ s.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
@@ -54,6 +64,8 @@
     { "type": "text", "id": "extra_title", "label": "Extra spec label", "default": "Material" },
     { "type": "text", "id": "extra_value", "label": "Extra spec value", "default": "PVC / ABS" },
     { "type": "textarea", "id": "text", "label": "Text", "default": "Small enough for your desk, detailed enough for the shelf. Each figure stands on its own base." },
+    { "type": "image_picker", "id": "image", "label": "Size photo", "info": "Photo of the figure next to a phone. Replaces the drawing." },
+    { "type": "text", "id": "image_file", "label": "Built-in size photo (theme asset file)", "default": "noroi-size.jpg", "info": "Leave empty to show the drawing instead." },
     { "type": "text", "id": "figure_image", "label": "Figure image (theme asset file)", "default": "noroi-yuji.jpg" },
     { "type": "text", "id": "wallpaper", "label": "Phone wallpaper (theme asset file)", "default": "noroi-hero.jpg" }
   ],

@@ -1116,3 +1116,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 .lang__chev { opacity: .7; }
 /* Scripts without Latin glyphs (Hindi) fall back to the system's font */
 :lang(hi) body, :lang(hi) .display, :lang(hi) .h1, :lang(hi) .h2 { line-height: 1.35 !important; }
+
+.size__photo { position: relative; border-radius: 22px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 40px 90px -40px rgba(0,0,0,.95), 0 0 80px -30px rgba(var(--c-accent-rgb), .45); }
+.size__photo img { display: block; width: 100%; height: auto; }
+@media (max-width: 899px) { .size__photo { border-radius: 16px; } }
