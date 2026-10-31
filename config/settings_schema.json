@@ -169,7 +169,7 @@
         "type": "text",
         "id": "cart_upsell_heading",
         "label": "Upsell heading",
-        "default": "Go further — lower price per box"
+        "default": "Go further: lower price per box"
       },
       {
         "type": "url",

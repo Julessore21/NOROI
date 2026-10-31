@@ -106,7 +106,7 @@
       "other": "{{ count }} results for “{{ terms }}”"
     },
     "title": "Search",
-    "empty": "No exact match — but every sealed box can hide any figure of the series. Pick your format:"
+    "empty": "No exact match, but every sealed box can hide any figure of the series. Pick your format:"
   },
   "contact": {
     "name": "Name",
@@ -114,7 +114,7 @@
     "order": "Order number (optional)",
     "message": "Message",
     "send": "Send message",
-    "success": "Thanks — your message is in. We reply within 24–48h on business days.",
+    "success": "Thanks, your message is in. We reply within 24–48h on business days.",
     "or_email": "Prefer email?"
   },
   "community": {

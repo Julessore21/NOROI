@@ -1,4 +1,4 @@
-/* NOROI theme — vanilla JS, no dependencies */
+/* NOROI theme: vanilla JS, no dependencies */
 (() => {
   const cfg = window.noroi || {};
   const $ = (s, r = document) => r.querySelector(s);

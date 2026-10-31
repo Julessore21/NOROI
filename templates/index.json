@@ -59,7 +59,7 @@
         "scheme": "dark",
         "heading": "Pick your [odds.]",
         "footnote": "",
-        "text": "Same sealed boxes, three ways in. The more you open, the less each box costs — and the more chances at the secret."
+        "text": "Same sealed boxes, three ways in. The more you open, the less each box costs, and the more chances at the secret."
       },
       "blocks": {
         "o0": {
@@ -79,7 +79,7 @@
             "badge": "Discovery pack",
             "featured": true,
             "title": "Mystery trio",
-            "perks": "3 factory-sealed blind boxes\n3 chances at the secret\nOpen them one by one — or all at once"
+            "perks": "3 factory-sealed blind boxes\n3 chances at the secret\nOpen them one by one or all at once"
           }
         },
         "o2": {
@@ -196,7 +196,7 @@
           "type": "step",
           "settings": {
             "title": "Collect",
-            "text": "Chase the five standard figures — and the secret if fate allows. Trade duplicates with friends."
+            "text": "Chase the five standard figures, and the secret if fate allows. Trade duplicates with friends."
           }
         }
       },
