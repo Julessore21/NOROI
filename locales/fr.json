@@ -23,13 +23,13 @@
     "language": "Langue"
   },
   "cart": {
-    "title": "Ton panier",
+    "title": "Votre panier",
     "checkout": "Paiement sécurisé",
     "continue": "Découvrir le drop",
     "decrease": "Diminuer la quantité de {{ title }}",
     "increase": "Augmenter la quantité de {{ title }}",
-    "empty": "Ton panier est vide.",
-    "empty_sub": "Quelqu’un t’attend dans une boîte scellée.",
+    "empty": "Votre panier est vide.",
+    "empty_sub": "Quelqu’un vous attend dans une boîte scellée.",
     "free_shipping_remaining_html": "Plus que <strong>{{ amount }}</strong> pour la livraison offerte",
     "free_shipping_unlocked": "Livraison offerte débloquée",
     "remove": "Retirer",
@@ -38,8 +38,8 @@
     "taxes_excluded": "Taxes et livraison calculées au paiement.",
     "update": "Mettre à jour",
     "reward_next_html": {
-      "one": "Ajoute <strong>{{ count }} boîte</strong> pour débloquer : {{ reward }}",
-      "other": "Ajoute <strong>{{ count }} boîtes</strong> pour débloquer : {{ reward }}"
+      "one": "Ajoutez <strong>{{ count }} boîte</strong> pour débloquer : {{ reward }}",
+      "other": "Ajoutez <strong>{{ count }} boîtes</strong> pour débloquer : {{ reward }}"
     },
     "reward_done": "Toutes les récompenses sont débloquées",
     "boxes": {
@@ -68,15 +68,15 @@
     "add_to_apple_wallet": "Ajouter à Apple Wallet",
     "expired": "Cette carte cadeau a expiré.",
     "expires_on": "Expire le {{ expires_on }}",
-    "use_at_checkout": "Utilise ce code au paiement :"
+    "use_at_checkout": "Utilisez ce code au paiement :"
   },
   "newsletter": {
-    "email": "Ton e-mail",
-    "success": "Tu es sur la liste. On te prévient dès que le sceau se brise."
+    "email": "Votre e-mail",
+    "success": "Vous êtes sur la liste. On vous prévient dès que le sceau se brise."
   },
   "password": {
     "enter": "Entrer",
-    "owner": "Propriétaire de la boutique ? Saisis le mot de passe",
+    "owner": "Propriétaire de la boutique ? Saisissez le mot de passe",
     "password": "Mot de passe"
   },
   "products": {
@@ -89,7 +89,7 @@
     },
     "choose": "Choisir les options",
     "description": "Description",
-    "error": "Une erreur est survenue. Réessaie.",
+    "error": "Une erreur est survenue. Réessayez.",
     "format": "Format",
     "in_stock": "En stock",
     "low_stock": {
@@ -98,7 +98,7 @@
     },
     "media_n": "Afficher l’image {{ n }}",
     "per_box": "{{ price }} / boîte",
-    "pick_product": "Choisis un produit dans l’éditeur de thème",
+    "pick_product": "Choisissez un produit dans l’éditeur de thème",
     "qty_down": "Diminuer la quantité",
     "qty_up": "Augmenter la quantité",
     "quantity": "Quantité",
@@ -117,7 +117,7 @@
       "other": "{{ count }} résultats pour « {{ terms }} »"
     },
     "title": "Recherche",
-    "empty": "Aucun résultat exact, mais chaque boîte scellée peut cacher n’importe quelle figurine de la série. Choisis ton format :"
+    "empty": "Aucun résultat exact, mais chaque boîte scellée peut cacher n’importe quelle figurine de la série. Choisissez votre format :"
   },
   "contact": {
     "name": "Nom",
@@ -125,11 +125,11 @@
     "order": "Numéro de commande (facultatif)",
     "message": "Message",
     "send": "Envoyer",
-    "success": "Merci, ton message est bien arrivé. On répond sous 24 à 48 h en jours ouvrés.",
-    "or_email": "Tu préfères l’e-mail ?"
+    "success": "Merci, votre message est bien arrivé. Nous répondons sous 24 à 48 h en jours ouvrés.",
+    "or_email": "Vous préférez l’e-mail ?"
   },
   "community": {
-    "tag_html": "Tu as ouvert une boîte ? Tague <strong>{{ handle }}</strong> et ta photo rejoint le mur.",
+    "tag_html": "Vous avez ouvert une boîte ? Taguez <strong>{{ handle }}</strong> et votre photo rejoint le mur.",
     "pulled": "Obtenu"
   },
   "countdown": {
@@ -141,7 +141,7 @@
   "sim": {
     "inside": "1 figurine au hasard",
     "sealed": "Scellé",
-    "side": "Collectionne l’inconnu",
+    "side": "Collectionnez l’inconnu",
     "standard": "Standard"
   },
   "shopify": {
