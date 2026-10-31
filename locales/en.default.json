@@ -108,7 +108,8 @@
     "tax_excluded": "Tax excluded.",
     "tax_included": "Tax included.",
     "save_per_box": "Save {{ pct }}% per box",
-    "view_details": "View details"
+    "view_details": "View details",
+    "pack_alt": "sealed mystery box and the figures it can contain"
   },
   "search": {
     "placeholder": "Search the drop…",

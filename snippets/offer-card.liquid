@@ -22,14 +22,17 @@
     assign icon_count = 6
   endif
 -%}
+{%- capture pv -%}{% render 'pack-visual', product: product %}{%- endcapture -%}
 <article class="offer{% if featured %} offer--featured{% endif %}{% unless product.available %} is-soldout{% endunless %}">
   {%- if badge != blank -%}<span class="offer__ribbon">{{ badge }}</span>{%- endif -%}
 
-  <a class="offer__media tilt" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
-    {%- if product.featured_media -%}
+  <a class="offer__media tilt{% if pv != blank %} offer__media--pack{% endif %}" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+    {%- if pv != blank -%}
+      {{ pv }}
+    {%- elsif product.featured_media -%}
       {{ product.featured_media | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 990px) 30vw, 85vw', alt: '' }}
     {%- endif -%}
-    <span class="offer__count"><small>×</small>{{ boxes }}</span>
+    {%- if pv == blank -%}<span class="offer__count"><small>×</small>{{ boxes }}</span>{%- endif -%}
   </a>
 
   <div class="offer__body">

@@ -1150,3 +1150,5 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 @keyframes figGlow { 50% { opacity: .7; transform: translate(-50%, -50%) scale(1.06); } }
 .size__figure img { filter: drop-shadow(-6px 0 14px rgba(var(--c-accent-rgb), .45)) drop-shadow(6px 0 14px rgba(var(--c-aura-rgb), .35)) drop-shadow(0 22px 22px rgba(0,0,0,.8)) !important; }
 .size__figure { isolation: isolate; }
+.offer__media--pack { aspect-ratio: 1; }
+.offer__media--pack::after { display: none; }

@@ -14,11 +14,15 @@
 
     {%- comment -%} Gallery {%- endcomment -%}
     <div class="pdp__gallery" data-gallery>
+      {%- capture pv -%}{% render 'pack-visual', product: product, loading: 'eager' %}{%- endcapture -%}
       <div class="gallery__main" data-gallery-track>
+        {%- if pv != blank -%}
+          <figure class="gallery__slide gallery__slide--pack" id="Media-pack" data-media-id="pack">{{ pv }}</figure>
+        {%- endif -%}
         {%- for media in product.media -%}
           {%- liquid
             assign img_loading = 'lazy'
-            if forloop.first
+            if forloop.first and pv == blank
               assign img_loading = 'eager'
             endif
           -%}
@@ -33,10 +37,13 @@
           <figure class="gallery__slide">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</figure>
         {%- endfor -%}
       </div>
-      {%- if product.media.size > 1 -%}
+      {%- if product.media.size > 1 or pv != blank -%}
         <div class="gallery__thumbs" role="list">
+          {%- if pv != blank -%}
+            <button type="button" class="gallery__thumb is-active" data-thumb="pack" aria-label="{{ 'products.media_n' | t: n: 1 }}">{{ pv }}</button>
+          {%- endif -%}
           {%- for media in product.media -%}
-            <button type="button" class="gallery__thumb{% if forloop.first %} is-active{% endif %}" data-thumb="{{ media.id }}" aria-label="{{ 'products.media_n' | t: n: forloop.index }}">
+            <button type="button" class="gallery__thumb{% if forloop.first and pv == blank %} is-active{% endif %}" data-thumb="{{ media.id }}" aria-label="{{ 'products.media_n' | t: n: forloop.index }}">
               {{ media.preview_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}
             </button>
           {%- endfor -%}

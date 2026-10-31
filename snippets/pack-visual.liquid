@@ -1,0 +1,13 @@
+{%- comment -%}
+  Outputs the theme's mystery-box visual for a product (box + possible figures),
+  chosen by box count: noroi-pack-1/3/6.jpg. Params: product, class, sizes, loading
+  Renders nothing when the setting is off or no matching visual exists.
+{%- endcomment -%}
+{%- if settings.pack_visuals -%}
+  {%- capture pv_boxes -%}{% render 'box-count', product: product %}{%- endcapture -%}
+  {%- assign pv_boxes = pv_boxes | strip -%}
+  {%- if pv_boxes == '1' or pv_boxes == '3' or pv_boxes == '6' -%}
+    {%- assign pv_file = 'noroi-pack-' | append: pv_boxes | append: '.jpg' -%}
+    <img src="{{ pv_file | asset_url }}" alt="{{ product.title | escape }}: {{ 'products.pack_alt' | t }}" width="1800" height="1800" loading="{{ loading | default: 'lazy' }}"{% if class %} class="{{ class }}"{% endif %}>
+  {%- endif -%}
+{%- endif -%}

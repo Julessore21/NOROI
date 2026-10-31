@@ -42,6 +42,13 @@
         "type": "url",
         "id": "social_tiktok",
         "label": "TikTok URL"
+      },
+      {
+        "type": "checkbox",
+        "id": "pack_visuals",
+        "label": "Show mystery-box visuals",
+        "info": "Box + possible figures image for 1, 3 and 6-box products (offers, catalogue, first product image).",
+        "default": true
       }
     ]
   },

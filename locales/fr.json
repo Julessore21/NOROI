@@ -108,7 +108,8 @@
     "tax_excluded": "Hors taxes.",
     "tax_included": "Taxes incluses.",
     "save_per_box": "−{{ pct }} % par boîte",
-    "view_details": "Voir le détail"
+    "view_details": "Voir le détail",
+    "pack_alt": "boîte mystère scellée et les figurines qu’elle peut contenir"
   },
   "search": {
     "placeholder": "Rechercher dans le drop…",
