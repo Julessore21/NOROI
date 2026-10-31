@@ -1,0 +1,138 @@
+{
+  "accessibility": {
+    "close": "बंद करें",
+    "main_nav": "मुख्य नेविगेशन",
+    "menu": "मेनू",
+    "search": "खोजें",
+    "skip_to_content": "सामग्री पर जाएँ"
+  },
+  "general": {
+    "404_title": "यहाँ कुछ भी सील नहीं है।",
+    "404_text": "यह पेज गायब हो गया। बॉक्स नहीं।",
+    "pagination": "पेज",
+    "secret": "सीक्रेट",
+    "language": "भाषा"
+  },
+  "cart": {
+    "title": "आपका बैग",
+    "checkout": "सुरक्षित चेकआउट",
+    "continue": "ड्रॉप देखें",
+    "decrease": "{{ title }} की मात्रा घटाएँ",
+    "increase": "{{ title }} की मात्रा बढ़ाएँ",
+    "empty": "आपका बैग खाली है।",
+    "empty_sub": "कोई एक सील बंद बॉक्स में आपका इंतज़ार कर रहा है।",
+    "free_shipping_remaining_html": "मुफ़्त शिपिंग के लिए बस <strong>{{ amount }}</strong> और",
+    "free_shipping_unlocked": "मुफ़्त शिपिंग अनलॉक",
+    "remove": "हटाएँ",
+    "subtotal": "उप-योग",
+    "taxes_included": "टैक्स शामिल। शिपिंग चेकआउट पर।",
+    "taxes_excluded": "टैक्स और शिपिंग चेकआउट पर।",
+    "update": "अपडेट करें",
+    "reward_next_html": {
+      "one": "अनलॉक करने के लिए <strong>{{ count }} और बॉक्स</strong> जोड़ें: {{ reward }}",
+      "other": "अनलॉक करने के लिए <strong>{{ count }} और बॉक्स</strong> जोड़ें: {{ reward }}"
+    },
+    "reward_done": "सभी रिवॉर्ड अनलॉक",
+    "boxes": {
+      "one": "{{ count }} सील बंद बॉक्स",
+      "other": "{{ count }} सील बंद बॉक्स"
+    },
+    "keep_shopping": "खरीदारी जारी रखें",
+    "summary": "सारांश",
+    "trust_sealed": "फ़ैक्टरी-सील, कभी नहीं खोला गया",
+    "trust_tracked": "ट्रैक की गई शिपिंग",
+    "trust_returns": "14 दिन में वापसी का अधिकार",
+    "trust_sealed_short": "फ़ैक्टरी-सील",
+    "trust_tracked_short": "ट्रैक",
+    "trust_returns_short": "14 दिन वापसी"
+  },
+  "collections": {
+    "all": "कलेक्शन",
+    "empty": "अभी यहाँ कोई प्रोडक्ट नहीं है।"
+  },
+  "footer": {
+    "account": "अकाउंट",
+    "legal": "कानूनी",
+    "rights": "सर्वाधिकार सुरक्षित।"
+  },
+  "gift_card": {
+    "add_to_apple_wallet": "Apple Wallet में जोड़ें",
+    "expired": "यह गिफ़्ट कार्ड समाप्त हो गया है।",
+    "expires_on": "{{ expires_on }} को समाप्त",
+    "use_at_checkout": "चेकआउट पर यह कोड इस्तेमाल करें:"
+  },
+  "newsletter": {
+    "email": "आपका ईमेल",
+    "success": "आप लिस्ट में हैं। सील टूटते ही हम आपको बताएँगे।"
+  },
+  "password": {
+    "enter": "प्रवेश करें",
+    "owner": "स्टोर के मालिक? पासवर्ड डालें",
+    "password": "पासवर्ड"
+  },
+  "products": {
+    "add": "जोड़ें",
+    "add_to_cart": "बैग में डालें",
+    "added": "बैग में जोड़ा गया",
+    "boxes_count": {
+      "one": "{{ count }} बॉक्स",
+      "other": "{{ count }} बॉक्स"
+    },
+    "choose": "विकल्प चुनें",
+    "description": "विवरण",
+    "error": "कुछ गलत हो गया। फिर से कोशिश करें।",
+    "format": "फ़ॉर्मेट",
+    "in_stock": "स्टॉक में",
+    "low_stock": {
+      "one": "सिर्फ़ {{ count }} बचा",
+      "other": "सिर्फ़ {{ count }} बचे"
+    },
+    "media_n": "तस्वीर {{ n }} दिखाएँ",
+    "per_box": "{{ price }} / बॉक्स",
+    "pick_product": "थीम एडिटर में एक प्रोडक्ट चुनें",
+    "qty_down": "मात्रा घटाएँ",
+    "qty_up": "मात्रा बढ़ाएँ",
+    "quantity": "मात्रा",
+    "shipping_calc": "शिपिंग चेकआउट पर",
+    "single_box": "1 बॉक्स",
+    "sold_out": "बिक गया",
+    "tax_excluded": "टैक्स शामिल नहीं।",
+    "tax_included": "टैक्स शामिल।",
+    "save_per_box": "हर बॉक्स पर {{ pct }}% बचत",
+    "view_details": "विवरण देखें"
+  },
+  "search": {
+    "placeholder": "ड्रॉप में खोजें…",
+    "results": {
+      "one": "“{{ terms }}” के लिए {{ count }} नतीजा",
+      "other": "“{{ terms }}” के लिए {{ count }} नतीजे"
+    },
+    "title": "खोजें",
+    "empty": "सटीक नतीजा नहीं मिला, लेकिन हर सील बंद बॉक्स में सीरीज़ का कोई भी फ़िगर हो सकता है। अपना फ़ॉर्मेट चुनें:"
+  },
+  "contact": {
+    "name": "नाम",
+    "email": "ईमेल",
+    "order": "ऑर्डर नंबर (वैकल्पिक)",
+    "message": "संदेश",
+    "send": "संदेश भेजें",
+    "success": "धन्यवाद, आपका संदेश मिल गया। हम कामकाजी दिनों में 24–48 घंटे में जवाब देते हैं।",
+    "or_email": "ईमेल पसंद है?"
+  },
+  "community": {
+    "tag_html": "कुछ निकला? <strong>{{ handle }}</strong> को टैग करें और आपका बॉक्स वॉल पर आएगा।",
+    "pulled": "निकला"
+  },
+  "countdown": {
+    "d": "दिन",
+    "h": "घंटे",
+    "m": "मिनट",
+    "s": "सेकंड"
+  },
+  "sim": {
+    "inside": "अंदर 1 रैंडम फ़िगर",
+    "sealed": "सील",
+    "side": "अनजान को कलेक्ट करें",
+    "standard": "स्टैंडर्ड"
+  }
+}

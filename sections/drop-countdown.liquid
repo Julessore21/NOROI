@@ -19,10 +19,10 @@
         {%- if s.text != blank -%}<p class="muted">{{ s.text }}</p>{%- endif -%}
       </div>
       <drop-countdown class="countdown" data-target="{{ target | times: 1000 }}">
-        <div><span data-cd="d">--</span><small>Days</small></div>
-        <div><span data-cd="h">--</span><small>Hours</small></div>
-        <div><span data-cd="m">--</span><small>Min</small></div>
-        <div><span data-cd="s">--</span><small>Sec</small></div>
+        <div><span data-cd="d">--</span><small>{{ 'countdown.d' | t }}</small></div>
+        <div><span data-cd="h">--</span><small>{{ 'countdown.h' | t }}</small></div>
+        <div><span data-cd="m">--</span><small>{{ 'countdown.m' | t }}</small></div>
+        <div><span data-cd="s">--</span><small>{{ 'countdown.s' | t }}</small></div>
       </drop-countdown>
       {%- form 'customer', class: 'drop__form' -%}
         <input type="hidden" name="contact[tags]" value="newsletter, waitlist">

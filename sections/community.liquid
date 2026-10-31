@@ -38,12 +38,12 @@
                   {%- else -%}
                     <img src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.figure | escape }}" loading="lazy" width="900" height="1125">
                   {%- endif -%}
-                  {%- if block.settings.secret -%}<span class="badge badge--accent">Secret</span>{%- endif -%}
+                  {%- if block.settings.secret -%}<span class="badge badge--accent">{{ 'general.secret' | t }}</span>{%- endif -%}
                   <span class="pull__shine" aria-hidden="true"></span>
                 </div>
                 <figcaption class="pull__caption">
                   <span class="pull__text">
-                    <span class="pull__label">Pulled</span>
+                    <span class="pull__label">{{ 'community.pulled' | t }}</span>
                     <span class="pull__figure">{{ block.settings.figure }}</span>
                   </span>
                   <span class="pull__stamp" aria-hidden="true">呪</span>

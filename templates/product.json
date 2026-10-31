@@ -14,7 +14,7 @@
           "type": "tab",
           "settings": {
             "title": "How blind boxes work",
-            "content": "<p>Each box contains one random figure from the series. You can't choose or see the character before opening. Duplicates are possible, and the secret figure (≈ 1 in 72 boxes per the manufacturer) is never guaranteed.</p>"
+            "content": "<p>Each box contains one random figure from the series. You can't choose or see the character before opening. Duplicates are possible, and the secret figure (about 1 in 72 boxes) is never guaranteed.</p>"
           }
         },
         "tab1": {
@@ -136,14 +136,14 @@
           "type": "question",
           "settings": {
             "question": "Can I get duplicates?",
-            "answer": "<p>Yes. Each box is random, so duplicates are possible, including in the 3-box pack. A 6-box display is a full manufacturer case; we do not guarantee a complete set or the secret figure.</p>"
+            "answer": "<p>Yes. Each box is random, so duplicates are possible, including in the 3-box pack. A 6-box display is a full sealed case; we do not guarantee a complete set or the secret figure.</p>"
           }
         },
         "q3": {
           "type": "question",
           "settings": {
             "question": "What are the odds of the secret figure?",
-            "answer": "<p>The manufacturer states roughly 1 secret in every 72 boxes. It is never guaranteed, whatever format you buy.</p>"
+            "answer": "<p>We see roughly 1 secret in every 72 boxes. It is never guaranteed, whatever format you buy.</p>"
           }
         }
       },

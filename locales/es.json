@@ -1,0 +1,138 @@
+{
+  "accessibility": {
+    "close": "Cerrar",
+    "main_nav": "Navegación principal",
+    "menu": "Menú",
+    "search": "Buscar",
+    "skip_to_content": "Ir al contenido"
+  },
+  "general": {
+    "404_title": "Aquí no hay nada sellado.",
+    "404_text": "Esta página desapareció. Las cajas no.",
+    "pagination": "Paginación",
+    "secret": "Secreta",
+    "language": "Idioma"
+  },
+  "cart": {
+    "title": "Tu bolsa",
+    "checkout": "Pago seguro",
+    "continue": "Ver el drop",
+    "decrease": "Reducir la cantidad de {{ title }}",
+    "increase": "Aumentar la cantidad de {{ title }}",
+    "empty": "Tu bolsa está vacía.",
+    "empty_sub": "Alguien te espera dentro de una caja sellada.",
+    "free_shipping_remaining_html": "Te faltan <strong>{{ amount }}</strong> para el envío gratis",
+    "free_shipping_unlocked": "Envío gratis desbloqueado",
+    "remove": "Quitar",
+    "subtotal": "Subtotal",
+    "taxes_included": "Impuestos incluidos. Envío calculado al pagar.",
+    "taxes_excluded": "Impuestos y envío calculados al pagar.",
+    "update": "Actualizar",
+    "reward_next_html": {
+      "one": "Añade <strong>{{ count }} caja más</strong> para desbloquear: {{ reward }}",
+      "other": "Añade <strong>{{ count }} cajas más</strong> para desbloquear: {{ reward }}"
+    },
+    "reward_done": "Todas las recompensas desbloqueadas",
+    "boxes": {
+      "one": "{{ count }} caja sellada",
+      "other": "{{ count }} cajas selladas"
+    },
+    "keep_shopping": "Seguir comprando",
+    "summary": "Resumen",
+    "trust_sealed": "Sellada de fábrica, nunca abierta",
+    "trust_tracked": "Envío con seguimiento",
+    "trust_returns": "Derecho de desistimiento de 14 días",
+    "trust_sealed_short": "Sellada",
+    "trust_tracked_short": "Con seguimiento",
+    "trust_returns_short": "Devolución 14 días"
+  },
+  "collections": {
+    "all": "Colecciones",
+    "empty": "Todavía no hay productos."
+  },
+  "footer": {
+    "account": "Cuenta",
+    "legal": "Legal",
+    "rights": "Todos los derechos reservados."
+  },
+  "gift_card": {
+    "add_to_apple_wallet": "Añadir a Apple Wallet",
+    "expired": "Esta tarjeta regalo ha caducado.",
+    "expires_on": "Caduca el {{ expires_on }}",
+    "use_at_checkout": "Usa este código al pagar:"
+  },
+  "newsletter": {
+    "email": "Tu e-mail",
+    "success": "Estás en la lista. Te avisaremos cuando se rompa el sello."
+  },
+  "password": {
+    "enter": "Entrar",
+    "owner": "¿Eres el dueño de la tienda? Introduce la contraseña",
+    "password": "Contraseña"
+  },
+  "products": {
+    "add": "Añadir",
+    "add_to_cart": "Añadir a la bolsa",
+    "added": "Añadido a la bolsa",
+    "boxes_count": {
+      "one": "{{ count }} caja",
+      "other": "{{ count }} cajas"
+    },
+    "choose": "Elegir opciones",
+    "description": "Descripción",
+    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "format": "Formato",
+    "in_stock": "En stock",
+    "low_stock": {
+      "one": "Solo queda {{ count }}",
+      "other": "Solo quedan {{ count }}"
+    },
+    "media_n": "Mostrar imagen {{ n }}",
+    "per_box": "{{ price }} / caja",
+    "pick_product": "Elige un producto en el editor de temas",
+    "qty_down": "Reducir cantidad",
+    "qty_up": "Aumentar cantidad",
+    "quantity": "Cantidad",
+    "shipping_calc": "Envío calculado al pagar",
+    "single_box": "1 caja",
+    "sold_out": "Agotado",
+    "tax_excluded": "Impuestos no incluidos.",
+    "tax_included": "Impuestos incluidos.",
+    "save_per_box": "Ahorra un {{ pct }} % por caja",
+    "view_details": "Ver detalles"
+  },
+  "search": {
+    "placeholder": "Buscar en el drop…",
+    "results": {
+      "one": "{{ count }} resultado para «{{ terms }}»",
+      "other": "{{ count }} resultados para «{{ terms }}»"
+    },
+    "title": "Buscar",
+    "empty": "No hay coincidencia exacta, pero cada caja sellada puede esconder cualquier figura de la serie. Elige tu formato:"
+  },
+  "contact": {
+    "name": "Nombre",
+    "email": "E-mail",
+    "order": "Número de pedido (opcional)",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "success": "Gracias, hemos recibido tu mensaje. Respondemos en 24–48 h laborables.",
+    "or_email": "¿Prefieres el e-mail?"
+  },
+  "community": {
+    "tag_html": "¿Has abierto una? Etiqueta a <strong>{{ handle }}</strong> y tu caja entra en el muro.",
+    "pulled": "Le tocó"
+  },
+  "countdown": {
+    "d": "Días",
+    "h": "Horas",
+    "m": "Min",
+    "s": "Seg"
+  },
+  "sim": {
+    "inside": "1 figura al azar",
+    "sealed": "Sellada",
+    "side": "Colecciona lo desconocido",
+    "standard": "Estándar"
+  }
+}

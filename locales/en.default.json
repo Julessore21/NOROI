@@ -9,7 +9,9 @@
   "general": {
     "404_title": "Nothing sealed here.",
     "404_text": "This page vanished. The boxes didn't.",
-    "pagination": "Pagination"
+    "pagination": "Pagination",
+    "secret": "Secret",
+    "language": "Language"
   },
   "cart": {
     "title": "Your bag",
@@ -118,6 +120,19 @@
     "or_email": "Prefer email?"
   },
   "community": {
-    "tag_html": "Pulled something? Tag <strong>{{ handle }}</strong> and your box joins the wall."
+    "tag_html": "Pulled something? Tag <strong>{{ handle }}</strong> and your box joins the wall.",
+    "pulled": "Pulled"
+  },
+  "countdown": {
+    "d": "Days",
+    "h": "Hours",
+    "m": "Min",
+    "s": "Sec"
+  },
+  "sim": {
+    "inside": "1 random figure inside",
+    "sealed": "Sealed",
+    "side": "Collect the unknown",
+    "standard": "Standard"
   }
 }

@@ -280,14 +280,14 @@
           "type": "question",
           "settings": {
             "question": "Can I get duplicates?",
-            "answer": "<p>Yes. Each box is random, so duplicates are possible, including in the 3-box pack. A 6-box display is a full manufacturer case; we do not guarantee a complete set or the secret figure.</p>"
+            "answer": "<p>Yes. Each box is random, so duplicates are possible, including in the 3-box pack. A 6-box display is a full sealed case; we do not guarantee a complete set or the secret figure.</p>"
           }
         },
         "q3": {
           "type": "question",
           "settings": {
             "question": "What are the odds of the secret figure?",
-            "answer": "<p>The manufacturer states roughly 1 secret in every 72 boxes. It is never guaranteed, whatever format you buy.</p>"
+            "answer": "<p>We see roughly 1 secret in every 72 boxes. It is never guaranteed, whatever format you buy.</p>"
           }
         },
         "q4": {
@@ -533,7 +533,7 @@
           "type": "stat",
           "settings": {
             "value": "1:72",
-            "label": "Secret odds (manufacturer)"
+            "label": "Secret odds"
           }
         },
         "s4": {

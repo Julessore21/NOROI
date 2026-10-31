@@ -22,12 +22,12 @@
             <span class="sim__top-band"><b>{{ brand }}</b><i>呪</i></span>
             <span class="sim__window"><span class="sim__window-q">?</span></span>
             <span class="sim__series">{{ s.box_series }}</span>
-            <span class="sim__meta">1 random figure inside</span>
+            <span class="sim__meta">{{ 'sim.inside' | t }}</span>
             <span class="sim__foil">?</span>
             <span class="sim__holo"></span>
           {%- endcapture -%}
-          <div class="sim__lidwrap"><div class="sim__lid"><span class="sim__lid-kanji">呪</span><span class="sim__seal">Sealed</span></div></div>
-          <div class="sim__sidewrap"><div class="sim__side"><span>Collect the unknown</span></div></div>
+          <div class="sim__lidwrap"><div class="sim__lid"><span class="sim__lid-kanji">呪</span><span class="sim__seal">{{ 'sim.sealed' | t }}</span></div></div>
+          <div class="sim__sidewrap"><div class="sim__side"><span>{{ 'sim.side' | t }}</span></div></div>
           <div class="sim__half sim__half--l"><div class="sim__face">{{ face }}</div></div>
           <div class="sim__half sim__half--r"><div class="sim__face">{{ face }}</div></div>
           <div class="sim__seam"></div>
@@ -76,8 +76,8 @@
           "got": {{ s.result_text | json }},
           "gotSecret": {{ s.secret_text | json }},
           "again": {{ s.again_button | json }},
-          "standard": "Standard",
-          "secret": "Secret",
+          "standard": {{ 'sim.standard' | t | json }},
+          "secret": {{ 'general.secret' | t | json }},
           "stats": {{ s.stats_text | json }}
         }
       </script>

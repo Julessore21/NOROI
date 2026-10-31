@@ -1,0 +1,18 @@
+{%- comment -%}
+  Language switcher. Shows only when more than one language is published
+  (Settings > Languages). Submits Shopify's localization form.
+{%- endcomment -%}
+{%- if localization.available_languages.size > 1 -%}
+  <div class="lang">
+  {%- form 'localization', id: 'LangForm' -%}
+    <label class="visually-hidden" for="LangSelect">{{ 'general.language' | t }}</label>
+    <span class="lang__code" aria-hidden="true">{{ localization.language.iso_code | upcase }}</span>
+    <select id="LangSelect" name="language_code" class="lang__select" onchange="this.form.submit()">
+      {%- for language in localization.available_languages -%}
+        <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} selected{% endif %}>{{ language.endonym_name | capitalize }}</option>
+      {%- endfor -%}
+    </select>
+    <svg class="lang__chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+  {%- endform -%}
+  </div>
+{%- endif -%}

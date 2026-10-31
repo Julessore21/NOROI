@@ -1,0 +1,138 @@
+{
+  "accessibility": {
+    "close": "Fermer",
+    "main_nav": "Navigation principale",
+    "menu": "Menu",
+    "search": "Rechercher",
+    "skip_to_content": "Aller au contenu"
+  },
+  "general": {
+    "404_title": "Rien de scellé ici.",
+    "404_text": "Cette page a disparu. Les boîtes, non.",
+    "pagination": "Pagination",
+    "secret": "Secret",
+    "language": "Langue"
+  },
+  "cart": {
+    "title": "Ton panier",
+    "checkout": "Paiement sécurisé",
+    "continue": "Découvrir le drop",
+    "decrease": "Diminuer la quantité de {{ title }}",
+    "increase": "Augmenter la quantité de {{ title }}",
+    "empty": "Ton panier est vide.",
+    "empty_sub": "Quelqu’un t’attend dans une boîte scellée.",
+    "free_shipping_remaining_html": "Plus que <strong>{{ amount }}</strong> pour la livraison offerte",
+    "free_shipping_unlocked": "Livraison offerte débloquée",
+    "remove": "Retirer",
+    "subtotal": "Sous-total",
+    "taxes_included": "Taxes incluses. Livraison calculée au paiement.",
+    "taxes_excluded": "Taxes et livraison calculées au paiement.",
+    "update": "Mettre à jour",
+    "reward_next_html": {
+      "one": "Ajoute <strong>{{ count }} boîte</strong> pour débloquer : {{ reward }}",
+      "other": "Ajoute <strong>{{ count }} boîtes</strong> pour débloquer : {{ reward }}"
+    },
+    "reward_done": "Toutes les récompenses sont débloquées",
+    "boxes": {
+      "one": "{{ count }} boîte scellée",
+      "other": "{{ count }} boîtes scellées"
+    },
+    "keep_shopping": "Continuer mes achats",
+    "summary": "Récapitulatif",
+    "trust_sealed": "Scellée d’usine, jamais ouverte",
+    "trust_tracked": "Livraison suivie",
+    "trust_returns": "Droit de rétractation de 14 jours",
+    "trust_sealed_short": "Scellée d’usine",
+    "trust_tracked_short": "Suivie",
+    "trust_returns_short": "Retours 14 jours"
+  },
+  "collections": {
+    "all": "Collections",
+    "empty": "Aucun produit pour le moment."
+  },
+  "footer": {
+    "account": "Compte",
+    "legal": "Mentions légales",
+    "rights": "Tous droits réservés."
+  },
+  "gift_card": {
+    "add_to_apple_wallet": "Ajouter à Apple Wallet",
+    "expired": "Cette carte cadeau a expiré.",
+    "expires_on": "Expire le {{ expires_on }}",
+    "use_at_checkout": "Utilise ce code au paiement :"
+  },
+  "newsletter": {
+    "email": "Ton e-mail",
+    "success": "Tu es sur la liste. On te prévient dès que le sceau se brise."
+  },
+  "password": {
+    "enter": "Entrer",
+    "owner": "Propriétaire de la boutique ? Saisis le mot de passe",
+    "password": "Mot de passe"
+  },
+  "products": {
+    "add": "Ajouter",
+    "add_to_cart": "Ajouter au panier",
+    "added": "Ajouté au panier",
+    "boxes_count": {
+      "one": "{{ count }} boîte",
+      "other": "{{ count }} boîtes"
+    },
+    "choose": "Choisir les options",
+    "description": "Description",
+    "error": "Une erreur est survenue. Réessaie.",
+    "format": "Format",
+    "in_stock": "En stock",
+    "low_stock": {
+      "one": "Plus que {{ count }}",
+      "other": "Plus que {{ count }}"
+    },
+    "media_n": "Afficher l’image {{ n }}",
+    "per_box": "{{ price }} / boîte",
+    "pick_product": "Choisis un produit dans l’éditeur de thème",
+    "qty_down": "Diminuer la quantité",
+    "qty_up": "Augmenter la quantité",
+    "quantity": "Quantité",
+    "shipping_calc": "Livraison calculée au paiement",
+    "single_box": "1 boîte",
+    "sold_out": "Épuisé",
+    "tax_excluded": "Hors taxes.",
+    "tax_included": "Taxes incluses.",
+    "save_per_box": "−{{ pct }} % par boîte",
+    "view_details": "Voir le détail"
+  },
+  "search": {
+    "placeholder": "Rechercher dans le drop…",
+    "results": {
+      "one": "{{ count }} résultat pour « {{ terms }} »",
+      "other": "{{ count }} résultats pour « {{ terms }} »"
+    },
+    "title": "Recherche",
+    "empty": "Aucun résultat exact, mais chaque boîte scellée peut cacher n’importe quelle figurine de la série. Choisis ton format :"
+  },
+  "contact": {
+    "name": "Nom",
+    "email": "E-mail",
+    "order": "Numéro de commande (facultatif)",
+    "message": "Message",
+    "send": "Envoyer",
+    "success": "Merci, ton message est bien arrivé. On répond sous 24 à 48 h en jours ouvrés.",
+    "or_email": "Tu préfères l’e-mail ?"
+  },
+  "community": {
+    "tag_html": "Tu as ouvert une boîte ? Tague <strong>{{ handle }}</strong> et ta photo rejoint le mur.",
+    "pulled": "Obtenu"
+  },
+  "countdown": {
+    "d": "Jours",
+    "h": "Heures",
+    "m": "Min",
+    "s": "Sec"
+  },
+  "sim": {
+    "inside": "1 figurine au hasard",
+    "sealed": "Scellé",
+    "side": "Collectionne l’inconnu",
+    "standard": "Standard"
+  }
+}

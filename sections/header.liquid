@@ -30,6 +30,7 @@
     </nav>
 
     <div class="header__actions">
+      {%- render 'lang-switch' -%}
       <a href="{{ routes.cart_url }}" class="icon-btn header__cart" data-cart-open aria-label="{{ 'cart.title' | t }}">
         {% render 'icon', name: 'cart' %}
         <span class="header__count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>{{ cart.item_count }}</span>
