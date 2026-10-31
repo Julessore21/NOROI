@@ -143,5 +143,29 @@
     "sealed": "Sellada",
     "side": "Colecciona lo desconocido",
     "standard": "Estándar"
+  },
+  "shopify": {
+    "checkout": {
+      "local_pickup": {
+        "stock_details": {
+          "in_stock": "En existencia"
+        }
+      },
+      "split_delivery": {
+        "delivery_updated_toast": {
+          "shipping_only": "Tu entrega se ha actualizado. {{shipping}}",
+          "removal_only": "Tu entrega se ha actualizado. {{removal}}",
+          "shipping_and_removal": "Tu entrega se ha actualizado. {{shipping}} {{removal}}",
+          "shipping": {
+            "one": "{{count}} artículo se ha movido a envío.",
+            "other": "{{count}} artículos se han movido a envío."
+          },
+          "removal": {
+            "one": "Se ha eliminado {{count}} elemento.",
+            "other": "Se han eliminado {{count}} elementos."
+          }
+        }
+      }
+    }
   }
 }
