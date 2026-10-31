@@ -172,7 +172,8 @@
           <span class="levelup__count">×{{ next_boxes }}</span>
         </div>
         <div class="levelup__info">
-          <p class="levelup__label">{{ 'cart.level_up' | t }}</p>
+          {%- assign lu_label = 'cart.level_up' | t -%}
+          <p class="levelup__label">{{ settings.cart_upsell_heading | default: lu_label }}</p>
           <p class="levelup__title">{{ 'products.boxes_count' | t: count: next_boxes }} · {{ next.price | money }}</p>
           <p class="levelup__sub">
             {{ 'products.per_box' | t: price: next_per }}

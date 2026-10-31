@@ -155,6 +155,27 @@
         "id": "reward2_label",
         "label": "Reward 2 label",
         "default": "10% off your order"
+      },
+      {
+        "type": "header",
+        "content": "Upsell"
+      },
+      {
+        "type": "product",
+        "id": "cart_upsell_product",
+        "label": "Cart upsell product",
+        "info": "Optional. Leave empty and the cart suggests the next format automatically."
+      },
+      {
+        "type": "text",
+        "id": "cart_upsell_heading",
+        "label": "Upsell heading",
+        "default": "Level up your odds"
+      },
+      {
+        "type": "url",
+        "id": "cart_empty_link",
+        "label": "Empty cart button link"
       }
     ]
   }
