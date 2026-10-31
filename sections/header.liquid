@@ -30,10 +30,9 @@
     </nav>
 
     <div class="header__actions">
-      <a href="{{ routes.cart_url }}" class="bag-btn{% if cart.item_count > 0 %} has-items{% endif %}" data-cart-open aria-label="{{ 'cart.title' | t }}">
+      <a href="{{ routes.cart_url }}" class="icon-btn header__cart" data-cart-open aria-label="{{ 'cart.title' | t }}">
         {% render 'icon', name: 'cart' %}
-        <span class="bag-btn__label">{{ 'cart.bag' | t }}</span>
-        <span class="bag-btn__count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>{{ cart.item_count }}</span>
+        <span class="header__count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>{{ cart.item_count }}</span>
       </a>
     </div>
   </div>

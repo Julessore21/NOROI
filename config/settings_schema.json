@@ -163,14 +163,13 @@
       {
         "type": "product",
         "id": "cart_upsell_product",
-        "label": "Cart upsell product",
-        "info": "Optional. Leave empty and the cart suggests the next format automatically."
+        "label": "Cart upsell product"
       },
       {
         "type": "text",
         "id": "cart_upsell_heading",
         "label": "Upsell heading",
-        "default": "Level up your odds"
+        "default": "Go further: lower price per box"
       },
       {
         "type": "url",

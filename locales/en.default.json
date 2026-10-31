@@ -42,15 +42,7 @@
     "trust_returns": "14-day withdrawal right",
     "trust_sealed_short": "Factory-sealed",
     "trust_tracked_short": "Tracked",
-    "trust_returns_short": "14-day returns",
-    "pick_format": "Pick your format",
-    "level_up": "Level up your odds",
-    "savings_vs_single": "Saved vs single boxes",
-    "shipping": "Shipping",
-    "shipping_at_checkout": "At checkout",
-    "total": "Total",
-    "taxes_included_short": "Taxes included.",
-    "bag": "Bag"
+    "trust_returns_short": "14-day returns"
   },
   "collections": {
     "all": "Collections",
