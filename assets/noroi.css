@@ -1047,22 +1047,30 @@ h1, h2, h3, h4, p { margin: 0; }
 .display em, .cart-page__title em { font-family: inherit; font-size: 1em; font-weight: 400; letter-spacing: .01em; padding-right: .06em; }
 
 /* ==========================================================================
-   One typeface everywhere (SF Pro on Apple devices, Inter elsewhere).
-   Three weights only: 400 text, 600 labels and buttons, 700 titles.
+   Type system: Unbounded (titles, names, big numbers) + Satoshi (everything else).
    ========================================================================== */
 body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .display, .h1, .h2, .h3, .h4, .hero__title, .pdp__title, .offer__title, .cart-page__title, .shopify-policy__title h1,
-.card__title, .figure__name, .pull__figure, .sim__name, .stats__value, .offer__amount, .offer__count, .faq summary, .accordion summary {
-  font-weight: 700 !important; text-transform: none !important; letter-spacing: -.025em !important;
+.card__title, .step__title, .figure__name, .tracker__name, .pull__figure, .sim__name, .stats__value, .offer__amount, .offer__count, .page-title {
+  font-family: var(--font-title) !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: -.02em !important; line-height: 1.02 !important;
 }
-.display em, .h1 em, .h2 em, .cart-page__title em { font-weight: inherit; letter-spacing: inherit; }
-.hero__title { line-height: 1 !important; }
+.display em, .h1 em, .h2 em, .cart-page__title em { font-family: inherit; font-weight: inherit; letter-spacing: inherit; }
+.hero__title { font-size: clamp(1.9rem, 3.6vw, 3.6rem) !important; line-height: 1.04 !important; }
+.h1.display { font-size: clamp(1.6rem, 3vw, 2.6rem) !important; }
+.h2.display, .h2.page-title, .cart-page__title { font-size: clamp(1.4rem, 2.4vw, 2rem) !important; }
+.pdp__title { font-size: clamp(1.4rem, 2.2vw, 2rem) !important; line-height: 1.1 !important; }
+.offer__title { font-size: clamp(1.15rem, 1.6vw, 1.45rem) !important; }
+.figure__name, .tracker__name { font-size: .78rem !important; letter-spacing: 0 !important; line-height: 1.3 !important; }
+.pull__figure { font-size: 1rem !important; }
+.step__title { font-size: 1.15rem !important; }
+.stats__value { font-size: clamp(1.8rem, 3.4vw, 3rem) !important; white-space: nowrap; }
+.offer__amount { font-size: 1.8rem !important; }
+.sim__name { font-size: 1.3rem !important; }
+@media (max-width: 749px) { .hero__title { font-size: clamp(1.7rem, 8.4vw, 2.4rem) !important; } }
 .btn, .badge, .offer__ribbon, .eyebrow, .offer__eyebrow, .pull__label, .sim__rarity, .sim__hint, .sim__status, .stats__label,
-.header__nav a, .nav a, .format__name, .formats__label, .field label, .announce, .trust__title, .cart__summary-title, .sim__series, .sim__meta, .sim__top-band {
-  font-weight: 600 !important;
-}
-.btn { text-transform: none !important; letter-spacing: -.005em !important; font-size: 1rem !important; }
-.eyebrow, .offer__eyebrow, .pull__label, .stats__label, .sim__rarity { letter-spacing: .14em !important; }
-.sim__status, .sim__hint, .cart__summary-title, .format__name { text-transform: none !important; letter-spacing: 0 !important; }
-.step__title, .tracker__name, .figure__name { font-weight: 700 !important; text-transform: none !important; letter-spacing: -.01em !important; }
-.stats__value { font-size: clamp(2.2rem, 4.2vw, 3.6rem) !important; white-space: nowrap; }
+.header__nav a, .nav a, .format__name, .formats__label, .field label, .announce, .trust__title, .cart__summary-title { font-weight: 700 !important; }
+.btn { text-transform: none !important; letter-spacing: 0 !important; font-size: 1rem !important; }
+.eyebrow, .offer__eyebrow, .pull__label, .stats__label, .sim__rarity { letter-spacing: .16em !important; }
+.sim__status, .sim__hint, .format__name { text-transform: none !important; letter-spacing: 0 !important; }
+.marquee__track { font-family: var(--font-title) !important; font-weight: 700 !important; letter-spacing: -.01em !important; font-size: clamp(1.4rem, 2.6vw, 2.1rem) !important; }
+.marquee__sep { font-family: serif !important; }
