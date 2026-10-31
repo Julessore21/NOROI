@@ -1103,11 +1103,14 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 }
 
 /* ---------- Language switcher ---------- */
-.lang { position: relative; display: inline-flex; align-items: center; gap: .3rem; height: 36px; margin-right: .35rem; padding: 0 .65rem; border: 1px solid rgba(255,255,255,.16); border-radius: 99px; font-weight: 700; font-size: .78rem; letter-spacing: .08em; color: var(--c-text); transition: border-color .2s; }
-.lang:hover { border-color: rgba(255,255,255,.4); }
+.header__actions { align-items: center; gap: .15rem; }
+.lang { position: relative; display: inline-flex; align-items: center; gap: .35rem; height: 44px; padding: 0 .5rem; color: var(--c-text); font-weight: 700; font-size: .78rem; letter-spacing: .14em; opacity: .85; transition: opacity .2s; }
+.lang:hover { opacity: 1; }
 .lang form { display: contents; }
+.lang__globe { width: 19px; height: 19px; }
+.lang__code { line-height: 1; padding-top: 1px; }
 .lang__select { position: absolute; inset: 0; width: 100%; opacity: 0; cursor: pointer; font-size: 16px; }
-.lang__chev { opacity: .7; }
+.lang:focus-within { opacity: 1; outline: 1px solid rgba(255,255,255,.35); outline-offset: -6px; border-radius: 6px; }
 /* Scripts without Latin glyphs (Hindi) fall back to the system's font */
 :lang(hi) body, :lang(hi) .display, :lang(hi) .h1, :lang(hi) .h2 { line-height: 1.35 !important; }
 
@@ -1131,3 +1134,15 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 .iphone__btn--power { right: -2px; top: 27%; height: 14%; }
 .size__figure { position: relative; height: var(--fig, 60%); aspect-ratio: 774 / 1020; }
 .size__figure img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 18px 24px rgba(0,0,0,.7)); }
+
+/* Shojumaru (brush-cut Japanese display) for titles: single weight, a touch more air */
+.display, .h1, .h2, .h3, .h4, .hero__title, .pdp__title, .offer__title, .cart-page__title, .shopify-policy__title h1,
+.card__title, .step__title, .figure__name, .tracker__name, .pull__figure, .sim__name, .stats__value, .offer__amount, .offer__count, .page-title, .marquee__track, .size__specs dd, .line__title, .drawer__title {
+  font-weight: 400 !important; letter-spacing: .01em !important; -webkit-font-smoothing: antialiased;
+}
+.hero__title { font-size: clamp(2.2rem, 4.3vw, 4.4rem) !important; line-height: 1.02 !important; }
+.h1.display { font-size: clamp(1.8rem, 3.4vw, 3rem) !important; }
+@media (max-width: 749px) { .hero__title { font-size: clamp(2rem, 9.6vw, 2.8rem) !important; } }
+.marquee span:not(.marquee__sep) { font-family: var(--font-title) !important; font-weight: 400 !important; letter-spacing: .02em; }
+/* Prices and euro amounts stay in Satoshi: Shojumaru has no € glyph */
+.offer__amount, .cart__total span:last-child, .price, .line__price { font-family: var(--font) !important; font-weight: 800 !important; letter-spacing: -.02em !important; }
