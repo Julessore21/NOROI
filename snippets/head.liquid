@@ -54,17 +54,17 @@
 <meta name="twitter:title" content="{{ og_title | escape }}">
 <meta name="twitter:description" content="{{ page_description | default: shop.description | default: settings.tagline | escape }}">
 
-{{ 'shojumaru.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+{{ 'knewave.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
 {{ 'satoshi-400.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
 
 <style>
-  @font-face { font-family: 'Shojumaru'; font-weight: 400 700; font-style: normal; font-display: swap; src: url('{{ 'shojumaru.woff2' | asset_url }}') format('woff2'); }
+  @font-face { font-family: 'Knewave'; font-weight: 400 700; font-style: normal; font-display: swap; src: url('{{ 'knewave.woff2' | asset_url }}') format('woff2'); }
   @font-face { font-family: 'Satoshi'; font-weight: 400; font-style: normal; font-display: swap; src: url('{{ 'satoshi-400.woff2' | asset_url }}') format('woff2'); }
   @font-face { font-family: 'Satoshi'; font-weight: 500 800; font-style: normal; font-display: swap; src: url('{{ 'satoshi-700.woff2' | asset_url }}') format('woff2'); }
 
   :root {
     --font: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-title: 'Shojumaru', 'Satoshi', serif;
+    --font-title: 'Knewave', 'Satoshi', sans-serif;
     --c-bg: {{ settings.color_bg }};
     --c-surface: {{ settings.color_surface }};
     --c-line: {{ settings.color_line }};
