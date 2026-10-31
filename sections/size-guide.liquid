@@ -1,0 +1,62 @@
+{%- comment -%}
+  Size reference: the figure drawn to scale next to a phone.
+  Heights are set in the section (cm); the drawing keeps the real ratio between them.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign ratio = s.figure_cm | times: 100 | divided_by: s.phone_cm
+-%}
+<section class="section size" id="{{ s.anchor | default: 'size' }}">
+  <div class="container size__grid">
+    <div class="size__visual reveal" style="--fig: {{ ratio }}%;" aria-hidden="true">
+      <div class="size__stage">
+        <div class="size__phone">
+          <div class="size__screen" style="background-image: url('{{ s.wallpaper | default: 'noroi-hero.jpg' | asset_url }}')">
+            <span class="size__island"></span>
+            <span class="size__clock">11:17</span>
+          </div>
+          <span class="size__dim size__dim--phone"><b>{{ s.phone_cm }} cm</b></span>
+        </div>
+        <div class="size__figure">
+          <div class="size__figure-img" style="background-image: url('{{ s.figure_image | default: 'noroi-yuji.jpg' | asset_url }}')"></div>
+          <span class="size__dim size__dim--fig"><b>≈ {{ s.figure_cm }} cm</b></span>
+        </div>
+      </div>
+      <div class="size__floor"></div>
+    </div>
+
+    <div class="size__copy reveal" style="--d: 120ms">
+      {%- if s.eyebrow != blank -%}<p class="eyebrow eyebrow--accent">{{ s.eyebrow }}</p>{%- endif -%}
+      <h2 class="h1 display">{{ s.heading | replace: '[', '<em>' | replace: ']', '</em>' }}</h2>
+      <dl class="size__specs">
+        <div><dt>{{ s.figure_title }}</dt><dd>{{ s.figure_label }}</dd></div>
+        <div><dt>{{ s.phone_title }}</dt><dd>{{ s.phone_label }}</dd></div>
+        {%- if s.extra_title != blank -%}<div><dt>{{ s.extra_title }}</dt><dd>{{ s.extra_value }}</dd></div>{%- endif -%}
+      </dl>
+      {%- if s.text != blank -%}<p class="size__text">{{ s.text }}</p>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Size guide",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "size" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Product size" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real [size.]" },
+    { "type": "range", "id": "figure_cm", "label": "Figure height used for the drawing (cm)", "min": 4, "max": 20, "step": 1, "default": 9 },
+    { "type": "range", "id": "phone_cm", "label": "Phone height used for the drawing (cm)", "min": 10, "max": 20, "step": 1, "default": 15 },
+    { "type": "text", "id": "figure_title", "label": "Figure label", "default": "Figure height" },
+    { "type": "text", "id": "figure_label", "label": "Figure value", "default": "about 8–10 cm" },
+    { "type": "text", "id": "phone_title", "label": "Phone label", "default": "iPhone 16 Pro height" },
+    { "type": "text", "id": "phone_label", "label": "Phone value", "default": "about 15 cm" },
+    { "type": "text", "id": "extra_title", "label": "Extra spec label", "default": "Material" },
+    { "type": "text", "id": "extra_value", "label": "Extra spec value", "default": "PVC / ABS" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Small enough for your desk, detailed enough for the shelf. Each figure stands on its own base." },
+    { "type": "text", "id": "figure_image", "label": "Figure image (theme asset file)", "default": "noroi-yuji.jpg" },
+    { "type": "text", "id": "wallpaper", "label": "Phone wallpaper (theme asset file)", "default": "noroi-hero.jpg" }
+  ],
+  "presets": [{ "name": "Size guide" }]
+}
+{% endschema %}

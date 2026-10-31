@@ -261,10 +261,15 @@
         "sim4",
         "sim6"
       ]
+    },
+    "size": {
+      "type": "size-guide",
+      "settings": {}
     }
   },
   "order": [
     "main",
+    "size",
     "sim",
     "lineup",
     "community",
