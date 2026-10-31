@@ -34,7 +34,9 @@
     }
     open() {
       this.lastFocus = document.activeElement;
-      this.classList.add('is-open');
+      this.classList.add('is-open', 'is-entering');
+      clearTimeout(this.enterT);
+      this.enterT = setTimeout(() => this.classList.remove('is-entering'), 900);
       this.setAttribute('aria-hidden', 'false');
       document.body.classList.add('is-locked');
       requestAnimationFrame(() => this.panel.focus());
@@ -83,6 +85,8 @@
     $$('[data-cart-count]').forEach((el) => {
       el.textContent = count;
       el.classList.toggle('is-empty', count === 0);
+      const bag = el.closest('.bag-btn');
+      if (bag) bag.classList.toggle('has-items', count > 0);
       el.classList.remove('is-bump');
       void el.offsetWidth;
       el.classList.add('is-bump');

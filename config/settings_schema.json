@@ -155,26 +155,6 @@
         "id": "reward2_label",
         "label": "Reward 2 label",
         "default": "10% off your order"
-      },
-      {
-        "type": "header",
-        "content": "Upsell"
-      },
-      {
-        "type": "product",
-        "id": "cart_upsell_product",
-        "label": "Cart upsell product"
-      },
-      {
-        "type": "text",
-        "id": "cart_upsell_heading",
-        "label": "Upsell heading",
-        "default": "Go further: lower price per box"
-      },
-      {
-        "type": "url",
-        "id": "cart_empty_link",
-        "label": "Empty cart button link"
       }
     ]
   }
