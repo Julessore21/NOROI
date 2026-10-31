@@ -8,6 +8,6 @@
   {%- assign pv_boxes = pv_boxes | strip -%}
   {%- if pv_boxes == '1' or pv_boxes == '3' or pv_boxes == '6' -%}
     {%- assign pv_file = 'noroi-pack-' | append: pv_boxes | append: '.jpg' -%}
-    <img src="{{ pv_file | asset_url }}" alt="{{ product.title | escape }}: {{ 'products.pack_alt' | t }}" width="1800" height="1800" loading="{{ loading | default: 'lazy' }}"{% if class %} class="{{ class }}"{% endif %}>
+    <img src="{{ pv_file | asset_url }}" alt="{{ product.title | escape }}: {{ 'products.pack_alt' | t }}" width="1122" height="1402" loading="{{ loading | default: 'lazy' }}" class="pack-img{% if class %} {{ class }}{% endif %}">
   {%- endif -%}
 {%- endif -%}
