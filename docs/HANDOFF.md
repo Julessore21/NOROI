@@ -7,9 +7,9 @@
 NOROI is a premium independent e-commerce brand for mystery-box anime collectibles. The first planned drop is the **POP MART Jujutsu Kaisen — The Culling Game Series**, sold as a single blind box, 3-box discovery bundle, or sealed 6-box display. The target storefront language is **English**. Design blends minimalist premium commerce with the cinematic, supernatural visual atmosphere of Jujutsu Kaisen. The operating brand is **NOROI / Collect the unknown**. Do not present NOROI as an official POP MART or JJK store or as an authorized retailer until verified.
 
 ## 2. Product and commercial strategy
-- **Single Mystery Box**: preliminary **€17.90**. One random sealed box.
-- **Trio Mystery (3 boxes)**: preliminary **€47.90**. Three independently random boxes; **duplicates possible**.
-- **6-Box Display**: preliminary **€89.90**. Full display of six sealed boxes; confirm sealed case and assortment with supplier, and do not promise no duplicates unless verified.
+- **Single Mystery Box**: **€24.90**. One random sealed box.
+- **Trio Mystery (3 boxes)**: **€64.90**. Three independently random boxes; **duplicates possible**.
+- **6-Box Display**: **€119.90**. Full display of six sealed boxes; confirm sealed case and assortment with supplier, and do not promise no duplicates unless verified.
 - Shopify screenshot showed all three created, marked **Active**, **Stock not tracked**, vendor **NOROI**, and images present. A prior CSV even included `Variant Inventory Policy=continue`; this can permit overselling. Immediately disable buying/publishing until inventory and fulfilment are established.
 - For this POP MART series, the **official six standard characters** are **Yuji Itadori, Megumi Fushiguro, Yuta Okkotsu, Choso, Maki Zen'in and Naoya Zen'in**. **Official secret** is **Yuji Itadori with Panda**, not Satoru Gojo. Cited source to re-check: https://www.popmart.com/en-US/products/8963 .
 - Product dimensions listed by POP MART approximately **8–10 cm**, PVC/ABS, not suitable for under 15s.

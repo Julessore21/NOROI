@@ -37,3 +37,8 @@ Everything below is done in the Shopify admin, not in the theme.
 - [ ] **Box rewards / free-shipping bar**: Theme settings > Cart. Both are off by default; create the matching discount or shipping rate first.
 - [ ] **Drop countdown**: enter the real date in the section, or leave it empty.
 - [ ] **Customer pulls**: add real unboxing photos as blocks.
+
+## Pricing and fulfilment (decided 2026-11-01)
+- Prices: Single €24.90, Trio €64.90, Full Display €119.90 (set in Products; no compare-at price).
+- Sourcing: POP MART POP NOW at €15/box, shipped with "Expédier" straight to the customer's address. Copy the tracking number into the Shopify order.
+- Shipping rates (Settings > Shipping and delivery): France tracked standard €4.90; free from €100 (theme bar set to 100). Offer an express rate only if POP MART offers express when shipping.
