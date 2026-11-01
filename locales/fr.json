@@ -108,6 +108,10 @@
     "tax_excluded": "Hors taxes.",
     "tax_included": "Taxes incluses.",
     "save_per_box": "−{{ pct }} % par boîte",
+    "free_shipping": "Livraison suivie offerte",
+    "free_shipping_worth": "Livraison suivie offerte · {{ amount }} économisés",
+    "free_shipping_from": "Livraison offerte dès {{ amount }}",
+    "free_shipping_short": "Livraison offerte",
     "view_details": "Voir le détail",
     "pack_alt": "boîte mystère scellée et les figurines qu’elle peut contenir"
   },

@@ -1,6 +1,7 @@
 {
   "current": {
     "cart_upsell_product": "jujutsu-kaisen-display-6-blind-boxes",
-    "free_shipping_threshold": 100
+    "free_shipping_threshold": 100,
+    "standard_shipping_price": 4.9
   }
 }

@@ -126,6 +126,13 @@
         "info": "Shows a progress bar in the cart. 0 = hidden. Must match a real free-shipping rate in Settings > Shipping."
       },
       {
+        "type": "number",
+        "id": "standard_shipping_price",
+        "label": "Standard shipping price (store currency)",
+        "default": 0,
+        "info": "Used to show what free shipping saves (e.g. 4.90). Must match your real standard rate. 0 = not shown."
+      },
+      {
         "type": "header",
         "content": "Box rewards"
       },

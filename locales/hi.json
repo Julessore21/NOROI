@@ -108,6 +108,10 @@
     "tax_excluded": "टैक्स शामिल नहीं।",
     "tax_included": "टैक्स शामिल।",
     "save_per_box": "हर बॉक्स पर {{ pct }}% बचत",
+    "free_shipping": "मुफ़्त ट्रैक्ड शिपिंग",
+    "free_shipping_worth": "मुफ़्त ट्रैक्ड शिपिंग · {{ amount }} की बचत",
+    "free_shipping_from": "{{ amount }} से मुफ़्त शिपिंग",
+    "free_shipping_short": "मुफ़्त शिपिंग",
     "view_details": "विवरण देखें",
     "pack_alt": "सील बंद मिस्ट्री बॉक्स और उसमें मिल सकने वाले फ़िगर"
   },

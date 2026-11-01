@@ -108,6 +108,10 @@
     "tax_excluded": "Impuestos no incluidos.",
     "tax_included": "Impuestos incluidos.",
     "save_per_box": "Ahorra un {{ pct }} % por caja",
+    "free_shipping": "Envío con seguimiento gratis",
+    "free_shipping_worth": "Envío con seguimiento gratis · ahorras {{ amount }}",
+    "free_shipping_from": "Envío gratis desde {{ amount }}",
+    "free_shipping_short": "Envío gratis",
     "view_details": "Ver detalles",
     "pack_alt": "caja misteriosa sellada y las figuras que puede contener"
   },

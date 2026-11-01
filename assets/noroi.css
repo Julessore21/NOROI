@@ -1161,3 +1161,13 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 .offer__media--pack { aspect-ratio: 3 / 4; }
 .card__media:has(> .pack-img) { aspect-ratio: 3 / 4; }
 .gallery__slide img.pack-img { aspect-ratio: 3 / 4; object-fit: contain; background: #05060a; }
+
+/* Free-shipping line (offers + product page) */
+.ship-perk { display: inline-flex; align-items: center; gap: .45rem; font-size: .8rem; font-weight: 600; letter-spacing: .02em; color: var(--c-muted); }
+.ship-perk .icon { width: 16px; height: 16px; flex: none; }
+.ship-perk--free { color: #fff; background: linear-gradient(90deg, rgba(var(--c-accent-rgb), .28), rgba(var(--c-accent-rgb), .08)); border: 1px solid rgba(var(--c-accent-rgb), .55); padding: .35rem .7rem; border-radius: 4px; box-shadow: 0 0 18px rgba(var(--c-accent-rgb), .25); }
+.ship-perk--free .icon { color: var(--c-accent); }
+.offer__price .ship-perk { flex-basis: 100%; width: fit-content; }
+.pdp__ship { margin: .6rem 0 .2rem; }
+.format { position: relative; }
+.format__tag { position: absolute; top: -.6rem; right: .45rem; font-size: .62rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--c-accent); padding: .15rem .4rem; border-radius: 3px; white-space: nowrap; }

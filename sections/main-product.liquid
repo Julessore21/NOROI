@@ -63,6 +63,8 @@
           <span class="per-box">{{ 'products.per_box' | t: price: per_box }}</span>
         {%- endif -%}
       </div>
+      {%- capture ship_perk -%}{% render 'ship-perk', price: current_variant.price %}{%- endcapture -%}
+      {%- if ship_perk != blank -%}<p class="pdp__ship">{{ ship_perk }}</p>{%- endif -%}
       <p class="small muted">
         {%- if cart.taxes_included -%}{{ 'products.tax_included' | t }}{%- else -%}{{ 'products.tax_excluded' | t }}{%- endif -%}
         {%- if shop.shipping_policy.body != blank %} · <a href="{{ shop.shipping_policy.url }}">{{ 'products.shipping_calc' | t }}</a>{% endif -%}
@@ -72,6 +74,7 @@
       {%- if s.formats.count > 1 -%}
         <div class="formats" role="radiogroup" aria-label="{{ 'products.format' | t }}">
           <p class="formats__label">{{ 'products.format' | t }}</p>
+          {%- assign fs_thr = settings.free_shipping_threshold | times: 100 -%}
           {%- for f in s.formats -%}
             {%- capture fb -%}{% render 'box-count', product: f %}{%- endcapture -%}
             {%- assign fb = fb | plus: 0 -%}
@@ -90,6 +93,7 @@
                   {{ 'products.sold_out' | t }}
                 {%- endif -%}
               </span>
+              {%- if fs_thr > 0 and f.price >= fs_thr and f.available -%}<span class="format__tag">{{ 'products.free_shipping_short' | t }}</span>{%- endif -%}
             </a>
           {%- endfor -%}
         </div>

@@ -1,0 +1,23 @@
+{%- comment -%}
+  Free-shipping line for a price, from the cart settings. Params: price (cents)
+  Only shows what the shipping settings really give: set the matching rates in Settings > Shipping.
+{%- endcomment -%}
+{%- liquid
+  assign sp_threshold = settings.free_shipping_threshold | times: 100
+  assign sp_standard = settings.standard_shipping_price | times: 100
+-%}
+{%- if sp_threshold > 0 -%}
+  {%- if price >= sp_threshold -%}
+    <span class="ship-perk ship-perk--free">{% render 'icon', name: 'truck' %}
+      {%- if sp_standard > 0 -%}
+        {%- assign sp_amount = sp_standard | money -%}
+        {{ 'products.free_shipping_worth' | t: amount: sp_amount }}
+      {%- else -%}
+        {{ 'products.free_shipping' | t }}
+      {%- endif -%}
+    </span>
+  {%- else -%}
+    {%- assign sp_from = sp_threshold | money_without_trailing_zeros -%}
+    <span class="ship-perk">{% render 'icon', name: 'truck' %}{{ 'products.free_shipping_from' | t: amount: sp_from }}</span>
+  {%- endif -%}
+{%- endif -%}
