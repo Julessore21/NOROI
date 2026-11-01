@@ -1,11 +1,17 @@
 {%- assign s = section.settings -%}
+{%- liquid
+  assign media_alt = s.heading | strip_html
+  if s.image != blank and s.image.alt != blank
+    assign media_alt = s.image.alt
+  endif
+-%}
 <section class="section split split--{{ s.layout }}{% if s.aura %} split--aura{% endif %}" {% if s.anchor != blank %}id="{{ s.anchor }}"{% endif %}>
   <div class="container container--wide split__grid">
     <div class="split__media reveal">
       {%- if s.image != blank -%}
-        {{ s.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 50vw, 100vw', alt: s.image.alt | default: s.heading }}
+        {{ s.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 50vw, 100vw', alt: media_alt }}
       {%- elsif s.fallback != blank -%}
-        <img src="{{ s.fallback | asset_url }}" alt="{{ s.heading | escape }}" loading="lazy" width="1100" height="1100">
+        <img src="{{ s.fallback | asset_url }}" alt="{{ media_alt | escape }}" loading="lazy" width="1100" height="1100">
       {%- else -%}
         <div class="split__veil" aria-hidden="true"><span>?</span></div>
       {%- endif -%}

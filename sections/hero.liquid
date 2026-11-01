@@ -3,8 +3,12 @@
 -%}
 {%- liquid
   assign hero_ratio = '1672 / 941'
+  assign hero_alt = 'images.hero_alt' | t
   if s.image != blank
     assign hero_ratio = s.image.aspect_ratio
+    if s.image.alt != blank
+      assign hero_alt = s.image.alt
+    endif
   endif
 -%}
 <section class="hero hero--{{ s.height }}" data-hero style="--hero-ratio: {{ hero_ratio }}; --hero-focus: {{ s.focus_x }}% {{ s.focus_y }}%; --hero-overlay: {{ s.overlay | divided_by: 100.0 }}">
@@ -12,9 +16,9 @@
     {%- if s.video != blank -%}
       {{ s.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '1600x' }}
     {%- elsif s.image != blank -%}
-      {{ s.image | image_url: width: 2400 | image_tag: widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', fetchpriority: 'high', loading: 'eager', alt: s.image.alt | default: '' }}
+      {{ s.image | image_url: width: 2400 | image_tag: widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', fetchpriority: 'high', loading: 'eager', alt: hero_alt }}
     {%- else -%}
-      <img src="{{ 'noroi-hero.jpg' | asset_url }}" alt="" width="1672" height="941" fetchpriority="high">
+      <img src="{{ 'noroi-hero.jpg' | asset_url }}" alt="{{ hero_alt | escape }}" width="1672" height="941" fetchpriority="high">
     {%- endif -%}
     {%- if s.secret_glow -%}<span class="hero__glow" style="left: {{ s.glow_x }}%; top: {{ s.glow_y }}%" aria-hidden="true"></span>{%- endif -%}
   </div>

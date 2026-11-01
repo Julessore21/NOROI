@@ -30,13 +30,23 @@
       <ul class="pulls" role="list">
         {%- for block in section.blocks -%}
           {%- if block.type == 'pull' and block.settings.image != blank or block.type == 'pull' and block.settings.fallback != blank -%}
+            {%- liquid
+              assign pull_alt = 'community.pulled' | t
+              if block.settings.figure != blank
+                assign pull_alt = pull_alt | append: ' : ' | append: block.settings.figure
+              endif
+              if block.settings.image != blank and block.settings.image.alt != blank
+                assign pull_alt = block.settings.image.alt
+              endif
+              assign pull_alt = pull_alt | strip_html
+            -%}
             <li class="pull reveal" style="--d: {{ forloop.index0 | times: 90 }}ms; --tilt: {% cycle '-2.4deg', '1.6deg', '-1.2deg', '2.2deg' %}" {{ block.shopify_attributes }}>
               <figure class="pull__card">
                 <div class="pull__media">
                   {%- if block.settings.image != blank -%}
-                    {{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 500, 700', sizes: '(min-width: 990px) 22vw, 75vw', alt: block.settings.figure }}
+                    {{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 500, 700', sizes: '(min-width: 990px) 22vw, 75vw', alt: pull_alt }}
                   {%- else -%}
-                    <img src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.figure | escape }}" loading="lazy" width="900" height="1125">
+                    <img src="{{ block.settings.fallback | asset_url }}" alt="{{ pull_alt | escape }}" loading="lazy" width="900" height="1125">
                   {%- endif -%}
                   {%- if block.settings.secret -%}<span class="badge badge--accent">{{ 'general.secret' | t }}</span>{%- endif -%}
                   <span class="pull__shine" aria-hidden="true"></span>
