@@ -1157,7 +1157,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 .size__figure::before { opacity: .55; animation: none; }
 .size__figure::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 55%, rgba(10,13,20,.35)); -webkit-mask: url('noroi-size-figure.png') center / contain no-repeat; mask: url('noroi-size-figure.png') center / contain no-repeat; }
 
-/* Pack visuals are 4:5 posters: show them whole */
-.offer__media--pack { aspect-ratio: 4 / 5; }
-.card__media:has(> .pack-img) { aspect-ratio: 4 / 5; }
-.gallery__slide img.pack-img { aspect-ratio: 4 / 5; object-fit: contain; background: #05060a; }
+/* Pack visuals are 3:4 posters: show them whole */
+.offer__media--pack { aspect-ratio: 3 / 4; }
+.card__media:has(> .pack-img) { aspect-ratio: 3 / 4; }
+.gallery__slide img.pack-img { aspect-ratio: 3 / 4; object-fit: contain; background: #05060a; }
