@@ -93,29 +93,29 @@
   "max_blocks": 12,
   "settings": [
     { "type": "text", "id": "anchor", "label": "Anchor id", "default": "try" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Feel the ritual" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Open one. [Right now.]" },
-    { "type": "textarea", "id": "text", "label": "Text", "default": "Tap the box and see who you pull, with the real odds." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Vivez le rituel" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Ouvrez-en une. [Maintenant.]" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Touchez la boîte et voyez sur qui vous tombez, avec les vraies probabilités." },
     { "type": "text", "id": "box_series", "label": "Series name on the box", "default": "The Culling Game" },
     { "type": "text", "id": "box_art", "label": "Box window image (theme asset file)", "default": "noroi-secret.jpg" },
     { "type": "range", "id": "secret_odds", "label": "Secret odds (1 in N)", "min": 12, "max": 288, "step": 12, "default": 72 },
-    { "type": "text", "id": "button", "label": "Box label (screen readers)", "default": "Open the box" },
-    { "type": "text", "id": "again_button", "label": "Hint after a pull", "default": "Tap the card to open another" },
-    { "type": "text", "id": "idle_text", "label": "Idle text", "default": "Tap the box to break the seal." },
-    { "type": "text", "id": "opening_text", "label": "Opening text", "default": "Breaking the seal…" },
-    { "type": "text", "id": "result_text", "label": "Result text", "info": "{name} is replaced by the figure.", "default": "You pulled {name}. Want the real one?" },
-    { "type": "text", "id": "secret_text", "label": "Secret result text", "default": "THE SECRET. Who is it? You'll only know in a real box." },
-    { "type": "text", "id": "stats_text", "label": "Stats text", "info": "{opened} and {secrets} are replaced.", "default": "Virtual boxes opened: {opened} · Secrets: {secrets}" },
-    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Open a real box" },
+    { "type": "text", "id": "button", "label": "Box label (screen readers)", "default": "Ouvrir la boîte" },
+    { "type": "text", "id": "again_button", "label": "Hint after a pull", "default": "Touchez la carte pour en ouvrir une autre" },
+    { "type": "text", "id": "idle_text", "label": "Idle text", "default": "Touchez la boîte pour briser le sceau." },
+    { "type": "text", "id": "opening_text", "label": "Opening text", "default": "Le sceau se brise…" },
+    { "type": "text", "id": "result_text", "label": "Result text", "info": "{name} is replaced by the figure.", "default": "Vous avez tiré {name}. Vous voulez la vraie ?" },
+    { "type": "text", "id": "secret_text", "label": "Secret result text", "default": "LE SECRET. Qui est-ce ? Vous ne le saurez qu’avec une vraie boîte." },
+    { "type": "text", "id": "stats_text", "label": "Stats text", "info": "{opened} and {secrets} are replaced.", "default": "Boîtes virtuelles ouvertes : {opened} · Secrets : {secrets}" },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Ouvrir une vraie boîte" },
     { "type": "url", "id": "cta_link", "label": "CTA link", "default": "/collections/all" },
-    { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "Simulation for fun only. It does not affect what's inside real boxes, which are sealed and random." }
+    { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "Simulation pour le plaisir. Elle n’a aucun effet sur le contenu des vraies boîtes, scellées et aléatoires." }
   ],
   "blocks": [
     {
       "type": "figure",
       "name": "Figure",
       "settings": [
-        { "type": "text", "id": "name", "label": "Name", "default": "Character" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Personnage" },
         { "type": "image_picker", "id": "image", "label": "Image" },
         { "type": "text", "id": "fallback", "label": "Built-in image file" },
         { "type": "checkbox", "id": "secret", "label": "Secret figure", "default": false }

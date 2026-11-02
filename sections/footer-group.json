@@ -5,11 +5,28 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "shop": { "type": "menu", "settings": { "heading": "Shop", "menu": "main-menu" } },
-        "help": { "type": "menu", "settings": { "heading": "Help", "menu": "footer" } }
+        "shop": {
+          "type": "menu",
+          "settings": {
+            "heading": "Boutique",
+            "menu": "main-menu"
+          }
+        },
+        "help": {
+          "type": "menu",
+          "settings": {
+            "heading": "Aide",
+            "menu": "footer"
+          }
+        }
       },
-      "block_order": ["shop", "help"]
+      "block_order": [
+        "shop",
+        "help"
+      ]
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }

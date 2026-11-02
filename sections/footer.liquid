@@ -30,7 +30,14 @@
         <p class="eyebrow">{{ 'footer.legal' | t }}</p>
         <ul role="list">
           {%- for policy in shop.policies -%}
-            <li><a href="{{ policy.url }}">{{ policy.title }}</a></li>
+            {%- comment -%} Skip policies a footer menu already links to {%- endcomment -%}
+            {%- assign in_menu = false -%}
+            {%- for block in section.blocks -%}
+              {%- for link in block.settings.menu.links -%}
+                {%- if link.url == policy.url -%}{%- assign in_menu = true -%}{%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
+            {%- unless in_menu -%}<li><a href="{{ policy.url }}">{{ policy.title }}</a></li>{%- endunless -%}
           {%- endfor -%}
           {%- if shop.customer_accounts_enabled -%}
             <li><a href="{{ routes.account_url }}">{{ 'footer.account' | t }}</a></li>
@@ -63,7 +70,7 @@
       "type": "textarea",
       "id": "disclaimer",
       "label": "Independence disclaimer",
-      "default": "NOROI is an independent retailer. We are not affiliated with, endorsed by or sponsored by the brands or rights holders of the products we sell. All trademarks and characters belong to their respective owners."
+      "default": "NOROI est un revendeur indépendant. Nous ne sommes ni affiliés, ni approuvés, ni sponsorisés par les marques ou ayants droit des produits que nous vendons. Les marques et personnages appartiennent à leurs propriétaires respectifs."
     }
   ],
   "blocks": [
@@ -71,7 +78,7 @@
       "type": "menu",
       "name": "Menu",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Boutique" },
         { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
       ]
     }

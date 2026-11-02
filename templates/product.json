@@ -22,22 +22,22 @@
         "tab0": {
           "type": "tab",
           "settings": {
-            "title": "How blind boxes work",
-            "content": "<p>Each box contains one random figure from the series. You can't choose or see the character before opening. Duplicates are possible, and the secret figure (about 1 in 72 boxes) is never guaranteed.</p>"
+            "title": "Comment fonctionnent les blind boxes",
+            "content": "<p>Chaque boîte contient une figurine au hasard de la série. Vous ne pouvez ni choisir ni voir le personnage avant d’ouvrir. Les doublons sont possibles, et la figurine secrète (environ 1 boîte sur 72) n’est jamais garantie.</p>"
           }
         },
         "tab1": {
           "type": "tab",
           "settings": {
-            "title": "Product details",
-            "content": "<ul><li>Series: Jujutsu Kaisen: The Culling Game</li><li>5 standard figures + 1 secret</li><li>Figure size: approx. 8–10 cm</li><li>Material: PVC / ABS</li><li>Not suitable for children under 15</li></ul>"
+            "title": "Détails du produit",
+            "content": "<ul><li>Série : Jujutsu Kaisen: The Culling Game</li><li>5 figurines + 1 secret</li><li>Taille des figurines : environ 8–10 cm</li><li>Matière : PVC / ABS</li><li>Ne convient pas aux moins de 15 ans</li></ul>"
           }
         },
         "tab2": {
           "type": "tab",
           "settings": {
-            "title": "Shipping & returns",
-            "content": "<p>Every order ships with tracking. Costs and delivery estimates are shown at checkout. You have 14 days after delivery to withdraw from your purchase.</p>",
+            "title": "Livraison et retours",
+            "content": "<p>Chaque commande est expédiée avec suivi. Les frais et délais sont affichés au paiement. Vous avez 14 jours après la livraison pour vous rétracter.</p>",
             "show_policies": true
           }
         }
@@ -51,8 +51,8 @@
     "lineup": {
       "type": "lineup",
       "settings": {
-        "heading": "Who's inside?",
-        "eyebrow": "The lineup",
+        "heading": "Qui se cache dedans ?",
+        "eyebrow": "Les personnages",
         "footnote": ""
       },
       "blocks": {
@@ -130,29 +130,29 @@
         "q0": {
           "type": "question",
           "settings": {
-            "question": "What's inside a blind box?",
-            "answer": "<p>One sealed box contains one random figure from the Culling Game series: one of the five standard characters or, rarely, the secret figure. You only find out who when you open it.</p>"
+            "question": "Que contient une blind box ?",
+            "answer": "<p>Une boîte scellée contient une figurine au hasard de la série The Culling Game : l’un des cinq personnages ou, plus rarement, la figurine secrète. Vous ne découvrez qui c’est qu’en l’ouvrant.</p>"
           }
         },
         "q1": {
           "type": "question",
           "settings": {
-            "question": "Can I choose my character?",
-            "answer": "<p>No. Every box is sealed and identical from the outside, which is the whole point of the ritual. If you want more chances at a specific character, bigger formats lower the price per box.</p>"
+            "question": "Puis-je choisir mon personnage ?",
+            "answer": "<p>Non. Toutes les boîtes sont scellées et identiques de l’extérieur, c’est tout le principe. Pour avoir plus de chances de tomber sur un personnage précis, les grands formats baissent le prix par boîte.</p>"
           }
         },
         "q2": {
           "type": "question",
           "settings": {
-            "question": "Can I get duplicates?",
-            "answer": "<p>Yes. Each box is random, so duplicates are possible, including in the 3-box pack. A 6-box display is a full sealed case; we do not guarantee a complete set or the secret figure.</p>"
+            "question": "Puis-je avoir des doublons ?",
+            "answer": "<p>Oui. Chaque boîte est aléatoire, les doublons sont donc possibles, y compris dans le pack de 3. Le display contient 6 boîtes ; nous ne garantissons ni une série complète, ni la figurine secrète.</p>"
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "question": "What are the odds of the secret figure?",
-            "answer": "<p>We see roughly 1 secret in every 72 boxes. It is never guaranteed, whatever format you buy.</p>"
+            "question": "Quelles sont les chances d’avoir la figurine secrète ?",
+            "answer": "<p>Environ 1 boîte sur 72 contient le secret. Il n’est jamais garanti, quel que soit le format choisi.</p>"
           }
         }
       },
@@ -166,7 +166,7 @@
     "community": {
       "type": "community",
       "settings": {
-        "heading": "Real [pulls.]"
+        "heading": "Vrais [tirages.]"
       },
       "blocks": {
         "p1": {
@@ -208,8 +208,8 @@
     "sim": {
       "type": "unbox-sim",
       "settings": {
-        "heading": "Not sure yet? [Try one.]",
-        "secret_text": "THE SECRET. Who is it? You'll only know in a real box.",
+        "heading": "Pas encore décidé ? [Essayez.]",
+        "secret_text": "LE SECRET. Qui est-ce ? Vous ne le saurez qu’avec une vraie boîte.",
         "disclaimer": ""
       },
       "blocks": {

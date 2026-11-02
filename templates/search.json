@@ -12,32 +12,32 @@
           "type": "item",
           "settings": {
             "icon": "box",
-            "title": "Factory-sealed boxes",
-            "text": "Random, untouched, unopened"
+            "title": "Boîtes scellées d’usine",
+            "text": "Au hasard, intactes, jamais ouvertes"
           }
         },
         "t1": {
           "type": "item",
           "settings": {
             "icon": "lock",
-            "title": "Secure checkout",
-            "text": "Cards, Apple Pay, Shop Pay"
+            "title": "Paiement sécurisé",
+            "text": "Carte, Apple Pay, Shop Pay"
           }
         },
         "t2": {
           "type": "item",
           "settings": {
             "icon": "truck",
-            "title": "Tracked shipping",
-            "text": "Costs shown before you pay"
+            "title": "Livraison suivie",
+            "text": "Frais affichés avant de payer"
           }
         },
         "t3": {
           "type": "item",
           "settings": {
             "icon": "return",
-            "title": "14-day withdrawal",
-            "text": "See refund policy"
+            "title": "14 jours pour vous rétracter",
+            "text": "Voir la politique de remboursement"
           }
         }
       },

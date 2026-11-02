@@ -20,7 +20,7 @@
         "type": "text",
         "id": "tagline",
         "label": "Tagline",
-        "default": "Collect the unknown."
+        "default": "Collectionnez l’inconnu."
       },
       {
         "type": "image_picker",
@@ -153,7 +153,7 @@
         "type": "text",
         "id": "reward1_label",
         "label": "Reward 1 label",
-        "default": "Free NOROI sticker"
+        "default": "Sticker NOROI offert"
       },
       {
         "type": "range",
@@ -168,7 +168,7 @@
         "type": "text",
         "id": "reward2_label",
         "label": "Reward 2 label",
-        "default": "10% off your order"
+        "default": "−10 % sur votre commande"
       },
       {
         "type": "header",
@@ -183,7 +183,7 @@
         "type": "text",
         "id": "cart_upsell_heading",
         "label": "Upsell heading",
-        "default": "Go further: lower price per box"
+        "default": "Allez plus loin : prix par boîte réduit"
       },
       {
         "type": "url",

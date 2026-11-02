@@ -149,6 +149,9 @@
     "side": "Colecciona lo desconocido",
     "standard": "Estándar"
   },
+  "images": {
+    "hero_alt": "Visual de campaña de las blind boxes Jujutsu Kaisen The Culling Game: figuras de colección en pose de combate, fondo negro y brillo de neón"
+  },
   "shopify": {
     "checkout": {
       "local_pickup": {

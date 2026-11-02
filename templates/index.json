@@ -12,7 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "title": "Unbox\n[the unknown.]",
+        "title": "Ouvrez\n[l’inconnu.]",
         "cta2_link": "/#how-it-works",
         "caption": "",
         "meta": ""
@@ -26,32 +26,32 @@
           "type": "item",
           "settings": {
             "icon": "box",
-            "title": "Factory-sealed boxes",
-            "text": "Random, untouched, unopened"
+            "title": "Boîtes scellées d’usine",
+            "text": "Au hasard, intactes, jamais ouvertes"
           }
         },
         "t1": {
           "type": "item",
           "settings": {
             "icon": "lock",
-            "title": "Secure checkout",
-            "text": "Cards, Apple Pay, Shop Pay"
+            "title": "Paiement sécurisé",
+            "text": "Carte, Apple Pay, Shop Pay"
           }
         },
         "t2": {
           "type": "item",
           "settings": {
             "icon": "truck",
-            "title": "Tracked shipping",
-            "text": "Costs shown before you pay"
+            "title": "Livraison suivie",
+            "text": "Frais affichés avant de payer"
           }
         },
         "t3": {
           "type": "item",
           "settings": {
             "icon": "return",
-            "title": "14-day withdrawal",
-            "text": "See refund policy"
+            "title": "14 jours pour vous rétracter",
+            "text": "Voir la politique de remboursement"
           }
         }
       },
@@ -66,9 +66,9 @@
       "type": "offers",
       "settings": {
         "scheme": "dark",
-        "heading": "Pick your [odds.]",
+        "heading": "Tentez votre [chance.]",
         "footnote": "",
-        "text": "Same sealed boxes, three ways in. The more you open, the less each box costs, and the more chances at the secret."
+        "text": "Les mêmes boîtes scellées, trois formats. Plus vous en ouvrez, moins chaque boîte coûte cher, et plus vous avez de chances de tomber sur le secret."
       },
       "blocks": {
         "o0": {
@@ -77,28 +77,28 @@
             "product": "jujutsu-kaisen-blind-box-individuelle",
             "badge": "",
             "featured": false,
-            "title": "Single box",
-            "perks": "1 factory-sealed blind box\n1 random figure from the series\nThe perfect first pull"
+            "title": "Single Box",
+            "perks": "1 blind box scellée d’usine\n1 figurine au hasard dans la série\nIdéal pour un premier tirage"
           }
         },
         "o1": {
           "type": "offer",
           "settings": {
             "product": "jujutsu-kaisen-trio-mystere",
-            "badge": "Discovery pack",
+            "badge": "Pack découverte",
             "featured": true,
-            "title": "Mystery trio",
-            "perks": "3 factory-sealed blind boxes\n3 chances at the secret\nOpen them one by one or all at once"
+            "title": "Mystery Trio",
+            "perks": "3 blind boxes scellées d’usine\n3 chances de tomber sur le secret\nÀ ouvrir une par une ou d’un coup"
           }
         },
         "o2": {
           "type": "offer",
           "settings": {
             "product": "jujutsu-kaisen-display-6-blind-boxes",
-            "badge": "Best price per box",
+            "badge": "Meilleur prix par boîte",
             "featured": false,
-            "title": "Full display",
-            "perks": "6 factory-sealed blind boxes\nOriginal 6-box display case\nThe most chances at the secret"
+            "title": "Full Display",
+            "perks": "6 blind boxes scellées d’usine\nLe présentoir d’origine pour 6 boîtes\nLe plus de chances de tomber sur le secret"
           }
         }
       },
@@ -111,7 +111,7 @@
     "lineup": {
       "type": "lineup",
       "settings": {
-        "heading": "Five figures. [One secret.]",
+        "heading": "Cinq figurines. [Un secret.]",
         "footnote": ""
       },
       "blocks": {
@@ -184,28 +184,28 @@
       "type": "steps",
       "settings": {
         "scheme": "dark",
-        "heading": "Choose. Unbox. [Collect.]"
+        "heading": "Choisissez. Ouvrez. [Collectionnez.]"
       },
       "blocks": {
         "s0": {
           "type": "step",
           "settings": {
-            "title": "Choose",
-            "text": "Pick one box, a 3-box pack or the full 6-box display. Bigger formats mean a lower price per box."
+            "title": "Choisissez",
+            "text": "Prenez une boîte, un pack de 3 ou le display complet de 6. Plus le format est grand, plus le prix par boîte baisse."
           }
         },
         "s1": {
           "type": "step",
           "settings": {
-            "title": "Unbox",
-            "text": "Each box is sealed. Tear it open and meet whoever was waiting inside."
+            "title": "Ouvrez",
+            "text": "Chaque boîte est scellée. Ouvrez-la et découvrez qui vous attendait à l’intérieur."
           }
         },
         "s2": {
           "type": "step",
           "settings": {
-            "title": "Collect",
-            "text": "Chase the five standard figures, and the secret if fate allows. Trade duplicates with friends."
+            "title": "Collectionnez",
+            "text": "Traquez les cinq figurines, et le secret si le destin le veut. Échangez vos doublons avec vos amis."
           }
         }
       },
@@ -222,38 +222,38 @@
         "layout": "left",
         "fallback": "noroi-display.jpg",
         "caption": "",
-        "eyebrow": "The full display",
-        "heading": "Six sealed boxes. One shelf piece.",
-        "text": "<p>The display box is the most efficient way to build the collection, and the box itself looks good on a shelf.</p>",
-        "cta_label": "Get the display",
+        "eyebrow": "Le display complet",
+        "heading": "Six boîtes scellées. Une vraie pièce d’étagère.",
+        "text": "<p>Le display est le moyen le plus efficace de construire votre collection, et il a fière allure sur une étagère.</p>",
+        "cta_label": "Prendre le display",
         "cta_link": "/products/jujutsu-kaisen-display-6-blind-boxes"
       },
       "blocks": {
         "f0": {
           "type": "fact",
           "settings": {
-            "label": "Contents",
-            "value": "6 sealed blind boxes"
+            "label": "Contenu",
+            "value": "6 blind boxes scellées"
           }
         },
         "f1": {
           "type": "fact",
           "settings": {
-            "label": "Figure size",
+            "label": "Taille des figurines",
             "value": "≈ 8–10 cm"
           }
         },
         "f2": {
           "type": "fact",
           "settings": {
-            "label": "Material",
+            "label": "Matière",
             "value": "PVC / ABS"
           }
         },
         "f3": {
           "type": "fact",
           "settings": {
-            "label": "Age",
+            "label": "Âge",
             "value": "15+"
           }
         }
@@ -268,49 +268,49 @@
     "faq": {
       "type": "faq",
       "settings": {
-        "contact_text": "Still unsure? <a href=\"/pages/contact\">Contact us</a>."
+        "contact_text": "Encore un doute ? <a href=\"/pages/contact\">Contactez-nous</a>."
       },
       "blocks": {
         "q0": {
           "type": "question",
           "settings": {
-            "question": "What's inside a blind box?",
-            "answer": "<p>One sealed box contains one random figure from the Culling Game series: one of the five standard characters or, rarely, the secret figure. You only find out who when you open it.</p>"
+            "question": "Que contient une blind box ?",
+            "answer": "<p>Une boîte scellée contient une figurine au hasard de la série The Culling Game : l’un des cinq personnages ou, plus rarement, la figurine secrète. Vous ne découvrez qui c’est qu’en l’ouvrant.</p>"
           }
         },
         "q1": {
           "type": "question",
           "settings": {
-            "question": "Can I choose my character?",
-            "answer": "<p>No. Every box is sealed and identical from the outside, which is the whole point of the ritual. If you want more chances at a specific character, bigger formats lower the price per box.</p>"
+            "question": "Puis-je choisir mon personnage ?",
+            "answer": "<p>Non. Toutes les boîtes sont scellées et identiques de l’extérieur, c’est tout le principe. Pour avoir plus de chances de tomber sur un personnage précis, les grands formats baissent le prix par boîte.</p>"
           }
         },
         "q2": {
           "type": "question",
           "settings": {
-            "question": "Can I get duplicates?",
-            "answer": "<p>Yes. Each box is random, so duplicates are possible, including in the 3-box pack. A 6-box display is a full sealed case; we do not guarantee a complete set or the secret figure.</p>"
+            "question": "Puis-je avoir des doublons ?",
+            "answer": "<p>Oui. Chaque boîte est aléatoire, les doublons sont donc possibles, y compris dans le pack de 3. Le display contient 6 boîtes ; nous ne garantissons ni une série complète, ni la figurine secrète.</p>"
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "question": "What are the odds of the secret figure?",
-            "answer": "<p>We see roughly 1 secret in every 72 boxes. It is never guaranteed, whatever format you buy.</p>"
+            "question": "Quelles sont les chances d’avoir la figurine secrète ?",
+            "answer": "<p>Environ 1 boîte sur 72 contient le secret. Il n’est jamais garanti, quel que soit le format choisi.</p>"
           }
         },
         "q4": {
           "type": "question",
           "settings": {
-            "question": "How much is shipping and how long does it take?",
-            "answer": "<p>Every order ships with tracking. Shipping costs and delivery estimates for your address are shown at checkout before you pay.</p>"
+            "question": "Combien coûte la livraison et quels sont les délais ?",
+            "answer": "<p>Chaque commande est expédiée avec suivi. Les frais et le délai estimé pour votre adresse sont affichés au paiement, avant de valider.</p>"
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "question": "Can I return my order?",
-            "answer": "<p>You have 14 days after delivery to withdraw from your purchase. Unopened boxes are the easiest to return. Full details are in our refund policy.</p>"
+            "question": "Puis-je retourner ma commande ?",
+            "answer": "<p>Vous avez 14 jours après la livraison pour vous rétracter. Les boîtes non ouvertes sont les plus simples à retourner. Tous les détails sont dans notre politique de remboursement.</p>"
           }
         }
       },
@@ -326,7 +326,7 @@
     "banner": {
       "type": "cta-banner",
       "settings": {
-        "heading": "Your curse [is waiting.]"
+        "heading": "Votre malédiction [vous attend.]"
       }
     },
     "newsletter": {
@@ -343,7 +343,7 @@
       "type": "unbox-sim",
       "settings": {
         "secret_odds": 72,
-        "secret_text": "THE SECRET. Who is it? You'll only know in a real box.",
+        "secret_text": "LE SECRET. Qui est-ce ? Vous ne le saurez qu’avec une vraie boîte.",
         "disclaimer": ""
       },
       "blocks": {
@@ -527,14 +527,14 @@
           "type": "stat",
           "settings": {
             "value": "5",
-            "label": "Standard figures"
+            "label": "Figurines"
           }
         },
         "s2": {
           "type": "stat",
           "settings": {
             "value": "1",
-            "label": "Hidden secret",
+            "label": "Secret caché",
             "aura": true
           }
         },
@@ -542,14 +542,14 @@
           "type": "stat",
           "settings": {
             "value": "1:72",
-            "label": "Secret odds"
+            "label": "Chances du secret"
           }
         },
         "s4": {
           "type": "stat",
           "settings": {
             "value": "8–10 cm",
-            "label": "Figure height"
+            "label": "Hauteur de la figurine"
           }
         }
       },
