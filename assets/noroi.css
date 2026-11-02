@@ -1171,3 +1171,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 .pdp__ship { margin: .6rem 0 .2rem; }
 .format { position: relative; }
 .format__tag { position: absolute; top: -.6rem; right: .45rem; font-size: .62rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--c-accent); padding: .15rem .4rem; border-radius: 3px; white-space: nowrap; }
+
+/* Pack posters as small cart thumbnails: keep the box in frame */
+.line__media .pack-img, .upsell__card .pack-img { object-fit: cover; object-position: 50% 42%; aspect-ratio: 1; }
+.upsell__card .pack-img { width: 72px; height: 72px; flex: none; }
