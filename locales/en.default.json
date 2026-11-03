@@ -109,7 +109,7 @@
     "tax_included": "Tax included.",
     "save_per_box": "Save {{ pct }}% per box",
     "free_shipping": "Free tracked shipping",
-    "free_shipping_worth": "Free tracked shipping · save {{ amount }}",
+    "free_shipping_worth": "Free shipping · save {{ amount }}",
     "free_shipping_from": "Free shipping from {{ amount }}",
     "free_shipping_short": "Free shipping",
     "view_details": "View details",
